@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class NhanVien {
     private String manv;
     private String ho;

@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class KhachHang {
     private String maKH;
     private String hoKH;
