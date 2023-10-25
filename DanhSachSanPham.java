@@ -8,11 +8,6 @@ public class DanhSachSanPham {
     public DanhSachSanPham(){}
 
     public void Nhap(){
-        //Co can tao them 1 danh sach phu kien khong(bao gom cac thuoc tinh phu kien da chon)
-        //Danh sach chi co san pham
-        //Doi voi thong tin. co can Set san toan bo thong tin khong.
-        //Cach de hien thi so luong muc da chon de xem chi tiet
-        //Chi tiet SP?
         System.out.print("-|Nhap so luong san pham: "); N=sc.nextInt();
         SanPham[] SP = new SanPham[N];
         int CHOOSE;
