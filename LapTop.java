@@ -1,6 +1,6 @@
-package THONGTIN;
 
-public class LapTop extends SANPHAM {
+
+public class LapTop extends SanPham {
     private String Pin;
     private Float Cannang;
     private String Webcam;
@@ -14,7 +14,7 @@ public class LapTop extends SANPHAM {
         this.Kichthuoc = Kichthuoc;
     }
     public LapTop(LapTop LT){
-        super((SANPHAM)LT);
+        super((SanPham)LT);
         Pin = LT.Pin;
         Cannang = LT.Cannang;
         Webcam = LT.Webcam;

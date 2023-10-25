@@ -1,8 +1,8 @@
-package THONGTIN;
+
 
 import java.util.Scanner;
 
-public class SANPHAM{
+public class SanPham{
     Scanner sc = new Scanner(System.in);
     private String Masp;
     private String Tensp;
@@ -15,8 +15,8 @@ public class SANPHAM{
     private String Chuot;
     private String Loa;
     //Contruster
-    public SANPHAM(){}
-    public SANPHAM(String Masp, String Tensp, int Sl, long Dongia, String Donvitinh, String Ocung, String Manhinh, String Phim, String Chuot, String Loa){
+    public SanPham(){}
+    public SanPham(String Masp, String Tensp, int Sl, long Dongia, String Donvitinh, String Ocung, String Manhinh, String Phim, String Chuot, String Loa){
         this.Masp = Masp;
         this.Tensp = Tensp;
         this.Sl = Sl;
@@ -28,7 +28,7 @@ public class SANPHAM{
         this.Chuot = Chuot;
         this.Loa = Loa;
     }
-    public SANPHAM(SANPHAM SP){
+    public SanPham(SanPham SP){
         Masp = SP.Masp;
         Tensp = SP.Tensp;
         Sl = SP.Sl;

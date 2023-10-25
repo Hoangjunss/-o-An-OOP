@@ -1,6 +1,6 @@
-package THONGTIN;
 
-public class MayTinh extends SANPHAM {
+
+public class MayTinh extends SanPham {
     private String LoaiCase;
     private int Slkhecam;
     public MayTinh(){}
@@ -10,7 +10,7 @@ public class MayTinh extends SANPHAM {
         this.Slkhecam = Slkhecam;
     }
     public MayTinh(MayTinh MT){
-        super((SANPHAM)MT);
+        super((SanPham)MT);
         LoaiCase = MT.LoaiCase;
         Slkhecam = MT.Slkhecam;
     }
