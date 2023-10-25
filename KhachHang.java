@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class KhachHang {
     private String makh;
     private String hokh;
@@ -8,9 +6,9 @@ public class KhachHang {
     private String diachi;
 
     public KhachHang(String makh, String hokh, String tenkh, int sdt, String diachi) {
-        this.manv = manv;
-        this.ho = ho;
-        this.ten = ten;
+        this.makh = makh;
+        this.hokh = hokh;
+        this.tenkh = tenkh;
         this.sdt = sdt;
         this.diachi = diachi;
     }
@@ -20,7 +18,7 @@ public class KhachHang {
     }
 
     public void setMakh(String makh) {
-        this.manv = makh;
+        this.makh = makh;
     }
 
     public String getHokh() {
@@ -28,7 +26,7 @@ public class KhachHang {
     }
 
     public void setHokh(String hokh) {
-        this.ho = hokh;
+        this.hokh = hokh;
     }
 
     public String getTenkh() {
@@ -36,7 +34,7 @@ public class KhachHang {
     }
 
     public void setTenkh(String tenkh) {
-        this.ten = tenkh;
+        this.tenkh = tenkh;
     }
 
     public String getSdt() {
