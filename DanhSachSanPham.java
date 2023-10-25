@@ -1,10 +1,10 @@
-package THONGTIN;
+
 import java.util.Scanner;
 
 public class DanhSachSanPham {
     Scanner sc = new Scanner(System.in);
     private int N;
-    SANPHAM[] SP = new SANPHAM[0];
+    SanPham[] SP = new SanPham[0];
     public DanhSachSanPham(){}
 
     public void Nhap(){
@@ -14,7 +14,7 @@ public class DanhSachSanPham {
         //Cach de hien thi so luong muc da chon de xem chi tiet
         //Chi tiet SP?
         System.out.print("-|Nhap so luong san pham: "); N=sc.nextInt();
-        SANPHAM[] SP = new SANPHAM[N];
+        SanPham[] SP = new SanPham[N];
         int CHOOSE;
         for(int i=0; i<SP.length; i++){
             System.out.println("1./ San Pham May Tinh");
