@@ -107,12 +107,11 @@ public class SanPham{
         System.out.println("***Nhap Thong Tin San Pham***");
         System.out.print("Ma San Pham: "); Masp = sc.nextLine();
         System.out.print("Ten San Pham: "); Tensp = sc.nextLine();
-        Tensp = sc.nextLine();
         System.out.print("So luong: "); Sl = sc.nextInt();
         System.out.print("Don Gia: "); Dongia = sc.nextLong();
         System.out.print("Don vi tinh: "); Donvitinh = sc.nextLine();
+        Donvitinh = sc.nextLine();
         System.out.print("Man Hinh: "); Manhinh = sc.nextLine();
-        Manhinh = sc.nextLine();
         System.out.print("Phim: "); Phim = sc.nextLine();
         System.out.print("Chuot: "); Chuot = sc.nextLine();
         System.out.print("Loa: "); Loa = sc.nextLine();
