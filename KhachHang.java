@@ -5,7 +5,7 @@ public class KhachHang {
     private int sdt;
     private String diachi;
 
-    public KHachHang(String maKH, String hoKH, String tenKH, int sdt, String diachi) {
+    public KhachHang(String maKH, String hoKH, String tenKH, int sdt, String diachi) {
         this.maKH = maKH;
         this.hoKH = hoKH;
         this.tenKH = tenKH;
