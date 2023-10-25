@@ -1,40 +1,40 @@
 public class KhachHang {
-    private String makh;
-    private String hokh;
-    private String tenkh;
+    private String maKH;
+    private String hoKH;
+    private String tenKH;
     private int sdt;
     private String diachi;
 
-    public KhachHang(String makh, String hokh, String tenkh, int sdt, String diachi) {
-        this.makh = makh;
-        this.hokh = hokh;
-        this.tenkh = tenkh;
+    public KHachHang(String maKH, String hoKH, String tenKH, int sdt, String diachi) {
+        this.maKH = maKH;
+        this.hoKH = hoKH;
+        this.tenKH = tenKH;
         this.sdt = sdt;
         this.diachi = diachi;
     }
 
-    public String getMakh() {
-        return makh;
+    public String getMaKH() {
+        return maKH;
     }
 
-    public void setMakh(String makh) {
-        this.makh = makh;
+    public void setMaKH(String maKH) {
+        this.maKH = maKH;
     }
 
-    public String getHokh() {
-        return hokh;
+    public String getHoKH() {
+        return hoKH;
     }
 
-    public void setHokh(String hokh) {
-        this.hokh = hokh;
+    public void setHoKH(String hoKH) {
+        this.hoKH = hoKH;
     }
 
-    public String getTenkh() {
-        return tenkh;
+    public String getTenKH() {
+        return tenKH;
     }
 
-    public void setTenkh(String tenkh) {
-        this.tenkh = tenkh;
+    public void setTenKH(String tenKH) {
+        this.tenKH = tenKH;
     }
 
     public String getSdt() {
@@ -55,24 +55,24 @@ public class KhachHang {
 
     public void nhap() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Nhập mã khách hàng: ");
-        this.makh = scanner.nextLine();
-        System.out.print("Nhập họ khách hàng: ");
-        this.hokh = scanner.nextLine();
-        System.out.print("Nhập tên khách hàng: ");
-        this.tenkh = scanner.nextLine();
-        System.out.print("Nhập số điện thoại khách hàng: ");
+        System.out.print("Nhập mã KHách hàng: ");
+        this.maKH = scanner.nextLine();
+        System.out.print("Nhập họ KHách hàng: ");
+        this.hoKH = scanner.nextLine();
+        System.out.print("Nhập tên KHách hàng: ");
+        this.tenKH = scanner.nextLine();
+        System.out.print("Nhập số điện thoại KHách hàng: ");
         this.sdt = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Nhập địa chỉ khách hàng: ");
+        System.out.print("Nhập địa chỉ KHách hàng: ");
         this.diachi = scanner.nextLine();
     }
 
     public void xuat() {
-        System.out.println("Mã khách hàng: " + this.makh);
-        System.out.println("Họ khách hàng: " + this.hokh);
-        System.out.println("Tên khách hàng: " + this.tenkh);
-        System.out.println("Số điện thoại khách hàng: " + this.sdt);
-        System.out.println("Địa chỉ khách hàng: " + this.diachi);
+        System.out.println("Mã KHách hàng: " + this.maKH);
+        System.out.println("Họ KHách hàng: " + this.hoKH);
+        System.out.println("Tên KHách hàng: " + this.tenKH);
+        System.out.println("Số điện thoại KHách hàng: " + this.sdt);
+        System.out.println("Địa chỉ KHách hàng: " + this.diachi);
     }
 }
