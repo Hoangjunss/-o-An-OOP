@@ -39,7 +39,7 @@ public class KhachHang {
         this.tenKH = tenKH;
     }
 
-    public String getSdt() {
+    public int getSdt() {
         return sdt;
     }
 

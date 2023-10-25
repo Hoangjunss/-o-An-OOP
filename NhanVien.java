@@ -39,7 +39,7 @@ public class NhanVien {
         this.ten = ten;
     }
 
-    public String getSdt() {
+    public int getSdt() {
         return sdt;
     }
 
