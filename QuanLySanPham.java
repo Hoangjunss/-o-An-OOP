@@ -1,5 +1,7 @@
 public class QuanLySanPham {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+       DanhSachSanPham ds=new DanhSachSanPham();
+       ds.Nhap();
+       ds.Xuat();
     }
 }
