@@ -72,7 +72,7 @@ public class SanPham{
     public void SetDonvitinh(String Donvitinh){
         this.Donvitinh = Donvitinh;
     }
-    public String GetOcungp(){
+    public String GetOcung(){
         return Ocung;
     }
     public void SetOcung(String Ocung){
