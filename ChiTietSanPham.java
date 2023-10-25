@@ -1,4 +1,4 @@
-package đoan;
+
 
 public class ChiTietSanPham {
 	 private String maSP;

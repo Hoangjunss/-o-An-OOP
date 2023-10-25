@@ -1,4 +1,4 @@
-package đoan;
+
 
 public class ChiTietHoaDon {
 	 private String maHD;

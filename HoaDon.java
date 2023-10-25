@@ -1,4 +1,4 @@
-package đoan;
+
 
 public class HoaDon {
 	 private String maHD;
