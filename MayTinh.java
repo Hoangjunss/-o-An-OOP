@@ -14,16 +14,16 @@ public class MayTinh extends SanPham {
         LoaiCase = MT.LoaiCase;
         Slkhecam = MT.Slkhecam;
     }
-    public String GetLoaiCASE(){
+    public String getLoaiCASE(){
         return LoaiCase;
     }
-    public void SetLoaiCASE(String LoaiCase){
+    public void setLoaiCASE(String LoaiCase){
         this.LoaiCase = LoaiCase;
     }
-    public int GetSlkhecam(){
+    public int getSlkhecam(){
         return Slkhecam;
     }
-    public void SetSlkhecam(int Slkhecam){
+    public void setSlkhecam(int Slkhecam){
         this.Slkhecam = Slkhecam;
     }
 

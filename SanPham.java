@@ -42,64 +42,64 @@ public class SanPham{
     }
 
     //Get-Set
-    public String GetMasp(){
+    public String getMasp(){
         return Masp;
     }
-    public void SetMasp(String Masp){
+    public void setMasp(String Masp){
         this.Masp = Masp;
     }
-    public String GetTensp(){
+    public String getTensp(){
         return Tensp;
     }
-    public void SetTensp(String Tensp){
+    public void setTensp(String Tensp){
         this.Tensp = Tensp;
     }
-    public int GetSl(){
+    public int getSl(){
         return Sl;
     }
-    public void SetSl(int Sl){
+    public void setSl(int Sl){
         this.Sl = Sl;
     }
-    public long GetDongia(){
+    public long getDongia(){
         return Dongia;
     }
-    public void SetDongia(long Dongia){
+    public void setDongia(long Dongia){
         this.Dongia = Dongia;
     }
-    public String GetDonvitinh(){
+    public String getDonvitinh(){
         return Donvitinh;
     }
-    public void SetDonvitinh(String Donvitinh){
+    public void setDonvitinh(String Donvitinh){
         this.Donvitinh = Donvitinh;
     }
-    public String GetOcungp(){
+    public String getOcung(){
         return Ocung;
     }
-    public void SetOcung(String Ocung){
+    public void setOcung(String Ocung){
         this.Ocung = Ocung;
     }
-    public String GetManhinh(){
+    public String getManHinh(){
         return Manhinh;
     }
-    public void SetManhinh(String Manhinh){
+    public void setManHinh(String Manhinh){
         this.Manhinh = Manhinh;
     }
-    public String GetPhim(){
+    public String getPhim(){
         return Phim;
     }
-    public void SetPhim(String Phim){
+    public void setPhim(String Phim){
         this.Phim = Phim;
     }
-    public String GetChuot(){
+    public String getChuot(){
         return Chuot;
     }
-    public void SetChuot(String Chuot){
+    public void setChuot(String Chuot){
         this.Chuot = Chuot;
     }
-    public String GetLoa(){
+    public String getLoa(){
         return Loa;
     }
-    public void SetLoa(String Loa){
+    public void setLoa(String Loa){
         this.Loa = Loa;
     }
 
