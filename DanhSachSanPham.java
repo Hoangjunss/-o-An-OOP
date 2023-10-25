@@ -19,7 +19,7 @@ public class DanhSachSanPham {
                 case 1:
                     SP[i] = new MayTinh();
                     SP[i].Nhap();
-                case 2:
+                case 2: 
                     SP[i] = new LapTop();
                     SP[i].Nhap();
                 default: System.out.println("Chon Lai");
