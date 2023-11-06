@@ -7,6 +7,8 @@ public class KhachHang {
     private int sdt;
     private String diachi;
 
+    Scanner scanner = new Scanner(System.in);
+
     public KhachHang(String maKH, String hoKH, String tenKH, int sdt, String diachi) {
         this.maKH = maKH;
         this.hoKH = hoKH;
@@ -56,7 +58,6 @@ public class KhachHang {
     }
 
     public void nhap() {
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Nhập mã KHách hàng: ");
         this.maKH = scanner.nextLine();
         System.out.print("Nhập họ KHách hàng: ");
