@@ -105,15 +105,6 @@ public class SanPham{
 
     public void Nhap(){
         System.out.println("***Nhap Thong Tin San Pham***");
-<<<<<<< HEAD
-        System.out.print("Ma San Pham: "); Masp = sc.nextLine();
-        System.out.print("Ten San Pham: "); Tensp = sc.nextLine();
-        System.out.print("So luong: "); Sl = sc.nextInt();
-        System.out.print("Don Gia: "); Dongia = sc.nextLong();
-        System.out.print("Don vi tinh: "); Donvitinh = sc.nextLine();
-        Donvitinh = sc.nextLine();
-        System.out.print("Man Hinh: "); Manhinh = sc.nextLine();
-=======
         System.out.print("Ma San Pham: "); maSP = sc.nextLine();
         System.out.print("Ten San Pham: "); tenSP = sc.nextLine();
         tenSP = sc.nextLine();
@@ -122,7 +113,6 @@ public class SanPham{
         System.out.print("Don vi tinh: "); DonViTinh = sc.nextLine();
         System.out.print("Man Hinh: "); ManHinh = sc.nextLine();
         ManHinh = sc.nextLine();
->>>>>>> 0e7c570e0f45fe5548c7f52befe4746c46d0023c
         System.out.print("Phim: "); Phim = sc.nextLine();
         System.out.print("Chuot: "); Chuot = sc.nextLine();
         System.out.print("Loa: "); Loa = sc.nextLine();
