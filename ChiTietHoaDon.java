@@ -7,6 +7,8 @@ public class ChiTietHoaDon {
 	    private int DonGia;
 	    private int ThanhTien;
 
+		Scanner sc=new Scanner(System.in);
+
 	    public String getMaHD(){
 	        return this.maHD;
 	    }
@@ -42,7 +44,6 @@ public class ChiTietHoaDon {
 	        this.ThanhTien=ThanhTien;
 	    }
 		public void nhap(){
-			Scanner sc=new Scanner(System.in);
 			System.out.println("***Nhap Thong Tin Hoa Don***");
 			System.out.print("Ma San Pham: "); maSP = sc.nextLine();
 			maSP = sc.nextLine();

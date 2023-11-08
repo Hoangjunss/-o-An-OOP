@@ -7,6 +7,8 @@ public class ChiTietSanPham {
 	    private String CPU;
 	    private String HDD;
 
+		Scanner sc=new Scanner(System.in);
+
 	    public String getMaSP(){
 	        return this.maSP;
 	    }
@@ -41,7 +43,6 @@ public class ChiTietSanPham {
 	        this.HDD=HDD;
 	    }
 		public void nhap(){
-			Scanner sc=new Scanner(System.in);
 			System.out.println("***Nhap Thong Tin San Pham***");
 			System.out.print("Ma San Pham: "); maSP = sc.nextLine();
 			maSP = sc.nextLine();

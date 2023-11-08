@@ -7,6 +7,8 @@ public class HoaDon {
 	    private String maNV;
 	    private int TongTien;
 
+		Scanner sc=new Scanner(System.in);
+
 	    public String getmaHD(){
 	        return this.maHD;
 	    }
@@ -41,7 +43,6 @@ public class HoaDon {
 	        this.TongTien=TongTien;
 	    }
 		public void nhap(){
-			Scanner sc=new Scanner(System.in);
 			System.out.println("***Nhap Thong Tin San Pham***");
 			System.out.print("Ma San Pham: "); maHD = sc.nextLine();
 			maHD = sc.nextLine();

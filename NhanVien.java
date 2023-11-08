@@ -7,6 +7,8 @@ public class NhanVien {
     private int sdt;
     private String diachi;
 
+    Scanner scanner = new Scanner(System.in);
+
     public NhanVien(String manv, String ho, String ten, int sdt, String diachi) {
         this.manv = manv;
         this.ho = ho;
@@ -56,7 +58,6 @@ public class NhanVien {
     }
 
     public void nhap() {
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Nhập mã nhân viên: ");
         this.manv = scanner.nextLine();
         System.out.print("Nhập họ nhân viên: ");
