@@ -38,5 +38,18 @@ public class DanhSachNhaCungCap {
         System.out.print("So Luong Can Them: ");
         int temp = sc.nextInt();
         dsncc = Arrays.copyOf(dsncc,n+temp);
+        for(int i = n;i<(n+temp);i++){
+            dsncc[i] = new NhaCungCap();
+            dsncc[i].nhap();
+        }
+        n+=temp;
+    }
+
+    public void timkiem(){
+        System.out.print("Nhap Ma Nha Cung Cap Can Tim Kiem: "); 
+    }
+
+    public void xoa(){
+
     }
 }
