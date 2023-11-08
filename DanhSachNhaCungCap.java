@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class DanhSachNhaCungCap {
     private int n;
-    NhaCungCap[] dsncc = new NhaCungCap[0];
+    private NhaCungCap[] dsncc = new NhaCungCap[0];
     
     Scanner sc = new Scanner(System.in);
     
