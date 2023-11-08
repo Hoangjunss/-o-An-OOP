@@ -20,8 +20,12 @@ public class DanhSachSanPham {
                 case 1:
                     SP[i] = new MayTinh();
                     SP[i].Nhap();
+<<<<<<< HEAD
                     break;
                 case 2:
+=======
+                case 2: 
+>>>>>>> 0e7c570e0f45fe5548c7f52befe4746c46d0023c
                     SP[i] = new LapTop();
                     SP[i].Nhap();
                     break;

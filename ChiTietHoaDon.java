@@ -1,4 +1,4 @@
-
+import java.util.Scanner;
 
 public class ChiTietHoaDon {
 	 private String maHD;
@@ -41,4 +41,24 @@ public class ChiTietHoaDon {
 	    public void setThanhTien(int ThanhTien){
 	        this.ThanhTien=ThanhTien;
 	    }
+		public void nhap(){
+			Scanner sc=new Scanner(System.in);
+			System.out.println("***Nhap Thong Tin Hoa Don***");
+			System.out.print("Ma San Pham: "); maSP = sc.nextLine();
+			maSP = sc.nextLine();
+			System.out.print("Ma Hoa Don: "); maHD = sc.nextLine();
+			System.out.print("So luong: "); SoLuong = sc.nextInt();
+			System.out.print("Don Gia: "); DonGia = sc.nextInt();
+			System.out.print("Thanh Tien: "); ThanhTien = sc.nextInt();
+        
+		}
+		public void xuat(){
+			System.out.println("--Thong Tin San Pham--");
+			System.out.println("Ma: "+maSP);
+			System.out.println("RAM: "+maHD);
+			System.out.println("ROM: "+SoLuong);
+			System.out.println("CPU: "+DonGia);
+			System.out.println("HDD: "+ThanhTien);
+       
+		}
 }

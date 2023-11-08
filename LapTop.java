@@ -20,28 +20,28 @@ public class LapTop extends SanPham {
         WebCam = LT.WebCam;
         KichThuoc = LT.KichThuoc;
     }
-    public String GetPin(){
+    public String getPin(){
         return Pin;
     }
-    public void SetPin(String Pin){
+    public void setPin(String Pin){
         this.Pin = Pin;
     }
-    public Float GetCanNang(){
+    public Float getCanNang(){
         return CanNang;
     }
-    public void SetCanNang(Float Cannang){
+    public void setCanNang(Float Cannang){
         this.CanNang = Cannang;
     }
-    public String GetWebCam(){
+    public String getWebCam(){
         return WebCam;
     }
-    public void SetWebCam(String Webcam){
+    public void setWebCam(String Webcam){
         this.WebCam = Webcam;
     }
-    public Float GetKichThuoc(){
+    public Float getKichThuoc(){
         return KichThuoc;
     }
-    public void SetKichThuoc(Float Kichthuoc){
+    public void setKichThuoc(Float Kichthuoc){
         this.KichThuoc = Kichthuoc;
     }
 

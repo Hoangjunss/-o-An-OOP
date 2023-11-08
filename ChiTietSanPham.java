@@ -1,4 +1,4 @@
-
+import java.util.Scanner;
 
 public class ChiTietSanPham {
 	 private String maSP;
@@ -40,4 +40,24 @@ public class ChiTietSanPham {
 	    public void setHDD(String HDD){
 	        this.HDD=HDD;
 	    }
+		public void nhap(){
+			Scanner sc=new Scanner(System.in);
+			System.out.println("***Nhap Thong Tin San Pham***");
+			System.out.print("Ma San Pham: "); maSP = sc.nextLine();
+			maSP = sc.nextLine();
+			System.out.print("RAM: "); Ram = sc.nextLine();
+			System.out.print("ROM: "); Rom = sc.nextLine();
+			System.out.print("CPU: "); CPU = sc.nextLine();
+			System.out.print("HDD: "); HDD = sc.nextLine();
+        
+		}
+		public void xuat(){
+			System.out.println("--Thong Tin San Pham--");
+			System.out.println("Ma: "+maSP);
+			System.out.println("RAM: "+Ram);
+			System.out.println("ROM: "+Rom);
+			System.out.println("CPU: "+CPU);
+			System.out.println("HDD: "+HDD);
+       
+		}
 }
