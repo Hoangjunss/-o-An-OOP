@@ -1,3 +1,4 @@
+package THONGTIN;
 import java.util.Arrays;
 import java.util.Scanner;
 public class DanhSachSanPham {
@@ -74,7 +75,7 @@ public class DanhSachSanPham {
 
     public void Nhap(){
         System.out.print("-|Nhap so luong san pham: "); N=sc.nextInt();
-        SanPham[] SP = new SanPham[N];
+        SP = new SanPham[N];
         int CHOOSE;
         for(int i=0; i<SP.length; i++){
             System.out.println("1./ San Pham May Tinh");
@@ -107,27 +108,34 @@ public class DanhSachSanPham {
                         System.out.println("1./ San Pham LapTop");
                         System.out.println("2./ San Pham PC");
                         System.out.println("3./ Xem phu kien");
+                        System.out.println("4./Xuat tat ca");
                         System.out.println("0./ Quay Lai");
                         System.out.print("Chon: "); key = sc.nextInt();
                         switch(key){
                             case 1:
+                                int checklt =0;
                                 for(int i=0; i<SP.length; i++){
                                     if(SP[i] instanceof LapTop){
                                         SP[i].Xuat();
                                         System.out.println("--------------------------------------");
+                                        checklt = 1;
                                     }
                                 }
+                                if(checklt==0) System.out.println("Khong co san pham LAP TOP");
                                 
                                 break;
                             case 2:
+                                int checkmt =0;
                                 for(int i=0; i<SP.length; i++){
                                     if(SP[i] instanceof MayTinh){ 
                                         SP[i].Xuat();
                                         System.out.println("--------------------------------------");
+                                        checkmt = 1;
                                     }
                                 }
+                                if(checkmt==0) System.out.println("Khong co san pham MAY TINH");
                                 break;
-                            case 3:
+                            /* case 3:
                                         int choose = 0;
                                         do{
                                             System.out.println("| Lua Chon Muc Phu Kien |");
@@ -141,46 +149,46 @@ public class DanhSachSanPham {
                                             switch (choose){
                                                 case 1:
                                                     for(int i=0; i<SP.length; i++){
-                                                        if(SP[i].getOCung() != null && SP[i].getManHinh() == null){
+                                                        if(SP[i].getOcung() != null && SP[i].getManhinh() == null){
                                                             System.out.println("******************");
-                                                            System.out.println("Ma san pham: "+SP[i].getMasp()+" | O cung: "+SP[i].getOCung());
-                                                            System.out.println("Gia: "+SP[i].getDonGia()+ "VND/"+SP[i].getDonViTinh()+ " | So luong con lai: "+SP[i].getSl());
+                                                            System.out.println("Ma san pham: "+SP[i].getMasp()+" | O cung: "+SP[i].getOcung());
+                                                            System.out.println("Gia: "+SP[i].getDongia()+ "VND/"+SP[i].getDonvitinh()+ " | So luong con lai: "+SP[i].getSl());
                                                         }   
                                                     }
                                                     break;
                                                 case 2: 
                                                     for(int i=0; i<SP.length; i++){
-                                                        if(SP[i].getManHinh() != null && SP[i].getOCung() == null){
+                                                        if(SP[i].getManhinh() != null && SP[i].getOcung() == null){
                                                             System.out.println("******************");
-                                                            System.out.println("Ma san pham: "+SP[i].getMasp()+" | Man Hinh: "+SP[i].getManHinh());
-                                                            System.out.println("Gia: "+SP[i].getDonGia()+ "VND/"+SP[i].getDonViTinh()+ " | So luong con lai: "+SP[i].getSl());
+                                                            System.out.println("Ma san pham: "+SP[i].getMasp()+" | Man Hinh: "+SP[i].getManhinh());
+                                                            System.out.println("Gia: "+SP[i].getDongia()+ "VND/"+SP[i].getDonvitinh()+ " | So luong con lai: "+SP[i].getSl());
                                                         }   
                                                     }
                                                     break;
                                                 case 3: 
                                                     for(int i=0; i<SP.length; i++){
-                                                        if(SP[i].getPhim() != null && SP[i].getOCung() == null){
+                                                        if(SP[i].getPhim() != null && SP[i].getOcung() == null){
                                                             System.out.println("******************");
                                                             System.out.println("Ma san pham: "+SP[i].getMasp()+" | Phim: "+SP[i].getPhim());
-                                                            System.out.println("Gia: "+SP[i].getDonGia()+ "VND/"+SP[i].getDonViTinh()+ " | So luong con lai: "+SP[i].getSl());
+                                                            System.out.println("Gia: "+SP[i].getDongia()+ "VND/"+SP[i].getDonvitinh()+ " | So luong con lai: "+SP[i].getSl());
                                                         }   
                                                     }
                                                     break;
                                                 case 4: 
                                                     for(int i=0; i<SP.length; i++){
-                                                        if(SP[i].getChuot() != null && SP[i].getOCung() == null){
+                                                        if(SP[i].getChuot() != null && SP[i].getOcung() == null){
                                                             System.out.println("******************");
                                                             System.out.println("Ma san pham: "+SP[i].getMasp()+" | Chuot: "+SP[i].getChuot());
-                                                            System.out.println("Gia: "+SP[i].getDonGia()+ "VND/"+SP[i].getDonViTinh()+ " | So luong con lai: "+SP[i].getSl());
+                                                            System.out.println("Gia: "+SP[i].getDongia()+ "VND/"+SP[i].getDonvitinh()+ " | So luong con lai: "+SP[i].getSl());
                                                         }   
                                                     }
                                                     break;
                                                 case 5: 
                                                     for(int i=0; i<SP.length; i++){
-                                                        if(SP[i].getLoa() != null && SP[i].getOCung() == null){
+                                                        if(SP[i].getLoa() != null && SP[i].getOcung() == null){
                                                             System.out.println("******************");
                                                             System.out.println("Ma san pham: "+SP[i].getMasp()+" | Loa: "+SP[i].getLoa());
-                                                            System.out.println("Gia: "+SP[i].getDonGia()+ "VND/"+SP[i].getDonViTinh()+ " | So luong con lai: "+SP[i].getSl());
+                                                            System.out.println("Gia: "+SP[i].getDongia()+ "VND/"+SP[i].getDonvitinh()+ " | So luong con lai: "+SP[i].getSl());
                                                         }   
                                                     }
                                                     break;
@@ -189,7 +197,21 @@ public class DanhSachSanPham {
                                                 default:
                                                     break;
                                             }
-                                        }while(choose!=0);
+                                        }while(choose!=0); */
+                            case 3:  
+                                int check = 0;
+                                for(int i=0; i<SP.length; i++){
+                                    if(SP[i] instanceof SanPham){ 
+                                        SP[i].Xuat();
+                                        System.out.println("--------------------------------------");
+                                        check = 1;
+                                    }
+                                }
+                                if(check == 0) System.out.println("Khong co bo san pham!");
+                            case 4:
+                                for(int i=0; i<SP.length; i++){
+                                        SP[i].Xuat();
+                                }
                                 break;
                             case 0:
                                 break;
@@ -199,19 +221,59 @@ public class DanhSachSanPham {
                     }while(key!=0);
     }
 
-    public SanPham timkiem(String masp){
-        int i=0;
-        while (i<SP.length) {
-            if(masp == SP[i].getMasp()){
+    public void timkiem_sp(){
+        int key;
+        do{
+            System.out.println("1./ Tim kiem theo so luong");
+            System.out.println("2./ Tim kiem theo don gia");
+            System.out.println("3./ Tim kiem theo ma san pham");
+            System.out.println("0./ QUAY LAI");
+            System.out.print("LUA CHON CUA BAN: "); key = sc.nextInt();
+            switch (key) {
+                case 1:
+                    int tk_sl;
+                    int check1 = 0;
+                    System.out.print("NHAP SO LUONG SAN PHAM MUON TIM KIEM: "); tk_sl = sc.nextInt();
+                    for(int i=0; i<SP.length; i++){
+                        if(SP[i].getSl() == tk_sl){
+                            SP[i].Xuat();
+                            check1 = 1;
+                        }
+                    }
+                    if(check1==0) System.out.println("Khong co san pham co so luong:  "+tk_sl);
+                    break;
+                case 2:
+                    int check2 = 0;
+                    double tk_g1, tk_g2;
+                    System.out.print("Tim kiem theo gia tu: "); tk_g1 = sc.nextDouble(); System.out.print(" Den: "); tk_g2 = sc.nextDouble();
+                    for(int i=0; i<SP.length; i++){
+                        if(SP[i].getDongia() >= tk_g1 && SP[i].getDongia() <= tk_g2){
+                            SP[i].Xuat();
+                            check2 = 1;
+                        }
+                    }
+                    if(check2 == 0) System.out.println("Khong co san pham gia tu "+ tk_g1+" den "+tk_g2);
+                    break;
+                case 3:
+                    String masp;
+                    int check3 = 0;
+                    System.out.print("Nhap ma san pham can tim kiem: "); 
+                    masp = sc.nextLine();
+                    masp = sc.nextLine();
+                    for(int i=0; i< SP.length; i++){
+                        if((SP[i] == timkiem_masp(masp))){
+                            SP[i].Xuat();
+                            check3 = 1;
+                            break;
+                        }
+                    }
+                    if(check3 == 0) System.out.println("Loi ma san pham khong ton tai!");
                 break;
+                default:
+                    break;
             }
-            i++;
-        }
-        if(i>=SP.length){
-            System.out.println("Ma San Pham Khong Ton Tai!");
-            return null;
-        }
-        return SP[i];
+        }while(key != 0);
+
     }
 
     public void timkiem_masp(){
@@ -229,7 +291,22 @@ public class DanhSachSanPham {
         if(check==0) System.out.println("Loi ma san pham khong ton tai!");
     }
 
-    public void thongke(){
+    public SanPham timkiem_masp(String ma){
+        int i=0;
+        while(i < N){
+            if(ma.equals(SP[i].getMasp())){
+                break;
+            }
+            i++;
+        }
+        if(i>=N){
+            System.err.println("Ma Khong Ton Tai");
+            return null;
+        }
+        return SP[i];
+    }
+
+    public void thongke1(){
         //ThongtinSP();
         int choose;
         do{
@@ -261,11 +338,11 @@ public class DanhSachSanPham {
                                 int oc=0, mh=0, bp=0, ch=0, loa=0;
                                 for(int i=0; i<SP.length; i++){
                                     if(SP[i] instanceof SanPham){
-                                        if(SP[i].getOCung() != null && SP[i].getManHinh() == null) oc++;
-                                        else if(SP[i].getManHinh()!=null && SP[i].getOCung() == null) mh++;
-                                        else if(SP[i].getPhim()!=null && SP[i].getOCung() == null) bp++;
-                                        else if(SP[i].getChuot()!=null && SP[i].getOCung() == null ) ch++;
-                                        else if(SP[i].getLoa()!=null && SP[i].getOCung() == null) loa++;
+                                        if(SP[i].getOcung() != null && SP[i].getManhinh() == null) oc++;
+                                        else if(SP[i].getManhinh()!=null && SP[i].getOcung() == null) mh++;
+                                        else if(SP[i].getPhim()!=null && SP[i].getOcung() == null) bp++;
+                                        else if(SP[i].getChuot()!=null && SP[i].getOcung() == null ) ch++;
+                                        else if(SP[i].getLoa()!=null && SP[i].getOcung() == null) loa++;
                                     }
                                 }
                                 System.out.println("O cung hien co: "+oc+" San Pham.");
@@ -302,7 +379,7 @@ public class DanhSachSanPham {
                                         case 1:
                                             for(int i=0; i<SP.length; i++){
                                                 if(SP[i] instanceof LapTop || SP[i] instanceof MayTinh){
-                                                    if(SP[i].getDonGia() >= 0 && SP[i].getDonGia() < 5000000){
+                                                    if(SP[i].getDongia() >= 0 && SP[i].getDongia() < 5000000){
                                                         SP[i].Xuat();
                                                         mucgia1++;
                                                     }
@@ -313,7 +390,7 @@ public class DanhSachSanPham {
                                         case 2: 
                                             for(int i=0; i<SP.length; i++){
                                                 if(SP[i] instanceof LapTop || SP[i] instanceof MayTinh){
-                                                    if(SP[i].getDonGia() >= 5000000 && SP[i].getDonGia() < 15000000){
+                                                    if(SP[i].getDongia() >= 5000000 && SP[i].getDongia() < 15000000){
                                                         SP[i].Xuat();
                                                         mucgia2++;
                                                     }
@@ -324,7 +401,7 @@ public class DanhSachSanPham {
                                         case 3:
                                             for(int i=0; i<SP.length; i++){
                                                 if(SP[i] instanceof LapTop || SP[i] instanceof MayTinh){
-                                                    if(SP[i].getDonGia() >= 15000000 && SP[i].getDonGia() < 50000000){
+                                                    if(SP[i].getDongia() >= 15000000 && SP[i].getDongia() < 50000000){
                                                         SP[i].Xuat();
                                                         mucgia3++;
                                                     }
@@ -350,7 +427,7 @@ public class DanhSachSanPham {
                                         case 1:
                                             for(int i=0; i<SP.length; i++){
                                                 if(!(SP[i] instanceof LapTop) || !(SP[i] instanceof MayTinh)){
-                                                    if(SP[i].getDonGia() >= 0 && SP[i].getDonGia() < 5000000){
+                                                    if(SP[i].getDongia() >= 0 && SP[i].getDongia() < 5000000){
                                                         SP[i].Xuat();
                                                         giapk1++;
                                                     }
@@ -361,7 +438,7 @@ public class DanhSachSanPham {
                                         case 2: 
                                             for(int i=0; i<SP.length; i++){
                                                 if(!(SP[i] instanceof LapTop) || !(SP[i] instanceof MayTinh)){
-                                                    if(SP[i].getDonGia() >= 5000000 && SP[i].getDonGia() < 15000000){
+                                                    if(SP[i].getDongia() >= 5000000 && SP[i].getDongia() < 15000000){
                                                         SP[i].Xuat();
                                                         giapk2++;
                                                     }
@@ -372,7 +449,7 @@ public class DanhSachSanPham {
                                         case 3:
                                             for(int i=0; i<SP.length; i++){
                                                 if(!(SP[i] instanceof LapTop) || !(SP[i] instanceof MayTinh)){
-                                                    if(SP[i].getDonGia() >= 15000000 && SP[i].getDonGia() < 50000000){
+                                                    if(SP[i].getDongia() >= 15000000 && SP[i].getDongia() < 50000000){
                                                         SP[i].Xuat();
                                                         giapk3++;
                                                     }
@@ -428,21 +505,222 @@ public class DanhSachSanPham {
                 SP[N] = new MayTinh();
                 SP[N].Nhap();
                 break;
-            /* case 3:
-                int ksp;
-                System.out.println("--1./ O ung\n--2./Man Hinh\n--3./ Ban phim\n--4./ Loa\n--5./Chuot");
-                System.out.print("--Chon: "); ksp = sc.nextInt();
-                switch (ksp) {
-                    case 1:
-                        SP[N] = new SanPham(null, null, 1, 1, null, null, null, null, null, null);
-                        break;
-                
-                    default:
-                        break;
-                }
-                break; */
+            case 3:
+                SP[N] = new SanPham();
+                SP[N].Nhap();
             default:
                 break;
+        }
+    }
+
+    public void xoa_sp(){
+        String masp_xoa;
+        System.out.print("---NHAP MA SAN PHAM CAN XOA:");
+        masp_xoa = sc.next();
+        int thongtin = 0;
+        int n = SP.length;
+        for(int i=0; i<n; i++){
+            if(SP[i] == timkiem_masp(masp_xoa)){
+                for(int j=i; j<n-1; j++){
+                    SP[j] = new SanPham(SP[j+1]);
+                    /* if(SP[j] instanceof MayTinh){
+                        if(SP[j+1] instanceof MayTinh){
+                            MayTinh mt = new MayTinh();
+                            mt = (MayTinh)SP[j];
+                            mt = (MayTinh)SP[j+1];
+                        }
+                        else if(SP[j+1] instanceof LapTop || SP[j+1] instanceof SanPham){
+
+                        }
+                    }
+                    else if(SP[j] instanceof LapTop){
+                        if(SP[j+1] instanceof LapTop){
+                            LapTop lt = new LapTop();
+                            lt = (LapTop)SP[j];
+                            lt = (LapTop)SP[j+1];
+                        }
+                        else if(SP[j+1] instanceof MayTinh | SP[j] instanceof SanPham){
+
+                        }
+                    }
+                    else if(SP[j] instanceof SanPham){
+                        if(SP[j+1] instanceof SanPham){
+                            SanPham lt = new SanPham();
+                            lt = (SanPham)SP[j];
+                            lt = (SanPham)SP[j+1];
+                        }
+                        else if(SP[j+1] instanceof MayTinh | SP[j] instanceof LapTop){
+
+                        } */
+                    }
+                
+                SP = Arrays.copyOf(SP, n-1);
+                thongtin = 1;
+                n--;
+                break;
+            }
+            if (i == (n-1)){
+                SP = Arrays.copyOf(SP, n-1);
+                thongtin = 1;
+                n--;
+            }
+        }
+        if(thongtin == 1) System.out.println("----San pham da duoc xoa");
+        else System.out.println("----Khong tim thay san pham can xoa");
+    }
+
+    public void sua_sp(){
+        String ma_sua;
+        System.out.print("----NHAP MA SAN PHAM CAN SUA:"); ma_sua = sc.next();
+        int thongtin = 0, check, i=0, n = SP.length;
+        while(i<n){
+            if(SP[i] == timkiem_masp(ma_sua)){
+                SP[i].Xuat();
+                System.err.println("CO PHAI MA SAN PHAM CAN SUA? 1./CO | 2./KHONG");
+                check = sc.nextInt();
+                if(check == 2) break;
+                int key;
+                do{
+                    System.out.println("1./Sua tat ca");
+                    System.out.println("2./Sua chi tiet");
+                    System.out.println("3./ Thoat");
+                    System.out.print("LUA CHON CUA BAN: "); key = sc.nextInt();
+                    switch(key){
+                        case 1:
+                            String Tensp;
+                            int Sl;
+                            long Dongia;
+                            String Donvitinh;
+                            String Ocung;
+                            String Manhinh;
+                            String Phim;
+                            String Chuot;
+                            String Loa;
+                            if(SP[i] instanceof SanPham){
+                                    System.out.println("NHAP THONG TIN CAN SUA");
+                                    System.out.print("Ten San Pham: "); Tensp = sc.nextLine(); SP[i].setTensp(Tensp);
+                                    System.out.print("So luong: "); Sl = sc.nextInt(); SP[i].setSl(Sl);
+                                    System.out.print("Don Gia: "); Dongia = sc.nextLong(); SP[i].setDongia(Dongia);
+                                    System.out.print("Don vi tinh: "); Donvitinh = sc.nextLine(); SP[i].setDonvitinh(Donvitinh);
+                                    sc.nextLine();
+                                    System.out.print("O cung: "); Ocung = sc.nextLine(); SP[i].setOcung(Ocung);
+                                    System.out.print("Man Hinh: "); Manhinh = sc.nextLine(); SP[i].setManhinh(Manhinh);
+                                    System.out.print("Phim: "); Phim = sc.nextLine(); SP[i].setPhim(Phim);
+                                    System.out.print("Chuot: "); Chuot = sc.nextLine(); SP[i].setChuot(Chuot);
+                                    System.out.print("Loa: "); Loa = sc.nextLine(); SP[i].setLoa(Loa);
+                            }
+                            else if(SP[i] instanceof MayTinh){
+                                String LoaiCase;
+                                int Slkhecam;
+                                System.out.println("NHAP THONG TIN CAN SUA");
+                                System.out.print("Ten San Pham: "); Tensp = sc.nextLine(); SP[i].setTensp(Tensp);
+                                System.out.print("So luong: "); Sl = sc.nextInt(); SP[i].setSl(Sl);
+                                System.out.print("Don Gia: "); Dongia = sc.nextLong(); SP[i].setDongia(Dongia);
+                                System.out.print("Don vi tinh: "); Donvitinh = sc.nextLine(); SP[i].setDonvitinh(Donvitinh);
+                                sc.nextLine();
+                                System.out.print("O cung: "); Ocung = sc.nextLine(); SP[i].setOcung(Ocung);
+                                System.out.print("Man Hinh: "); Manhinh = sc.nextLine(); SP[i].setManhinh(Manhinh);
+                                System.out.print("Phim: "); Phim = sc.nextLine(); SP[i].setPhim(Phim);
+                                System.out.print("Chuot: "); Chuot = sc.nextLine(); SP[i].setChuot(Chuot);
+                                System.out.print("Loa: "); Loa = sc.nextLine(); SP[i].setLoa(Loa);
+
+                            }
+                            else if(SP[i] instanceof LapTop){
+                                String Pin;
+                                Float Cannang;
+                                String Webcam;
+                                String Kichthuoc;
+                                System.out.println("NHAP THONG TIN CAN SUA");
+                                System.out.print("Ten San Pham: "); Tensp = sc.nextLine(); SP[i].setTensp(Tensp);
+                                System.out.print("So luong: "); Sl = sc.nextInt(); SP[i].setSl(Sl);
+                                System.out.print("Don Gia: "); Dongia = sc.nextLong(); SP[i].setDongia(Dongia);
+                                System.out.print("Don vi tinh: "); Donvitinh = sc.nextLine(); SP[i].setDonvitinh(Donvitinh);
+                                sc.nextLine();
+                                System.out.print("O cung: "); Ocung = sc.nextLine(); SP[i].setOcung(Ocung);
+                                System.out.print("Man Hinh: "); Manhinh = sc.nextLine(); SP[i].setManhinh(Manhinh);
+                                System.out.print("Phim: "); Phim = sc.nextLine(); SP[i].setPhim(Phim);
+                                System.out.print("Chuot: "); Chuot = sc.nextLine(); SP[i].setChuot(Chuot);
+                                System.out.print("Loa: "); Loa = sc.nextLine(); SP[i].setLoa(Loa);
+
+                            }
+                        break;
+                            case 2:
+                                String Tensp1;
+                                int Sl1;
+                                long Dongia1;
+                                String Donvitinh1;
+                                String Ocung1;
+                                String Manhinh1;
+                                String Phim1;
+                                String Chuot1;
+                                String Loa1;
+                                int key_1;
+                                do{
+                                    System.out.println("CHON THONG TIN CAN SUA");
+                                    System.out.println("1./ Ten San Pham ");
+                                    System.out.println("2./ So luong");
+                                    System.out.println("3./ Don Gia");
+                                    System.out.println("4./ Don vi tinh");
+                                    System.out.println("5./ O cung");
+                                    System.out.println("6./ Man Hinh");
+                                    System.out.println("7./ Phim");
+                                    System.out.println("8./ Chuot");
+                                    System.out.println("9./ Loa");
+                                    if(SP[i] instanceof LapTop){
+                                        System.out.println("10./ Loa");
+                                        System.out.println("11./ Loa");
+                                        System.out.println("12./ Loa");
+                                        System.out.println("13./ Loa");
+                                    }
+                                    else if(SP[i] instanceof MayTinh){
+                                        System.out.println("10./ Loai case");
+                                        System.out.println("11./ So luong khe cam");
+                                    }
+                                    System.out.println("0./ Quay Lai");
+                                    System.out.print("LUA CHON CUA BAN: "); key_1 = sc.nextInt();
+                                    switch(key_1){
+                                        case 1:
+                                            System.out.print("Ten San Pham: "); Tensp1 = sc.nextLine(); SP[i].setTensp(Tensp1);
+                                        break;
+                                        case 2:
+                                            System.out.print("So luong: "); Sl1 = sc.nextInt(); SP[i].setSl(Sl1);
+                                        break;
+                                        case 3:
+                                             System.out.print("Don Gia: "); Dongia1 = sc.nextLong(); SP[i].setDongia(Dongia1);
+                                        break;
+                                        case 4:
+                                            System.out.print("Don vi tinh: "); Donvitinh1 = sc.nextLine(); SP[i].setDonvitinh(Donvitinh1);
+                                        break;
+                                        case 5:
+                                            System.out.print("O cung: "); Ocung = sc.nextLine(); SP[i].setOcung(Ocung);
+                                        break;
+                                        case 6:
+                                            System.out.print("Man Hinh: "); Manhinh = sc.nextLine(); SP[i].setManhinh(Manhinh);
+                                        break;
+                                        case 7:
+                                            System.out.print("Phim: "); Phim = sc.nextLine(); SP[i].setPhim(Phim);
+                                        break;
+                                        case 8:
+                                            System.out.print("Chuot: "); Chuot = sc.nextLine(); SP[i].setChuot(Chuot);
+                                        break;
+                                        case 9:
+                                            System.out.print("Loa: "); Loa = sc.nextLine(); SP[i].setLoa(Loa);
+                                        break;
+                                        case 0:
+                                        break;
+                                        default:
+
+                                    }
+
+                                }while(key_1!=0);
+                                break;
+
+                            case 0:
+                             break;
+                    }
+
+                }while(key!=0);
+            }
         }
     }
 }
