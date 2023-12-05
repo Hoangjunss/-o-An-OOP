@@ -8,6 +8,20 @@ public class NhaCungCap {
 
     Scanner sc = new Scanner(System.in);
 
+    public NhaCungCap(){}
+    public NhaCungCap(String maNCC, String ten, String diachi, int sdt){
+        this.maNCC = maNCC;
+        this.ten = ten;
+        this.diachi = diachi;
+        this.sdt = sdt;
+    }
+    public NhaCungCap(NhaCungCap ncc){
+        this.maNCC = ncc.maNCC;
+        this.ten = ncc.ten;
+        this.diachi = ncc.diachi;
+        this.sdt = ncc.sdt;
+    }
+
     public String getMaNCC(){
         return this.maNCC;
     }
@@ -38,7 +52,7 @@ public class NhaCungCap {
 
     public void nhap(){
         sc.nextLine();
-        System.out.print("Nhap Ma Nha Cung Cap: "); maNCC = sc.nextLine();
+        System.out.print("Nhap Ma Nha Cung Cap: "); maNCC = sc.next();
         System.out.print("Nhap Ten Nha Cung Cap: "); ten = sc.nextLine();
         System.out.print("Nhap Dia Chi: "); diachi = sc.nextLine();
         System.out.print("Nhap So Dien Thoai: "); sdt = sc.nextInt();
