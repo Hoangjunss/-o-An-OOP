@@ -83,8 +83,8 @@ public class ChiTietHoaDon extends HoaDon {
 		dos.writeUTF(maNV);
 		dos.writeUTF(maSP);
 		dos.writeInt(SoLuong);
-		dos.writeFloat(DonGia);
-		dos.writeDouble(ThanhTien);
+		dos.writeInt(DonGia);
+		dos.writeInt(ThanhTien);
 		dos.close();
 	}
 }
