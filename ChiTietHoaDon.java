@@ -1,3 +1,6 @@
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class ChiTietHoaDon extends HoaDon {
@@ -72,4 +75,16 @@ public class ChiTietHoaDon extends HoaDon {
 			System.out.println("HDD: "+ThanhTien);
        
 		}
+		public void GhiFile(String filename) throws IOException {
+		DataOutputStream dos = new DataOutputStream(new FileOutputStream(filename, Boolean.TRUE));
+		dos.writeUTF(maHD);
+		dos.writeUTF(NgayLapHoaDon);
+		dos.writeUTF(maKH);
+		dos.writeUTF(maNV);
+		dos.writeUTF(maSP);
+		dos.writeInt(SoLuong);
+		dos.writeFloat(DonGia);
+		dos.writeDouble(ThanhTien);
+		dos.close();
+	}
 }

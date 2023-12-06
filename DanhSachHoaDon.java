@@ -24,6 +24,8 @@ public class DanhSachHoaDon {
 			System.out.print("\n\t\t\t\t\tHOÁ ĐƠN THỨ " + (i + 1) + "\n");
 			hd[i] = new ChiTietHoaDon();
 			hd[i].nhap();
+            GhiFileJava(HoaDon.txt);
+            
 		
 		}
 	}
@@ -245,6 +247,21 @@ public class DanhSachHoaDon {
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
+	}
+    public void GhiFileJava(String filename) {
+		int j = n;
+		try {
+			DataOutputStream dos = new DataOutputStream(new FileOutputStream(filename));
+			dos.writeInt(j);
+			try {
+				for(int i = 0; i < j; i++) {
+					hd[i].GhiFile(filename);
+				}
+			}catch(NullPointerException npe) {
+					
+			}
+			dos.close();
+		}catch(IOException e) {}
 	}
 	
 }
