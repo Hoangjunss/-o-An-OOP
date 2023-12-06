@@ -225,14 +225,12 @@ public class DanhSachHoaDon {
 				while(true) {
 					String mahd = dis.readUTF();
 					String makh = dis.readUTF();
-					String nhanvien = dis.readUTF();
 					String ngaylaphoadon = dis.readUTF();
 					String masp = dis.readUTF();
 					int sl = dis.readInt();
 					float dongia = dis.readFloat();
-					int giamgia = dis.readInt();
 					double thanhtien = dis.readDouble();
-					hd[i] = new ChiTietHoaDon(mahd, makh, tenkh, nhanvien, ngaylaphoadon, masp, sl, dongia, giamgia, thanhtien);
+					hd[i] = new ChiTietHoaDon(mahd, makh, nhanvien, ngaylaphoadon, masp, sl, dongia, thanhtien);
 					i++;
 				}
 			}catch(EOFException e) {}

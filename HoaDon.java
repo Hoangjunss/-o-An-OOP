@@ -8,6 +8,23 @@ public class HoaDon {
 	    private int TongTien;
 
 		Scanner sc=new Scanner(System.in);
+		public HoaDon(){}
+    public HoaDon(String maHD, String NgayLapHoaDon, String maKH,String maNV, int TongTien){
+        this.maHD =maHD;
+        this.NgayLapHoaDon = NgayLapHoaDon;
+        this.maKH = maKH;
+        this.maNV = maNV;
+        this.TongTien =TongTien;
+        
+    }
+    public HoaDon(HoaDon HD){
+        maHD =HD.maHD;
+       NgayLapHoaDon= HD.NgayLapHoaDon;
+        maKH = HD.maKH;
+       maNV = HD.maNV;
+        TongTien =HD.TongTien;
+       
+    }
 
 	    public String getmaHD(){
 	        return this.maHD;

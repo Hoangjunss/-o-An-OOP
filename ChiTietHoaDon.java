@@ -1,21 +1,32 @@
 import java.util.Scanner;
 
-public class ChiTietHoaDon {
-	 private String maHD;
+public class ChiTietHoaDon extends HoaDon {
+	
 	    private String maSP;
 	    private int SoLuong;
 	    private int DonGia;
 	    private int ThanhTien;
 
 		Scanner sc=new Scanner(System.in);
+		public ChiTietHoaDon(){}
+		public ChiTietHoaDon(String maHD, String NgayLapHoaDon, String maKH,String maNV, int TongTien,String maSP,int SoLuong,int DonGia,int ThanhTien){
+			super(maHD, NgayLapHoaDon, maKH, maNV, TongTien);
+			this.maSP=maSP;
+			this.SoLuong=SoLuong;
+			this.DonGia=DonGia;
+			this.ThanhTien=ThanhTien;
+			
+		}
+		public ChiTietHoaDon(ChiTietHoaDon CTHD){
+		super((HoaDon)CTHD);
+		maSP=CTHD.maSP;
+		SoLuong=CTHD.SoLuong;
+		DonGia=CTHD.DonGia;
+		ThanhTien=CTHD.ThanhTien;
+		   
+		}
 
-	    public String getMaHD(){
-	        return this.maHD;
-	    }
-	    public void setMaHD(String maHD){
-	        this.maHD=maHD;
-	    }
-
+	  
 	    public String getMaSP(){
 	        return this.maSP;
 	    }
@@ -45,9 +56,10 @@ public class ChiTietHoaDon {
 	    }
 		public void nhap(){
 			System.out.println("***Nhap Thong Tin Hoa Don***");
+			super.nhap();
 			System.out.print("Ma San Pham: "); maSP = sc.nextLine();
 			maSP = sc.nextLine();
-			System.out.print("Ma Hoa Don: "); maHD = sc.nextLine();
+	
 			System.out.print("So luong: "); SoLuong = sc.nextInt();
 			System.out.print("Don Gia: "); DonGia = sc.nextInt();
 			System.out.print("Thanh Tien: "); ThanhTien = sc.nextInt();
@@ -55,8 +67,8 @@ public class ChiTietHoaDon {
 		}
 		public void xuat(){
 			System.out.println("--Thong Tin San Pham--");
+			super.xuat();
 			System.out.println("Ma: "+maSP);
-			System.out.println("RAM: "+maHD);
 			System.out.println("ROM: "+SoLuong);
 			System.out.println("CPU: "+DonGia);
 			System.out.println("HDD: "+ThanhTien);
