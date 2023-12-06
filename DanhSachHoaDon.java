@@ -22,7 +22,7 @@ public class DanhSachHoaDon {
 		for(int i = 0; i < n; i++) {
 			System.out.print("\n\t\t\t\t\tHOÁ ĐƠN THỨ " + (i + 1) + "\n");
 			hd[i] = new ChiTietHoaDon();
-			hd[i].Nhap();
+			hd[i].nhap();
 		
 		}
 	}
@@ -33,7 +33,7 @@ public class DanhSachHoaDon {
 	
 		for(int i = 0; i < n; i++) {
 				System.out.println( (i + 1));
-				hd[i].Xuat();
+				hd[i].xuat();
 			}
 		
 		System.out.println("================================================================================================================================================================================================================");
@@ -44,7 +44,7 @@ public class DanhSachHoaDon {
 		hd = Arrays.copyOf(hd, n+1);
 		hd[n] = new ChiTietHoaDon();
 		System.out.print("\t\t\t\t\tHOÁ ĐƠN THỨ " + (n + 1) + "\n");
-		hd[n].Nhap();
+		hd[n].nhap();
 		XuatDanhSach();
 	}
     public void xoa(String mahd) {
@@ -75,10 +75,10 @@ public class DanhSachHoaDon {
 					System.out.print("\nSửa thông tin của hoá đơn thứ " + (i + 1) + "\n");
 					System.out.println("\t\t\t\t\t\t\t=====SỬA THÔNG TIN======");
 					System.out.println("\n================================================================================================================================================================================================================");
-					hd[i].Xuat();
+					hd[i].xuat();
 					System.out.println("================================================================================================================================================================================================================");					
 					hd[i] = new ChiTietHoaDon();
-					hd[i].Nhap();
+					hd[i].nhap();
 					
 					return;
 				}
@@ -91,7 +91,7 @@ public class DanhSachHoaDon {
             for(int i = 0; i < n; i++) {
                 if(hd[i].getMahd().indexOf(mahd) != -1) {
                     System.out.println( i + 1);
-                    hd[i].Xuat();
+                    hd[i].xuat();
                     
                     break;
                 }
@@ -103,7 +103,7 @@ public class DanhSachHoaDon {
             for(int i = 0; i < n; i++) {
                 if(hd[i].getMakh().indexOf(makh) != -1) {
                     System.out.println( i + 1);
-                    hd[i].Xuat();
+                    hd[i].xuat();
                     break;
                 }
             }
@@ -115,7 +115,7 @@ public class DanhSachHoaDon {
             for(int i = 0; i < n; i++) {
                 if(hd[i].getNhanvien().indexOf(ho) != -1) {
                     System.out.println( i + 1);
-                    hd[i].Xuat();
+                    hd[i].xuat();
                 }
             }
             System.out.println("================================================================================================================================================================================================================");
@@ -126,7 +126,7 @@ public class DanhSachHoaDon {
             for(int i = 0; i < n; i++) {
                 if(hd[i].getMasp().indexOf(msp) != -1) {
                     System.out.println( i + 1);
-                    hd[i].Xuat();
+                    hd[i].xuat();
                     break;
                 }
             }
