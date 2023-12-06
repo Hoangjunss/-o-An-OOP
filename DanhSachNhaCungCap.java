@@ -50,7 +50,7 @@ public class DanhSachNhaCungCap {
     public NhaCungCap timkiem(String tkNCC){
         int i=0;
         while(i<n){
-            if(dsncc[i].getMaNCC().equals(tkNCC)){
+            if(dsncc[i].getMaNCC().indexOf(tkNCC) != -1){
                 break;
             }
             i++;
