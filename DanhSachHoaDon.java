@@ -30,7 +30,7 @@ public class DanhSachHoaDon {
 	public void XuatDanhSach(){
 		System.out.println("\t\t\t\t\t\t\t\t=====DANH SÁCH HOÁ ĐƠN=====");
 		System.out.println("\n================================================================================================================================================================================================================");
-	
+	    n=hd.length;
 	
 		for(int i = 0; i < n; i++) {
 				System.out.println( (i + 1));
@@ -216,7 +216,7 @@ public class DanhSachHoaDon {
                     }
                 }
         }
-       /*  public void DocFileJava(String filename) {
+       public void DocFileJava(String filename) {
 		int i = 0;
 		try {
 			DataInputStream dis = new DataInputStream(new FileInputStream(filename));
@@ -230,19 +230,19 @@ public class DanhSachHoaDon {
                     String manv=dis.readUTF();
     				String masp = dis.readUTF();
 					int sl = dis.readInt();
-					float dongia = dis.readFloat();
-					double thanhtien = dis.readDouble();
-					hd[i] = new ChiTietHoaDon(mahd, makh,manv , ngaylaphoadon, masp, sl, dongia, thanhtien);
+					int dongia = dis.readInt();
+					int thanhtien = dis.readInt();
+					hd[i] = new ChiTietHoaDon(mahd , ngaylaphoadon, makh,manv, masp, sl, dongia, thanhtien);
 					i++;
 				}
 			}catch(EOFException e) {}
 			finally {
-				a = i;
+				
 				dis.close();
 			}
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
-	}*/
+	}
 	
 }
