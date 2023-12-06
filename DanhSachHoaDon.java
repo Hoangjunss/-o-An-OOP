@@ -30,7 +30,7 @@ public class DanhSachHoaDon {
 	public void XuatDanhSach(){
 		System.out.println("\t\t\t\t\t\t\t\t=====DANH SÁCH HOÁ ĐƠN=====");
 		System.out.println("\n================================================================================================================================================================================================================");
-	
+	    n=hd.length;
 	
 		for(int i = 0; i < n; i++) {
 				System.out.println( (i + 1));
