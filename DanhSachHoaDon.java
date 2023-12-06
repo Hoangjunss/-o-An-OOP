@@ -1,3 +1,7 @@
+import java.io.DataInputStream;
+import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -211,5 +215,34 @@ public class DanhSachHoaDon {
                     }
                 }
         }
+        public void DocFileJava(String filename) {
+		int i = 0;
+		try {
+			DataInputStream dis = new DataInputStream(new FileInputStream(filename));
+			n = dis.readInt();
+			hd = new ChiTietHoaDon[n];
+			try {
+				while(true) {
+					String mahd = dis.readUTF();
+					String makh = dis.readUTF();
+					String nhanvien = dis.readUTF();
+					String ngaylaphoadon = dis.readUTF();
+					String masp = dis.readUTF();
+					int sl = dis.readInt();
+					float dongia = dis.readFloat();
+					int giamgia = dis.readInt();
+					double thanhtien = dis.readDouble();
+					hd[i] = new ChiTietHoaDon(mahd, makh, tenkh, nhanvien, ngaylaphoadon, masp, sl, dongia, giamgia, thanhtien);
+					i++;
+				}
+			}catch(EOFException e) {}
+			finally {
+				a = i;
+				dis.close();
+			}
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
 	
 }
