@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class DanhSachHoaDon {
     ChiTietHoaDon []hd;
     Scanner sc = new Scanner(System.in);
+    private int n;
 	
 	//CONSTRUCTOR
 	public DanhSachHoaDon() {
@@ -70,7 +71,7 @@ public class DanhSachHoaDon {
     public void sua(String mahd) {
 		
 		for(int i = 0; i < n; i++) {
-			if(hd[i].getMahd().indexOf(mahd) != -1) {
+			if(hd[i].getmaHD().indexOf(mahd) != -1) {
 			
 					System.out.print("\nSửa thông tin của hoá đơn thứ " + (i + 1) + "\n");
 					System.out.println("\t\t\t\t\t\t\t=====SỬA THÔNG TIN======");
@@ -89,7 +90,7 @@ public class DanhSachHoaDon {
         public void Search_MaHD(String mahd) {
             System.out.println("\n================================================================================================================================================================================================================");		
             for(int i = 0; i < n; i++) {
-                if(hd[i].getMahd().indexOf(mahd) != -1) {
+                if(hd[i].getmaHD().indexOf(mahd) != -1) {
                     System.out.println( i + 1);
                     hd[i].xuat();
                     
@@ -101,7 +102,7 @@ public class DanhSachHoaDon {
         public void Search_MKH(String makh) {
             System.out.println("\n================================================================================================================================================================================================================");		
             for(int i = 0; i < n; i++) {
-                if(hd[i].getMakh().indexOf(makh) != -1) {
+                if(hd[i].getmaKH().indexOf(makh) != -1) {
                     System.out.println( i + 1);
                     hd[i].xuat();
                     break;
@@ -113,7 +114,7 @@ public class DanhSachHoaDon {
             System.out.println("\t\t\t\t\t\t\t\t======KẾT QUẢ======");
             System.out.println("\n================================================================================================================================================================================================================");		
             for(int i = 0; i < n; i++) {
-                if(hd[i].getNhanvien().indexOf(ho) != -1) {
+                if(hd[i].getmaNV().indexOf(ho) != -1) {
                     System.out.println( i + 1);
                     hd[i].xuat();
                 }
@@ -124,7 +125,7 @@ public class DanhSachHoaDon {
             System.out.println("\t\t\t\t\t\t\t\t======KẾT QUẢ======");
             System.out.println("\n================================================================================================================================================================================================================");
             for(int i = 0; i < n; i++) {
-                if(hd[i].getMasp().indexOf(msp) != -1) {
+                if(hd[i].getMaSP().indexOf(msp) != -1) {
                     System.out.println( i + 1);
                     hd[i].xuat();
                     break;
@@ -215,7 +216,7 @@ public class DanhSachHoaDon {
                     }
                 }
         }
-        public void DocFileJava(String filename) {
+       /*  public void DocFileJava(String filename) {
 		int i = 0;
 		try {
 			DataInputStream dis = new DataInputStream(new FileInputStream(filename));
@@ -226,11 +227,12 @@ public class DanhSachHoaDon {
 					String mahd = dis.readUTF();
 					String makh = dis.readUTF();
 					String ngaylaphoadon = dis.readUTF();
-					String masp = dis.readUTF();
+                    String manv=dis.readUTF();
+    				String masp = dis.readUTF();
 					int sl = dis.readInt();
 					float dongia = dis.readFloat();
 					double thanhtien = dis.readDouble();
-					hd[i] = new ChiTietHoaDon(mahd, makh, nhanvien, ngaylaphoadon, masp, sl, dongia, thanhtien);
+					hd[i] = new ChiTietHoaDon(mahd, makh,manv , ngaylaphoadon, masp, sl, dongia, thanhtien);
 					i++;
 				}
 			}catch(EOFException e) {}
@@ -241,6 +243,6 @@ public class DanhSachHoaDon {
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 	
 }
