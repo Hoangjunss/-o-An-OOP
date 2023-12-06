@@ -58,8 +58,6 @@ public class ChiTietHoaDon extends HoaDon {
 			System.out.println("***Nhap Thong Tin Hoa Don***");
 			super.nhap();
 			System.out.print("Ma San Pham: "); maSP = sc.nextLine();
-			maSP = sc.nextLine();
-	
 			System.out.print("So luong: "); SoLuong = sc.nextInt();
 			System.out.print("Don Gia: "); DonGia = sc.nextInt();
 			System.out.print("Thanh Tien: "); ThanhTien = sc.nextInt();
