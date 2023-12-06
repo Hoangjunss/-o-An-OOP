@@ -22,7 +22,9 @@ public class DanhSachNhaCungCap {
         this.n = sc.nextInt();
         dsncc = new NhaCungCap[n];
         System.out.println("Nhap Thong Tin Nha Cung Cap:");
-        for(int i=0;i<dsncc.length;i++){
+        for(int i=0;i<n;i++){
+            System.out.println("Thong Tin Cua Nha Cung Cap "+ (i+1));
+            dsncc[i] = new NhaCungCap();
             dsncc[i].nhap();
         }
     }
@@ -48,7 +50,7 @@ public class DanhSachNhaCungCap {
     public NhaCungCap timkiem(String tkNCC){
         int i=0;
         while(i<n){
-            if(dsncc[i].getMaNCC().indexOf(tkNCC) != -1){
+            if(dsncc[i].getMaNCC().equals(tkNCC)){
                 break;
             }
             i++;
@@ -61,8 +63,7 @@ public class DanhSachNhaCungCap {
     }
 
     public void xoa(){
-        System.out.print("Nhap Ma Nha Cung Cap Can Xoa");
-        sc.next();
+        System.out.print("Nhap Ma Nha Cung Cap Can Xoa:");
         String temp = sc.next();
         int n = dsncc.length, flag=0;
         for(int i=0; i<n; i++){
@@ -72,7 +73,7 @@ public class DanhSachNhaCungCap {
                 n--;
                 
             }
-            if(dsncc[i] == timkiem(temp)){
+            if(dsncc[i].equals(timkiem(temp))){
                 for(int j=i; j<=n-1;j++){
                     dsncc[j] = new NhaCungCap(dsncc[j+1]);
                 }
@@ -90,11 +91,12 @@ public class DanhSachNhaCungCap {
     }
 
     public void sua(){
-        int choice1;
+        int choice1 =0;
         do{
             System.out.println("Nhap Ma Nha Cung Cap Can Sua");
             String maSua = sc.next();
-            if(timkiem(maSua) instanceof NhaCungCap){
+            NhaCungCap nccCanSua = timkiem(maSua);
+            if(nccCanSua != null){
                 NhaCungCap temp = new NhaCungCap(timkiem(maSua));
                 System.out.println("Thong Tin Nha Cung Cap Can Sua:");
                 temp.xuat();
@@ -102,7 +104,29 @@ public class DanhSachNhaCungCap {
                 choice1 = sc.nextInt();
                 switch (choice1) {
                     case 1:
-                        
+                        System.out.println("Chon lua cach sua:");
+                        System.out.println("1: Sua tat ca");
+                        System.out.println("2: Sua tung dac diem");
+                        System.out.println("0: Thoat");
+                        int choice2 = sc.nextInt();
+                        switch (choice2) {
+                            case 1:
+                                // Sua tat ca
+                                nccCanSua.nhap(); // Nhap lai toan bo thong tin
+                                break;
+        
+                            case 2:
+                                // Sua tung dac diem
+                                suaTungDacDiem(nccCanSua);
+                                break;
+        
+                            case 0:
+                                return;
+        
+                            default:
+                                System.out.println("Lua Chon Khong Hop Le!");
+                                break;
+                        }
                         break;
                     case 2:
                     
@@ -114,8 +138,44 @@ public class DanhSachNhaCungCap {
                         break;
                 }
             }else{
-
+                System.out.println("Khong Tim Thay Nha Cung Cap Can Sua!");
             }
         }while(choice1 != 0);
+    }
+
+    private void suaTungDacDiem(NhaCungCap ncc) {
+
+        System.out.println("Chon dac diem can sua:");
+        System.out.println("1: Ma NCC");
+        System.out.println("2: Ten NCC");
+        System.out.println("3: Dia Chi NCC");
+        System.out.println("4: SDT NCC");
+
+        int choice = sc.nextInt();
+
+        switch (choice) {
+            case 1:
+                System.out.print("Nhap Ma NCC moi: ");
+                ncc.setMaNCC(sc.next());
+                break;
+
+            case 2:
+                System.out.print("Nhap Ten NCC moi: ");
+                ncc.setTen(sc.next());
+                break;
+            case 3:
+                System.out.print("Nhap Dia Chi NCC mô: ");
+                ncc.setDiachi(sc.next());
+                break;
+            case 4:
+                System.out.print("Nhap SDT NCC moi: ");
+                ncc.setSdt(sc.nextInt());
+                break;
+            // Thêm các trường và lựa chọn khác tùy theo cấu trúc NhaCungCap
+
+            default:
+                System.out.println("Lua Chon Khong Hop Le!");
+                break;
+        }
     }
 }
