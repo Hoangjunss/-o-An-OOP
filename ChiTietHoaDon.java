@@ -9,8 +9,8 @@ public class ChiTietHoaDon extends HoaDon {
 
 		Scanner sc=new Scanner(System.in);
 		public ChiTietHoaDon(){}
-		public ChiTietHoaDon(String maHD, String NgayLapHoaDon, String maKH,String maNV, int TongTien,String maSP,int SoLuong,int DonGia,int ThanhTien){
-			super(maHD, NgayLapHoaDon, maKH, maNV, TongTien);
+		public ChiTietHoaDon(String maHD, String NgayLapHoaDon, String maKH,String maNV,String maSP,int SoLuong,int DonGia,int ThanhTien){
+			super(maHD, NgayLapHoaDon, maKH, maNV);
 			this.maSP=maSP;
 			this.SoLuong=SoLuong;
 			this.DonGia=DonGia;
