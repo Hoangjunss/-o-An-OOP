@@ -5,16 +5,16 @@ public class HoaDon {
 	    private String NgayLapHoaDon;
 	    private String maKH;
 	    private String maNV;
-	    private int TongTien;
+	   
 
 		Scanner sc=new Scanner(System.in);
 		public HoaDon(){}
-    public HoaDon(String maHD, String NgayLapHoaDon, String maKH,String maNV, int TongTien){
+    public HoaDon(String maHD, String NgayLapHoaDon, String maKH,String maNV){
         this.maHD =maHD;
         this.NgayLapHoaDon = NgayLapHoaDon;
         this.maKH = maKH;
         this.maNV = maNV;
-        this.TongTien =TongTien;
+       
         
     }
     public HoaDon(HoaDon HD){
@@ -22,7 +22,7 @@ public class HoaDon {
        NgayLapHoaDon= HD.NgayLapHoaDon;
         maKH = HD.maKH;
        maNV = HD.maNV;
-        TongTien =HD.TongTien;
+     
        
     }
 
@@ -53,12 +53,7 @@ public class HoaDon {
 	        this.maNV=maNV;
 	    }
 
-	    public int getTongTien(){
-	        return this.TongTien;
-	    }
-	    public void setTongTien(int TongTien){
-	        this.TongTien=TongTien;
-	    }
+	   
 		public void nhap(){
 			System.out.println("***Nhap Thong Tin San Pham***");
 			System.out.print("Ma San Pham: "); maHD = sc.nextLine();
@@ -66,7 +61,7 @@ public class HoaDon {
 			System.out.print("RAM: "); NgayLapHoaDon = sc.nextLine();
 			System.out.print("ROM: "); maKH = sc.nextLine();
 			System.out.print("CPU: "); maNV = sc.nextLine();
-			System.out.print("HDD: "); TongTien = sc.nextInt();
+		
         
 		}
 		public void xuat(){
@@ -75,7 +70,7 @@ public class HoaDon {
 			System.out.println("RAM: "+NgayLapHoaDon);
 			System.out.println("ROM: "+maKH);
 			System.out.println("CPU: "+maNV);
-			System.out.println("HDD: "+TongTien);
+
        
 		}
 }
