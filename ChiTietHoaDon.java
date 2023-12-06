@@ -69,10 +69,10 @@ public class ChiTietHoaDon extends HoaDon {
 		public void xuat(){
 			System.out.println("--Thong Tin San Pham--");
 			super.xuat();
-			System.out.println("Ma: "+maSP);
-			System.out.println("ROM: "+SoLuong);
-			System.out.println("CPU: "+DonGia);
-			System.out.println("HDD: "+ThanhTien);
+			System.out.println("Ma San Pham: "+maSP);
+			System.out.println("So luong: "+SoLuong);
+			System.out.println("Don Gia: "+DonGia);
+			System.out.println("ThanhTien: "+ThanhTien);
        
 		}
 		public void GhiFile(String filename) throws IOException {
