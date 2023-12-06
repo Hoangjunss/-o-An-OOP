@@ -25,14 +25,14 @@ public class DanhSachHoaDon {
 			hd[i] = new ChiTietHoaDon();
 			hd[i].nhap();
             GhiFileJava(HoaDon.txt);
-            
+
 		
 		}
 	}
 	public void XuatDanhSach(){
 		System.out.println("\t\t\t\t\t\t\t\t=====DANH SÁCH HOÁ ĐƠN=====");
 		System.out.println("\n================================================================================================================================================================================================================");
-	   
+	    DocFileJava("hoadon.txt");
 	
 		for(int i = 0; i < n; i++) {
 				System.out.println( (i + 1));
