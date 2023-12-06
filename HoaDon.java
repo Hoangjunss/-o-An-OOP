@@ -56,7 +56,7 @@ public class HoaDon {
 	   
 		public void nhap(){
 			System.out.println("***Nhap Thong Tin San Pham***");
-			System.out.print("Ma San Pham: "); maHD = sc.nextLine();
+			System.out.print("Ma Hoa DOn: "); maHD = sc.nextLine();
 			System.out.print("RAM: "); NgayLapHoaDon = sc.nextLine();
 			System.out.print("ROM: "); maKH = sc.nextLine();
 			System.out.print("CPU: "); maNV = sc.nextLine();

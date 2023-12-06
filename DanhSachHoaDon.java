@@ -30,7 +30,7 @@ public class DanhSachHoaDon {
 	public void XuatDanhSach(){
 		System.out.println("\t\t\t\t\t\t\t\t=====DANH SÁCH HOÁ ĐƠN=====");
 		System.out.println("\n================================================================================================================================================================================================================");
-	    n=hd.length;
+	   
 	
 		for(int i = 0; i < n; i++) {
 				System.out.println( (i + 1));
@@ -45,7 +45,9 @@ public class DanhSachHoaDon {
 		hd = Arrays.copyOf(hd, n+1);
 		hd[n] = new ChiTietHoaDon();
 		System.out.print("\t\t\t\t\tHOÁ ĐƠN THỨ " + (n + 1) + "\n");
+
 		hd[n].nhap();
+        n++;
 		XuatDanhSach();
 	}
     public void xoa(String mahd) {
