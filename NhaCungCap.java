@@ -1,24 +1,28 @@
+
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class NhaCungCap {
     private String maNCC;
     private String ten;
-    private String diachi;
-    private int sdt;
+    private String diaChi;
+    private String sdt;
 
     Scanner sc = new Scanner(System.in);
 
     public NhaCungCap(){}
-    public NhaCungCap(String maNCC, String ten, String diachi, int sdt){
+    public NhaCungCap(String maNCC, String ten, String diaChi, String sdt){
         this.maNCC = maNCC;
         this.ten = ten;
-        this.diachi = diachi;
+        this.diaChi = diaChi;
         this.sdt = sdt;
     }
     public NhaCungCap(NhaCungCap ncc){
         this.maNCC = ncc.maNCC;
         this.ten = ncc.ten;
-        this.diachi = ncc.diachi;
+        this.diaChi = ncc.diaChi;
         this.sdt = ncc.sdt;
     }
 
@@ -36,32 +40,37 @@ public class NhaCungCap {
         this.ten=ten;
     }
 
-    public String getDiachi(){
-        return this.diachi;
+    public String getDiaChi(){
+        return this.diaChi;
     }
-    public void setDiachi(String diachi){
-        this.diachi=diachi;
+    public void setDiaChi(String diaChi){
+        this.diaChi=diaChi;
     }
 
-    public int getSdt(){
+    public String getSdt(){
         return this.sdt;
     }
-    public void setSdt(int sdt){
+    public void setSdt(String sdt){
         this.sdt=sdt;
     }
 
     public void nhap(){
-        sc.nextLine();
-        System.out.print("Nhap Ma Nha Cung Cap: "); maNCC = sc.next();
+        System.out.print("Nhap Ma Nha Cung Cap: "); maNCC = sc.next();sc.nextLine();
         System.out.print("Nhap Ten Nha Cung Cap: "); ten = sc.nextLine();
-        System.out.print("Nhap Dia Chi: "); diachi = sc.nextLine();
-        System.out.print("Nhap So Dien Thoai: "); sdt = sc.nextInt();
+        System.out.print("Nhap Dia Chi: "); diaChi = sc.nextLine();
+        System.out.print("Nhap So Dien Thoai: "); sdt = sc.next();
     }
 
     public void xuat(){
-        System.out.print("Ma Nha Cung Cap: " + getMaNCC());
-        System.out.print("Ten Nha Cung Cap: " + getTen());
-        System.out.print("Dia Chi: " + getDiachi());
-        System.out.print("So Dien Thoai: "+ getSdt());
+        System.out.format("| %10s | %25s | %40s | %20s ||\n", maNCC, ten, diaChi, sdt); 
+    }
+
+    public void ghiFile(String fileName) throws IOException{
+        DataOutputStream dos = new DataOutputStream(new FileOutputStream(fileName, Boolean.TRUE));
+        dos.writeUTF(maNCC);
+        dos.writeUTF(ten);
+        dos.writeUTF(diaChi);
+        dos.writeUTF(sdt);
+        dos.close();
     }
 }
