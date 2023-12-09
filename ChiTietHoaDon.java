@@ -77,10 +77,10 @@ public class ChiTietHoaDon extends HoaDon {
 		}
 		public void GhiFile(String filename) throws IOException {
 		DataOutputStream dos = new DataOutputStream(new FileOutputStream(filename, Boolean.TRUE));
-		dos.writeUTF(maHD);
-		dos.writeUTF(NgayLapHoaDon);
-		dos.writeUTF(maKH);
-		dos.writeUTF(maNV);
+		dos.writeUTF(super.getmaHD());
+		dos.writeUTF(super.getNgayLapHoaDon());
+		dos.writeUTF(super.getmaKH());
+		dos.writeUTF(super.getmaNV());
 		dos.writeUTF(maSP);
 		dos.writeInt(SoLuong);
 		dos.writeInt(DonGia);
