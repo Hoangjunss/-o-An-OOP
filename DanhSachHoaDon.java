@@ -1,3 +1,4 @@
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.EOFException;
@@ -26,15 +27,15 @@ public class DanhSachHoaDon {
 			System.out.print("\n\t\t\t\t\tHOÁ ĐƠN THỨ " + (i + 1) + "\n");
 			hd[i] = new ChiTietHoaDon();
 			hd[i].nhap();
-            GhiFileJava("HoaDon.txt");
-
-		
+            GhiFileJava("hoadon.txt");
+            
 		}
 	}
+
 	public void XuatDanhSach(){
 		System.out.println("\t\t\t\t\t\t\t\t=====DANH SÁCH HOÁ ĐƠN=====");
 		System.out.println("\n================================================================================================================================================================================================================");
-	    DocFileJava("hoadon.txt");
+	   DocFileJava("hoadon.txt");
 	
 		for(int i = 0; i < n; i++) {
 				System.out.println( (i + 1));
@@ -74,6 +75,7 @@ public class DanhSachHoaDon {
 		else 
 			System.out.println("\nKhông tìm thấy hoá đơn cần tìm");
 	}
+    
     public void sua(String mahd) {
 		
 		for(int i = 0; i < n; i++) {
@@ -89,7 +91,6 @@ public class DanhSachHoaDon {
 					
 					return;
 				}
-				
 				
 			}
 		}
@@ -194,6 +195,7 @@ public class DanhSachHoaDon {
                     switch(select) {
                         case 1:
                             System.out.print("Nhập vào số lượng hoá đơn cần thêm: ");
+                            int sl = sc.nextInt();
                             them();
                             break;
                         case 2:

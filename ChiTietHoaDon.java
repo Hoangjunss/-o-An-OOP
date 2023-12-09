@@ -1,10 +1,11 @@
+
 import java.io.DataOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Scanner;
 
 public class ChiTietHoaDon extends HoaDon {
-
+	
 	    private String maSP;
 	    private int SoLuong;
 	    private int DonGia;
@@ -69,10 +70,10 @@ public class ChiTietHoaDon extends HoaDon {
 		public void xuat(){
 			System.out.println("--Thong Tin San Pham--");
 			super.xuat();
-			System.out.println("Ma San Pham: "+maSP);
-			System.out.println("So luong: "+SoLuong);
-			System.out.println("Don Gia: "+DonGia);
-			System.out.println("ThanhTien: "+ThanhTien);
+			System.out.println("Ma: "+maSP);
+			System.out.println("ROM: "+SoLuong);
+			System.out.println("CPU: "+DonGia);
+			System.out.println("HDD: "+ThanhTien);
        
 		}
 		public void GhiFile(String filename) throws IOException {
@@ -88,3 +89,4 @@ public class ChiTietHoaDon extends HoaDon {
 		dos.close();
 	}
 }
+

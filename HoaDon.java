@@ -1,7 +1,9 @@
+
 import java.util.Scanner;
 
 public class HoaDon {
-	 private String  	maHD;
+	 public static String txt;
+    private String maHD;
 	    private String NgayLapHoaDon;
 	    private String maKH;
 	    private String maNV;
@@ -56,19 +58,19 @@ public class HoaDon {
 	   
 		public void nhap(){
 			System.out.println("***Nhap Thong Tin San Pham***");
-			System.out.print("Ma Hoa DOn: "); maHD = sc.nextLine();
-			System.out.print("NgayLapHoaDon: "); NgayLapHoaDon = sc.nextLine();
-			System.out.print("ma Khach Hang: "); maKH = sc.nextLine();
-			System.out.print("ma Nhan vien: "); maNV = sc.nextLine();
+			System.out.print("Ma San Pham: "); maHD = sc.nextLine();
+			System.out.print("RAM: "); NgayLapHoaDon = sc.nextLine();
+			System.out.print("ROM: "); maKH = sc.nextLine();
+			System.out.print("CPU: "); maNV = sc.nextLine();
 		
         
 		}
 		public void xuat(){
 			System.out.println("--Thong Tin San Pham--");
 			System.out.println("Ma: "+maHD);
-			System.out.println("NgayLapHoaDon: "+NgayLapHoaDon);
-			System.out.println("maKH: "+maKH);
-			System.out.println("maNV: "+maNV);
+			System.out.println("RAM: "+NgayLapHoaDon);
+			System.out.println("ROM: "+maKH);
+			System.out.println("CPU: "+maNV);
 
        
 		}
