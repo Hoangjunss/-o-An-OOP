@@ -1,4 +1,8 @@
+package Class;
 
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class LapTop extends SanPham {
     private String Pin;
@@ -50,14 +54,40 @@ public class LapTop extends SanPham {
         System.out.print("Pin: "); Pin = sc.nextLine();
         System.out.print("Can Nang: "); CanNang = sc.nextFloat();
         System.out.print("WebCam: "); WebCam = sc.nextLine();
+        WebCam = sc.nextLine();
         System.out.print("Kich thuoc: "); KichThuoc = sc.nextFloat();
     }
     @Override public void Xuat(){
-        System.out.println("*Thong Tin Lap Top*");
         super.Xuat();
         System.out.println("Pin: "+Pin);
         System.out.println("Can Nang: "+CanNang);
         System.out.println("WebCam: "+WebCam);
         System.out.println("Kich Thuoc: "+KichThuoc);
     }
+
+    public void sua(LapTop lt){
+        super.sua(lt);
+        System.out.print("Pin: "); Pin = sc.nextLine(); lt.setPin(Pin);
+        System.out.print("Can Nang: "); CanNang = sc.nextFloat();  lt.setCanNang(CanNang);
+        System.out.print("WebCam: "); WebCam = sc.nextLine(); lt.setWebCam(WebCam);
+        System.out.print("Kich thuoc: "); KichThuoc = sc.nextFloat(); lt.setKichThuoc(KichThuoc);
+    }
+    public void GhiFile(String filename) throws IOException {
+		DataOutputStream dos = new DataOutputStream(new FileOutputStream(filename, Boolean.TRUE));
+        dos.writeUTF(maSP);
+        dos.writeUTF(tenSP);
+        dos.writeInt(Sl);
+        dos.writeLong(DonGia);
+        dos.writeUTF(DonViTinh);
+        dos.writeUTF(OCung);
+        dos.writeUTF(ManHinh);
+        dos.writeUTF(Phim);
+        dos.writeUTF(Chuot);
+        dos.writeUTF(Loa);
+        dos.writeUTF(Pin);
+        dos.writeFloat(CanNang);
+        dos.writeUTF(WebCam);
+        dos.writeFloat(KichThuoc);
+        dos.close();
+	}
 }
