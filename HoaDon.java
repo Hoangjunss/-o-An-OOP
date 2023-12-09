@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class HoaDon {
-	 private String maHD;
+	 private String  	maHD;
 	    private String NgayLapHoaDon;
 	    private String maKH;
 	    private String maNV;

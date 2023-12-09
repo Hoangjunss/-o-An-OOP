@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class ChiTietHoaDon extends HoaDon {
-	
+
 	    private String maSP;
 	    private int SoLuong;
 	    private int DonGia;

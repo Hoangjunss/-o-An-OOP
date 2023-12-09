@@ -1,6 +1,8 @@
 import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.EOFException;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -24,7 +26,7 @@ public class DanhSachHoaDon {
 			System.out.print("\n\t\t\t\t\tHOÁ ĐƠN THỨ " + (i + 1) + "\n");
 			hd[i] = new ChiTietHoaDon();
 			hd[i].nhap();
-            GhiFileJava(HoaDon.txt);
+            GhiFileJava("HoaDon.txt");
 
 		
 		}
@@ -192,7 +194,6 @@ public class DanhSachHoaDon {
                     switch(select) {
                         case 1:
                             System.out.print("Nhập vào số lượng hoá đơn cần thêm: ");
-                            int sl = sc.nextInt();
                             them();
                             break;
                         case 2:
