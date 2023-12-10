@@ -16,8 +16,6 @@ public class HoaDon {
         this.NgayLapHoaDon = NgayLapHoaDon;
         this.maKH = maKH;
         this.maNV = maNV;
-       
-        
     }
     public HoaDon(HoaDon HD){
         maHD =HD.maHD;
