@@ -5,7 +5,7 @@ public class PhieuNhap{
     private String ngay;
     private String maNV;
     private String maNCC;
-    private long tongtien;
+    private long tongTien;
 
     Scanner sc = new Scanner(System.in);
 
@@ -37,11 +37,11 @@ public class PhieuNhap{
         this.maNCC = maNCC;
     }
 
-    public long getTongtien(){
-        return this.tongtien;
+    public long getTongTien(){
+        return this.tongTien;
     }
-    public void setTongtien(long tongtien){
-        this.tongtien = tongtien;
+    public void setTongTien(long tongTien){
+        this.tongTien = tongTien;
     }
 
     public void nhap(){
@@ -50,7 +50,7 @@ public class PhieuNhap{
         System.out.print("Nhap Ma Nha Cung Cap: "); maNCC = sc.nextLine();
         System.out.print("Nhap Ma Nhan Vien Phu Trach: "); maNV = sc.nextLine();
         System.out.print("Nhap Ngay Nhap: "); ngay = sc.nextLine();
-        System.out.print("Nhap Tong Tien "); tongtien = sc.nextLong();
+        System.out.print("Nhap Tong Tien "); tongTien = sc.nextLong();
     }
 
     public void xuat(){
@@ -58,7 +58,7 @@ public class PhieuNhap{
         System.out.print("Ma Nha Cung Cap: "+ getMaNCC());
         System.out.print("Ma Nhan Vien Phu Trach: "+ getMaNV());
         System.out.print("Ngay Nhap: " + getNgay());
-        System.out.print("Tong Tien " + getTongtien());
+        System.out.print("Tong Tien " + getTongTien());
     }
 
 }

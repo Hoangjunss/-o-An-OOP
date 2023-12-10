@@ -114,8 +114,8 @@ public class DanhSachNhaCungCap {
         int soLuong = sc.nextInt();
         int j = n;
         int temp = n + soLuong;
-        n+=soLuong;
         dsncc = Arrays.copyOf(dsncc,n+soLuong);
+        n+=soLuong;
         for(int i = j;i<(temp);i++){
             System.out.println("\t\t\t\t\tNHA CUNG CAP THU " + (i+1));
             dsncc[i] = new NhaCungCap();

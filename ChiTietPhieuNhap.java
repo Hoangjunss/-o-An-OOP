@@ -1,9 +1,9 @@
 public class ChiTietPhieuNhap {
     private String maPN;
     private String maSP;
-    private int soluong;
-    private long dongia;
-    private long thanhtien;
+    private int soLuong;
+    private long donGia;
+    private long thanhTien;
 
     public String getMaPN(){
         return this.maPN;
@@ -20,23 +20,23 @@ public class ChiTietPhieuNhap {
     }
 
     public int getSoluong(){
-        return this.soluong;
+        return this.soLuong;
     }
     public void setMaSoluong(int soluong){
-        this.soluong = soluong;
+        this.soLuong = soluong;
     }
 
     public long getDonGia(){
-        return this.dongia;
+        return this.donGia;
     }
-    public void setDongia(long dongia){
-        this.dongia = dongia;
+    public void setDonGia(long dongia){
+        this.donGia = dongia;
     }
 
-    public long getThanhtien(){
-        return this.thanhtien;
+    public long getThanhTien(){
+        return this.thanhTien;
     }
     public void setThanhTien(long thanhtien){
-        this.thanhtien = thanhtien;
+        this.thanhTien = thanhtien;
     }
 }
