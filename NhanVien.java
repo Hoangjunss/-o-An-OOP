@@ -1,15 +1,16 @@
+package OOP;
 import java.util.Scanner;
 
 public class NhanVien {
     private String manv;
     private String ho;
     private String ten;
-    private int sdt;
+    private String sdt;
     private String diachi;
 
     Scanner scanner = new Scanner(System.in);
 
-    public NhanVien(String manv, String ho, String ten, int sdt, String diachi) {
+    public NhanVien(String manv, String ho, String ten, String sdt, String diachi) {
         this.manv = manv;
         this.ho = ho;
         this.ten = ten;
@@ -41,7 +42,7 @@ public class NhanVien {
         this.ten = ten;
     }
 
-    public int getSdt() {
+    public String getSdt() {
         return sdt;
     }
 
@@ -57,25 +58,65 @@ public class NhanVien {
         this.diachi = diachi;
     }
 
-    public void nhap() {
-        System.out.print("Nhập mã nhân viên: ");
-        this.manv = scanner.nextLine();
-        System.out.print("Nhập họ nhân viên: ");
-        this.ho = scanner.nextLine();
-        System.out.print("Nhập tên nhân viên: ");
-        this.ten = scanner.nextLine();
-        System.out.print("Nhập số điện thoại nhân viên: ");
-        this.sdt = scanner.nextInt();
-        scanner.nextLine();
-        System.out.print("Nhập địa chỉ nhân viên: ");
-        this.diachi = scanner.nextLine();
+    public void nhap() 
+    {
+        System.out.print("Nhap ma nhan vien: ");
+        manv = sc.nextLine();
+        while(!manv.matches("^\\d{5}$"))
+        {
+            System.out.println("Khong dung dinh dang!");
+            System.out.println("Ma nhan vien phai co 5 so");
+            System.out.print("Nhap ma nhan vien: ");
+            cmnd = sc.nextLine();
+        }
+
+        System.out.print("Nhap ho nhan vien: ");
+        ho = sc.nextLine();
+        while(!ho.matches("^[a-zA-Z ]{"+ ho.length() +"}$"))
+        {
+            System.out.println("Khong dung dinh dang!");
+            System.out.println("Ho khong chua so va cac ky tu dac biet");
+            System.out.print("Nhap ho nhan vien: ");
+            ten = sc.nextLine();
+        }
+
+        System.out.print("Nhap ten nhan vien: ");
+        ten = sc.nextLine();
+        while(!ten.matches("^[a-zA-Z ]{"+ ten.length() +"}$"))
+        {
+            System.out.println("Khong dung dinh dang!");
+            System.out.println("Ten khong chua so va cac ky tu dac biet");
+            System.out.print("Nhap ten nhan vien: ");
+            ten = sc.nextLine();
+        }
+        System.out.print("Nhap so dien thoai: ");
+        sdt = sc.nextLine();
+        while(!sdt.matches("^0\\d{9}$"))
+        {
+            System.out.println("Khong dung dinh dang!");
+            System.out.println("So dien thoai co 10 so va bat dau bang 0");
+            System.out.print("Nhap so dien thoai: s");
+            so_dien_thoai = sc.nextLine();
+        }
+
+        System.out.print("Nhap dia chi: ");
+        diachi = sc.nextLine();
+        while(!diachi.matches("^[a-zA-Z ]{"+ diachi.length() +"}$"))
+        {
+            System.out.println("Khong dung dinh dang!");
+            System.out.println("Dia chi khong chua so va cac ky tu dac biet");
+            System.out.print("Nhap dia chi nhan vien: ");
+            ten = sc.nextLine();
+        }        
     }
 
-    public void xuat() {
-        System.out.println("Mã nhân viên: " + this.manv);
-        System.out.println("Họ nhân viên: " + this.ho);
-        System.out.println("Tên nhân viên: " + this.ten);
-        System.out.println("Số điện thoại nhân viên: " + this.sdt);
-        System.out.println("Địa chỉ nhân viên: " + this.diachi);
+    public void xuat() 
+    {
+        System.out.printf("%-20s%-25s%-15s%-15s%-10s\n", manv, ho, ten, sdt, diachi);
+    }
+
+    public String toString() 
+    {
+        return manv + "," + ho + "," + ten + "," + sdt + "," + diachi + "\n";
     }
 }
