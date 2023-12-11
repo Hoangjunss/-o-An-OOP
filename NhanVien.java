@@ -3,17 +3,17 @@ import java.util.Scanner;
 
 public class NhanVien {
     private String manv;
-    private String ho;
-    private String ten;
+    private String honv;
+    private String tennv;
     private String sdt;
     private String diachi;
 
     Scanner scanner = new Scanner(System.in);
 
-    public NhanVien(String manv, String ho, String ten, String sdt, String diachi) {
+    public NhanVien(String manv, String honv, String tennv, String sdt, String diachi) {
         this.manv = manv;
-        this.ho = ho;
-        this.ten = ten;
+        this.honv = honv;
+        this.tennv = tennv;
         this.sdt = sdt;
         this.diachi = diachi;
     }
@@ -26,20 +26,20 @@ public class NhanVien {
         this.manv = manv;
     }
 
-    public String getHo() {
-        return ho;
+    public String getHonv() {
+        return honv;
     }
 
-    public void setHo(String ho) {
-        this.ho = ho;
+    public void setHonv(String honv) {
+        this.honv = honv;
     }
 
-    public String getTen() {
-        return ten;
+    public String getTennv() {
+        return tennv;
     }
 
-    public void setTen(String ten) {
-        this.ten = ten;
+    public void setTennv(String tennv) {
+        this.tennv = tennv;
     }
 
     public String getSdt() {
@@ -71,23 +71,23 @@ public class NhanVien {
         }
 
         System.out.print("Nhap ho nhan vien: ");
-        ho = sc.nextLine();
-        while(!ho.matches("^[a-zA-Z ]{"+ ho.length() +"}$"))
+        honv = sc.nextLine();
+        while(!honv.matches("^[a-zA-Z ]{"+ honv.length() +"}$"))
         {
             System.out.println("Khong dung dinh dang!");
             System.out.println("Ho khong chua so va cac ky tu dac biet");
             System.out.print("Nhap ho nhan vien: ");
-            ten = sc.nextLine();
+            tennv = sc.nextLine();
         }
 
         System.out.print("Nhap ten nhan vien: ");
-        ten = sc.nextLine();
-        while(!ten.matches("^[a-zA-Z ]{"+ ten.length() +"}$"))
+        tennv = sc.nextLine();
+        while(!tennv.matches("^[a-zA-Z ]{"+ tennv.length() +"}$"))
         {
             System.out.println("Khong dung dinh dang!");
             System.out.println("Ten khong chua so va cac ky tu dac biet");
             System.out.print("Nhap ten nhan vien: ");
-            ten = sc.nextLine();
+            tennv = sc.nextLine();
         }
         System.out.print("Nhap so dien thoai: ");
         sdt = sc.nextLine();
@@ -96,7 +96,7 @@ public class NhanVien {
             System.out.println("Khong dung dinh dang!");
             System.out.println("So dien thoai co 10 so va bat dau bang 0");
             System.out.print("Nhap so dien thoai: s");
-            so_dien_thoai = sc.nextLine();
+            sdt = sc.nextLine();
         }
 
         System.out.print("Nhap dia chi: ");
@@ -106,17 +106,17 @@ public class NhanVien {
             System.out.println("Khong dung dinh dang!");
             System.out.println("Dia chi khong chua so va cac ky tu dac biet");
             System.out.print("Nhap dia chi nhan vien: ");
-            ten = sc.nextLine();
+            tennv = sc.nextLine();
         }        
     }
 
     public void xuat() 
     {
-        System.out.printf("%-20s%-25s%-15s%-15s%-10s\n", manv, ho, ten, sdt, diachi);
+        System.out.printf("%-20s%-25s%-15s%-15s%-10s\n", manv, honv, tennv, sdt, diachi);
     }
 
     public String toString() 
     {
-        return manv + "," + ho + "," + ten + "," + sdt + "," + diachi + "\n";
+        return manv + "," + honv + "," + tennv + "," + sdt + "," + diachi + "\n";
     }
 }
