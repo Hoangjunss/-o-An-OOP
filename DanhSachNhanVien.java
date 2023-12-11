@@ -6,20 +6,20 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.Vector;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class DanhSachNhanVien {
-    private ArrayList<NhanVien> dsnv;
+    private Vector<NhanVien> dsnv;
     Scanner sc = new Scanner(System.in);
 
     // khởi tạo giá trị đầu
     public DanhSachNhanVien() {
-        dsnv = new ArrayList<NhanVien>();
+        dsnv = new Vector<NhanVien>();
     }
 
-    public DanhSachNhanVien(ArrayList<NhanVien> dsnv) {
+    public DanhSachNhanVien(Vector<NhanVien> dsnv) {
         this.dsnv = dsnv;
     }
 
@@ -30,7 +30,15 @@ public class DanhSachNhanVien {
 
     // các thao tác với danh sách
     public void xoa(int i) {
-        dsnv.remove(i);
+        System.out.print("Nhap ma nhan vien muon xoa: ");
+        String manv = sc.nextLine();
+        int tk = tim_kiem_theo_ma(manv);
+        if (tk != -1){
+            dsnv.remove(viTri); // Xoá nhân viên tại vị trí đã tìm được
+            System.out.println("Da xoa nhan vien co ma: " + maNV);
+        }
+        else
+            System.out.println("Khong tim thay nhan vien co ma: " + maNV);
     }
 
     public void tim_kiem() {
@@ -231,10 +239,6 @@ public class DanhSachNhanVien {
         } catch (IOException e) {
             System.out.println("Luu du lieu that bai!");
         }
-    }
-
-    public void them_nv(NhanVien nv) {
-        dsnv.add(nv);
     }
     
 
