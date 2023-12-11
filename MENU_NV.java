@@ -22,7 +22,7 @@ public class MENU_NV
         while(true)
         {
             MENU.clearScreen();
-            System.out.println("--------------------------QUAY THUOC--------------------------");
+            System.out.println("--------------------------SAN PHAM--------------------------");
             System.out.println("1: Xem san pham co trong kho       2: Tim san pham  ");
             System.out.println("3: Thoat chuong trinh");
             System.out.println("----------------------------------------------------------");   
