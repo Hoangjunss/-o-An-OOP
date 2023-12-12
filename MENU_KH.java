@@ -3,19 +3,19 @@ import java.util.Scanner;
 import OOP.MENU;
 
 public class MENU_NV {
-    private DanhSachNhanVien dsnv;
+    private DanhSachKhachHang dskh;
     Scanner sc = new Scanner(System.in);
 
     public MENU_NV() {
-        dsnv = new dsnv();
-        dsnv.tai_du_lieu();
+        dskh = new dskh();
+        dskh.tai_du_lieu();
     }
 
-    public MENU_NV(DanhSachNhanVien dsnv) {
-        this.dsnv = dsnv;
+    public MENU_NV(DanhSachNhanVien dskh) {
+        this.dskh = dskh;
     }
 
-    public void menu_nv() {
+    public void menu_kh() {
         while (true) {
             MENU.clearScreen();
             System.out.println("--------------------MENU THAO TAC-------------------");
@@ -27,7 +27,7 @@ public class MENU_NV {
             switch (chon) {
                 case 1:
                     MENU.clearScreen();
-                    dsnv.xuat();
+                    dskh.xuat();
                     System.out.print("\nNhap 'enter' de tiep tuc");
                     sc.nextLine();
                     break;
@@ -38,13 +38,13 @@ public class MENU_NV {
                     xoa();
                     break;
                 case 4:
-                    dsnv.thay_doi_thong_tin();
+                    dskh.thay_doi_thong_tin();
                     break;
                 case 5:
                     nhap();
                     break;
                 default:
-                    dsnv.luu_du_lieu();
+                    dskh.luu_du_lieu();
                     return;
             }
         }

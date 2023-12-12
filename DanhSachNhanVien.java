@@ -1,4 +1,3 @@
-import OOP;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -28,7 +27,7 @@ public class DanhSachNhanVien {
     }
 
     // các thao tác với danh sách
-    public void xoa(int i) {
+    public void xoa() {
         System.out.print("Nhap ma nhan vien muon xoa: ");
         String manv = sc.nextLine();
         int tk = tim_kiem_theo_ma(manv);
