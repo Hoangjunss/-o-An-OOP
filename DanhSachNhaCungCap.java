@@ -122,6 +122,7 @@ public class DanhSachNhaCungCap {
             dsncc[i].nhap();
             GhiFileJava("NhaCungCap.txt");
             thayMaNCC(i);
+            thaySDT(i);
         }
     }
 //XÓA NHÀ CUNG CẤP
@@ -268,13 +269,39 @@ public class DanhSachNhaCungCap {
         return dsncc[i];
     }
 
+    public void timKiem_Ma(){
+        System.out.println("Nhap Ma Nha Cung Cap Can Tim: ");
+        String maSearch = sc.nextLine();
+        int i=0,j=1;
+        boolean flag = false;
+        System.out.println("======================================================================================================================");
+        System.out.format("|| %4s | %10s | %26s| %40s | %20s ||\n", "STT","MA NCC" , "TEN NCC" , "DIA CHI" , "SDT");
+        while(i<n){
+            if(dsncc[i].getMaNCC().indexOf(maSearch) != -1){
+                flag = true;
+                try {
+                    docFileJava("NhaCungCap.txt");
+                    System.out.format("|| %4s ", (j));
+                    j++;
+                    dsncc[i].xuat();
+                }catch(NullPointerException npe) {}
+            }
+            
+            i++;
+        }
+        System.out.println("======================================================================================================================");
+        if(flag == false){
+            System.out.println("Ma Nha Cung Cap Sai Hoac Khong Ton Tai!");
+        }
+    }
+
     public NhaCungCap timKiem_Ten(String ten){
         int i=0;
         while(i<n){
-            if(dsncc[i].getTen().indexOf(ten) != -1){
+            if (dsncc[i].getTen().equalsIgnoreCase(ten)) {
                 break;
             }
-            if (dsncc[i].getTen().equalsIgnoreCase(ten)) {
+            if(dsncc[i].getTen().indexOf(ten) != -1){
                 break;
             }
             i++;
@@ -325,13 +352,7 @@ public class DanhSachNhaCungCap {
 			sc.nextLine();
 			switch(select) {
 				case 1:
-					System.out.print("Nhap ma nha cung cap can tim: ");
-					String maNCCTim = sc.nextLine();
-                    System.out.println("======================================================================================================================");
-                    System.out.format("|| %10s | %26s| %40s | %20s ||\n", "MA NCC" , "TEN NCC" , "DIA CHI" , "SDT");
-                    System.out.print("|");
-					timKiem_Ma(maNCCTim).xuat();
-                    System.out.println("======================================================================================================================");
+                    timKiem_Ma();
                     return;
 				case 2:
 					System.out.print("Nhap vao ten nha cung cap can tim: ");
