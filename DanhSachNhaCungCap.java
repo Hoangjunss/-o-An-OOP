@@ -32,7 +32,7 @@ public class DanhSachNhaCungCap {
             System.out.println("\t\t\t\t\tNHA CUNG CAP THU "+ (i+1));
             dsncc[i] = new NhaCungCap();
             dsncc[i].nhap();
-            GhiFileJava("NhaCungCap.txt");
+            ghiFileJava("NhaCungCap.txt");
             if(i>0){
                 thayMaNCC(i);
             }
@@ -68,7 +68,7 @@ public class DanhSachNhaCungCap {
                 System.out.print("Nhap Lai Ma NCC Cho Nha Cung Cap: ");
                 maDoi = sc.nextLine();
                 dsncc[i].setMaNCC(maDoi);
-                GhiFileJava("NhaCungCap.txt");
+                ghiFileJava("NhaCungCap.txt");
                 maNCC = dsncc[i].getMaNCC();
             }
         }while(kiemTraMaNCC(maNCC, i));
@@ -95,7 +95,7 @@ public class DanhSachNhaCungCap {
                 System.out.print("Nhap Lai SDT Cho Nha Cung Cap: ");
                 sdtDoi = sc.nextLine();
                 dsncc[i].setSdt(sdtDoi);
-                GhiFileJava("NhaCungCap.txt");
+                ghiFileJava("NhaCungCap.txt");
                 sdt = dsncc[i].getSdt();
             }
         }while(!isNumberic(sdt));
@@ -120,7 +120,7 @@ public class DanhSachNhaCungCap {
             System.out.println("\t\t\t\t\tNHA CUNG CAP THU " + (i+1));
             dsncc[i] = new NhaCungCap();
             dsncc[i].nhap();
-            GhiFileJava("NhaCungCap.txt");
+            ghiFileJava("NhaCungCap.txt");
             thayMaNCC(i);
             thaySDT(i);
         }
@@ -138,7 +138,7 @@ public class DanhSachNhaCungCap {
                 dsncc = Arrays.copyOf(dsncc, n-1);
                 daXoa = true;
                 n--;
-                GhiFileJava("NhaCungCap.txt");
+                ghiFileJava("NhaCungCap.txt");
                 break;
             }
         }
@@ -179,7 +179,7 @@ public class DanhSachNhaCungCap {
                             case 1:
                                 // Sua tat ca
                                 nccCanSua.nhap(); // Nhap lai toan bo thong tin
-                                GhiFileJava("NhaCungCap.txt");
+                                ghiFileJava("NhaCungCap.txt");
                                 thayMaNCC(timKiem_Private(nccCanSua));
                                 thaySDT(timKiem_Private(nccCanSua));
                                 break;
@@ -225,24 +225,24 @@ public class DanhSachNhaCungCap {
             case 1:
                 System.out.print("Nhap Ma NCC moi: ");
                 ncc.setMaNCC(sc.next());
-                GhiFileJava("NhaCungCap.txt");
+                ghiFileJava("NhaCungCap.txt");
                 thayMaNCC(timKiem_Private(ncc));
                 break;
 
             case 2:
                 System.out.print("Nhap Ten NCC moi: ");
                 ncc.setTen(sc.next());
-                GhiFileJava("NhaCungCap.txt");
+                ghiFileJava("NhaCungCap.txt");
                 break;
             case 3:
                 System.out.print("Nhap Dia Chi NCC mô: ");
                 ncc.setDiaChi(sc.next());
-                GhiFileJava("NhaCungCap.txt");
+                ghiFileJava("NhaCungCap.txt");
                 break;
             case 4:
                 System.out.print("Nhap SDT NCC moi: ");
                 ncc.setSdt(sc.next());
-                GhiFileJava("NhaCungCap.txt");
+                ghiFileJava("NhaCungCap.txt");
                 thaySDT(timKiem_Private(ncc));
                 break;
             // Thêm các trường và lựa chọn khác tùy theo cấu trúc NhaCungCap
@@ -428,7 +428,7 @@ public class DanhSachNhaCungCap {
     }
 
 //GHI VÀ ĐỌC FILE
-    public void GhiFileJava(String filename) {
+    public void ghiFileJava(String filename) {
 		try {
 			DataOutputStream dos = new DataOutputStream(new FileOutputStream(filename));
 			dos.writeInt(n);
