@@ -32,16 +32,16 @@ public class MENU_NV {
                     sc.nextLine();
                     break;
                 case 2:
-                    them();
+                    dsnv.them();
                     break;
                 case 3:
-                    xoa();
+                    dsnv.xoa();
                     break;
                 case 4:
                     dsnv.thay_doi_thong_tin();
                     break;
                 case 5:
-                    nhap();
+                    dsnv.nhap();
                     break;
                 default:
                     dsnv.luu_du_lieu();

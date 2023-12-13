@@ -11,7 +11,7 @@ public class MENU_NV {
         dskh.tai_du_lieu();
     }
 
-    public MENU_NV(DanhSachNhanVien dskh) {
+    public MENU_NV(DanhSachKhachHang dskh) {
         this.dskh = dskh;
     }
 
@@ -19,8 +19,8 @@ public class MENU_NV {
         while (true) {
             MENU.clearScreen();
             System.out.println("--------------------MENU THAO TAC-------------------");
-            System.out.println("1: Xem tat ca cac nhan vien   2: Them nhan vien");
-            System.out.println("3: Xoa nhan vien              4: Thay doi thong tin");
+            System.out.println("1: Xem tat ca cac khach hang   2: Them khach hang");
+            System.out.println("3: Xoa khach hang              4: Thay doi thong tin");
             System.out.println("5: Tao moi danh sach          6: Thoat chuong trinh");
             System.out.println("----------------------------------------------------");
             int chon = MENU.check_number(1, 6, "lua chon");
@@ -32,16 +32,16 @@ public class MENU_NV {
                     sc.nextLine();
                     break;
                 case 2:
-                    them();
+                    dskh.them();
                     break;
                 case 3:
-                    xoa();
+                    dskh.xoa();
                     break;
                 case 4:
                     dskh.thay_doi_thong_tin();
                     break;
                 case 5:
-                    nhap();
+                    dskh.nhap();
                     break;
                 default:
                     dskh.luu_du_lieu();

@@ -27,7 +27,7 @@ public class DanhSachKhachHang {
     }
 
     // các thao tác với danh sách
-    public void xoa(int i) {
+    public void xoa() {
         System.out.print("Nhap ma khach hang muon xoa: ");
         String makh = sc.nextLine();
         int tk = tim_kiem_theo_ma(makh);
