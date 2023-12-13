@@ -238,5 +238,38 @@ public class DanhSachNhanVien {
         }
     }
     
+    public void menu_nv() {
+        while (true) {
+            System.out.println("--------------------MENU THAO TAC-------------------");
+            System.out.println("1: Xem tat ca cac nhan vien   2: Them nhan vien");
+            System.out.println("3: Xoa nhan vien              4: Thay doi thong tin");
+            System.out.println("5: Tao moi danh sach          6: Thoat chuong trinh");
+            System.out.println("----------------------------------------------------");
+            int chon = sc.nextInt();
+            sc.nextInt();
+            switch (chon) {
+                case 1:
+                    xuat();
+                    System.out.print("\nNhap 'enter' de tiep tuc");
+                    sc.nextLine();
+                    break;
+                case 2:
+                    them();
+                    break;
+                case 3:
+                    xoa();
+                    break;
+                case 4:
+                    thay_doi_thong_tin();
+                    break;
+                case 5:
+                    nhap();
+                    break;
+                default:
+                    luu_du_lieu();
+                    return;
+            }
+        }
+    }
 
 }
