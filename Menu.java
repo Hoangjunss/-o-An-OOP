@@ -17,7 +17,7 @@ public class Menu {
             System.out.println("4./ Quan Ly Khach Hang");
             System.out.println("5./ Quan Ly Nhan Vien");
             System.out.println("6./ Quan Ly Nha Cung Cap");
-            System.out.println("0./ Hoang Thanh");
+            System.out.println("0./ Hoan Thanh");
             System.out.print("LUA CHON CUA BAN: "); key = sc.nextInt();
             switch(key){
                 case 1:
