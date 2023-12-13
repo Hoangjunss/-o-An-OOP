@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Vector;
+
 import java.util.Scanner;
 
 public class DanhSachNhanVien {
@@ -33,7 +34,7 @@ public class DanhSachNhanVien {
         int tk = tim_kiem_theo_ma(manv);
         if (tk != -1){
             dsnv.remove(viTri); // Xoá nhân viên tại vị trí đã tìm được
-            System.out.println("Da xoa nhan vien co ma: " + maNV);
+            System.out.println("Da xoa nhan vien co ma: " + manv);
         }
         else
             System.out.println("Khong tim thay nhan vien co ma: " + maNV);
@@ -47,12 +48,12 @@ public class DanhSachNhanVien {
             return;
         }
         while (true) {
-            MENU.clearScreen();
             System.out.println("-------------------Tim nhan vien-------------------");
             System.out.println("1: Tim theo ma nhan vien    2: Tim theo ten nhan vien");
             System.out.println("3: Thoat chuong trinh");
             System.out.println("---------------------------------------------------");
-            int chon = MENU.check_number(1, 3, "lua chon");
+            int chon = sc.nextInt();
+            sc.nextInt();
             switch (chon) {
                 case 1:
                     System.out.print("Nhap ma nhan vien muon tim: ");
@@ -100,13 +101,13 @@ public class DanhSachNhanVien {
             return;
         }
         while (true) {
-            MENU.clearScreen();
             System.out.println("--------------Thay doi thong tin--------------");
             System.out.println("1: Thay doi ten        2: Thay doi so dien thoai");
             System.out.println("3: Thay doi manv       ");
             System.out.println("4: Thoat chuong trinh");
             System.out.println("----------------------------------------------");
-            int chon = MENU.check_number(1, 4, "lua chon");
+            int chon = sc.nextInt();
+            sc.nextInt();
             if (chon == 4)
                 return;
             xuat();
@@ -144,12 +145,12 @@ public class DanhSachNhanVien {
                     break;
                 case 3:
                     System.out.print("Nhap ma nhan vien: ");
-                    String cmnd = sc.nextLine();
-                    while (!cmnd.matches("^\\d{5}$")) {
+                    String manv = sc.nextLine();
+                    while (!manv.matches("^\\d{5}$")) {
                         System.out.println("Khong dung dinh dang!");
                         System.out.println("Chung minh phai co 5 so");
                         System.out.print("Nhap ma nhan vien: ");
-                        sdt = sc.nextLine();
+                        manv = sc.nextLine();
                     }
                     dsnv.get(vi_tri).setManv(manv);
                     break;
@@ -161,7 +162,6 @@ public class DanhSachNhanVien {
 
     public void them() {
         while (true) {
-            MENU.clearScreen();
             System.out.println("-----------------Them nhan vien-----------------");
             NhanVien nv = new NhanVien();
             nv.nhap();
@@ -176,7 +176,6 @@ public class DanhSachNhanVien {
     public void nhap() {
         dsnv.removeAll(dsnv);
         while (true) {
-            MENU.clearScreen();
             System.out.println("--------------Tao danh sach moi--------------");
             NhanVien nv = new NhanVien();
             nv.nhap();

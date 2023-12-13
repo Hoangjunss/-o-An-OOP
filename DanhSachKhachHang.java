@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Vector;
+
 import java.util.Scanner;
 
 public class DanhSachKhachHang {
@@ -47,12 +48,12 @@ public class DanhSachKhachHang {
             return;
         }
         while (true) {
-            MENU.clearScreen();
             System.out.println("-------------------Tim khach hang-------------------");
             System.out.println("1: Tim theo ma khach hang    2: Tim theo ten khach hang");
             System.out.println("3: Thoat chuong trinh");
             System.out.println("---------------------------------------------------");
-            int chon = MENU.check_number(1, 3, "lua chon");
+            int chon = sc.nextInt();
+            sc.nextInt();
             switch (chon) {
                 case 1:
                     System.out.print("Nhap ma khach hang muon tim: ");
@@ -100,13 +101,13 @@ public class DanhSachKhachHang {
             return;
         }
         while (true) {
-            MENU.clearScreen();
             System.out.println("--------------Thay doi thong tin--------------");
             System.out.println("1: Thay doi ten        2: Thay doi so dien thoai");
             System.out.println("3: Thay doi makh       ");
             System.out.println("4: Thoat chuong trinh");
             System.out.println("----------------------------------------------");
-            int chon = MENU.check_number(1, 4, "lua chon");
+            int chon = sc.nextInt();
+            sc.nextInt();
             if (chon == 4)
                 return;
             xuat();
@@ -144,12 +145,12 @@ public class DanhSachKhachHang {
                     break;
                 case 3:
                     System.out.print("Nhap ma khach hang: ");
-                    String cmnd = sc.nextLine();
-                    while (!cmnd.matches("^\\d{5}$")) {
+                    String makh = sc.nextLine();
+                    while (!makh.matches("^\\d{5}$")) {
                         System.out.println("Khong dung dinh dang!");
                         System.out.println("Chung minh phai co 5 so");
                         System.out.print("Nhap ma khach hang: ");
-                        sdt = sc.nextLine();
+                        makh = sc.nextLine();
                     }
                     dskh.get(vi_tri).setMakh(makh);
                     break;
@@ -161,7 +162,6 @@ public class DanhSachKhachHang {
 
     public void them() {
         while (true) {
-            MENU.clearScreen();
             System.out.println("-----------------Them khach hang-----------------");
             KhachHang kh = new KhachHang();
             kh.nhap();
@@ -176,7 +176,6 @@ public class DanhSachKhachHang {
     public void nhap() {
         dskh.removeAll(dskh);
         while (true) {
-            MENU.clearScreen();
             System.out.println("--------------Tao danh sach moi--------------");
             KhachHang kh = new KhachHang();
             kh.nhap();
