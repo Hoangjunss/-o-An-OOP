@@ -1,4 +1,4 @@
-
+package Class;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.EOFException;
@@ -15,43 +15,40 @@ public class DanhSachHoaDon {
 	
 	//CONSTRUCTOR
 	public DanhSachHoaDon() {
-		
 	}
+    
 	//CÁC HÀM NHẬP XUẤT DANH SÁCH
 	public void NhapDanhSach() {
-		System.out.print("Nhập vào số lượng hoá đơn: ");
+		System.out.print("Nhap vao so luon hoa don: ");
 		n = sc.nextInt();
 		sc.nextLine();
 		hd = new ChiTietHoaDon[n];
 		for(int i = 0; i < n; i++) {
-			System.out.print("\n\t\t\t\t\tHOÁ ĐƠN THỨ " + (i + 1) + "\n");
+			System.out.print("\n\t\t\t\t\tHOA DON THU " + (i + 1) + "\n");
 			hd[i] = new ChiTietHoaDon();
-			hd[i].nhap();
+			hd[i].Nhap();
             GhiFileJava("hoadon.txt");
-            
 		}
 	}
-
 	public void XuatDanhSach(){
-		System.out.println("\t\t\t\t\t\t\t\t=====DANH SÁCH HOÁ ĐƠN=====");
-		System.out.println("\n================================================================================================================================================================================================================");
-	   DocFileJava("hoadon.txt");
-	
+		System.out.println("\t\t\t\t\t\t\t\t=====DANH SACH HOA Đ0N=====");
+        System.out.println("\n==================================================================================================================================");
+        System.out.format("|| %4s | %10s | %20s | %15s | %15s | %8s | %8s | %10s | %10s ||\n", "STT", "Ma Hoa Don"," Ngay Lap Hoa Don", "Ma Khach Hang", "Ma Nhan Vien", "Ma SP", "So Luong"," Don Gia", "Thanh Tien");
+	    DocFileJava("hoadon.txt");
 		for(int i = 0; i < n; i++) {
-				System.out.println( (i + 1));
-				hd[i].xuat();
+				System.out.format("|| %4s ", (i+1));
+				hd[i].Xuat();
 			}
-		
-		System.out.println("================================================================================================================================================================================================================");
-		
+		System.out.println("==================================================================================================================================");
 	}
+
     public void them() {
         n=hd.length;
 		hd = Arrays.copyOf(hd, n+1);
 		hd[n] = new ChiTietHoaDon();
 		System.out.print("\t\t\t\t\tHOÁ ĐƠN THỨ " + (n + 1) + "\n");
 
-		hd[n].nhap();
+		hd[n].Nhap();
         n++;
 		XuatDanhSach();
 	}
@@ -77,135 +74,137 @@ public class DanhSachHoaDon {
 	}
     
     public void sua(String mahd) {
-		
 		for(int i = 0; i < n; i++) {
 			if(hd[i].getmaHD().indexOf(mahd) != -1) {
-			
-					System.out.print("\nSửa thông tin của hoá đơn thứ " + (i + 1) + "\n");
-					System.out.println("\t\t\t\t\t\t\t=====SỬA THÔNG TIN======");
-					System.out.println("\n================================================================================================================================================================================================================");
-					hd[i].xuat();
-					System.out.println("================================================================================================================================================================================================================");					
+					System.out.print("\nSua thong tin hoa don thu " + (i + 1) + "\n");
+					System.out.println("\t\t\t\t\t\t\t=====SUA THONG TIN======");
+					System.out.println("==================================================================================================================================");
+                    System.out.format("|| %4s | %10s | %20s | %15s | %15s | %8s | %8s | %10s | %10s ||\n", "STT", "Ma Hoa Don"," Ngay Lap Hoa Don", "Ma Khach Hang", "Ma Nhan Vien", "Ma SP", "So Luong"," Don Gia", "Thanh Tien");
+                    System.out.format("|| %4s ", i);
+					hd[i].Xuat();
+					System.out.println("==================================================================================================================================");					
 					hd[i] = new ChiTietHoaDon();
-					hd[i].nhap();
-					
+					hd[i].Nhap();
 					return;
-				}
-				
 			}
+				
 		}
+	}
+
+        //TIM KIEM
         public void Search_MaHD(String mahd) {
-            System.out.println("\n================================================================================================================================================================================================================");		
+            System.out.println("==================================================================================================================================");
+            System.out.format("|| %4s | %10s | %20s | %15s | %15s | %8s | %8s | %10s | %10s ||\n", "STT", "Ma Hoa Don"," Ngay Lap Hoa Don", "Ma Khach Hang", "Ma Nhan Vien", "Ma SP", "So Luong"," Don Gia", "Thanh Tien");
             for(int i = 0; i < n; i++) {
                 if(hd[i].getmaHD().indexOf(mahd) != -1) {
                     System.out.println( i + 1);
-                    hd[i].xuat();
-                    
+                    hd[i].Xuat();
                     break;
                 }
             }
-            System.out.println("================================================================================================================================================================================================================");
+            System.out.println("==================================================================================================================================");
         }
         public void Search_MKH(String makh) {
-            System.out.println("\n================================================================================================================================================================================================================");		
+            System.out.println("==================================================================================================================================");
+            System.out.format("|| %4s | %10s | %20s | %15s | %15s | %8s | %8s | %10s | %10s ||\n", "STT", "Ma Hoa Don"," Ngay Lap Hoa Don", "Ma Khach Hang", "Ma Nhan Vien", "Ma SP", "So Luong"," Don Gia", "Thanh Tien");
             for(int i = 0; i < n; i++) {
                 if(hd[i].getmaKH().indexOf(makh) != -1) {
                     System.out.println( i + 1);
-                    hd[i].xuat();
+                    hd[i].Xuat();
                     break;
                 }
             }
-            System.out.println("================================================================================================================================================================================================================");
+            System.out.println("==================================================================================================================================");
         }
         public void Search_Ho(String ho) {
-            System.out.println("\t\t\t\t\t\t\t\t======KẾT QUẢ======");
+            System.out.println("\t\t\t\t\t\t\t\t======KET QUA======");
             System.out.println("\n================================================================================================================================================================================================================");		
             for(int i = 0; i < n; i++) {
                 if(hd[i].getmaNV().indexOf(ho) != -1) {
                     System.out.println( i + 1);
-                    hd[i].xuat();
+                    hd[i].Xuat();
                 }
             }
             System.out.println("================================================================================================================================================================================================================");
         }
         public void Search_MSP(String msp) {
-            System.out.println("\t\t\t\t\t\t\t\t======KẾT QUẢ======");
+            System.out.println("\t\t\t\t\t\t\t\t======KET QUA======");
             System.out.println("\n================================================================================================================================================================================================================");
             for(int i = 0; i < n; i++) {
                 if(hd[i].getMaSP().indexOf(msp) != -1) {
                     System.out.println( i + 1);
-                    hd[i].xuat();
+                    hd[i].Xuat();
                     break;
                 }
             }
             System.out.println("================================================================================================================================================================================================================");
         }
-        
         public void Search() {
             int select = 0;
             while(true) {
-                System.out.println("\t\t\t\t\t======BẢNG LỰA CHỌN======");
-                System.out.println("\t\t\t\t\t1.Ấn phím 1 để tìm kiếm Hoá đơn theo mã");
-                System.out.println("\t\t\t\t\t2.Ấn phím 2 để tìm kiếm tên nhân viên phụ trách");
-                System.out.println("\t\t\t\t\t3.Ấn phím 3 để tìm kiếm mã khách hàng của hoá đơn");
-                System.out.println("\t\t\t\t\t4.Ấn phím 4 để thoát");
-                System.out.println("\nLựa chọn của bạn là: ");
+                System.out.println("\t\t\t\t\t======BANG LUA CHON======");
+                System.out.println("\t\t\t\t\t1.An phim 1 de tim kiem Hoa Don theo ma");
+                System.out.println("\t\t\t\t\t2.An phim 2 de tim kiem ten nhan vien phu trach");
+                System.out.println("\t\t\t\t\t3.An phim 3 de tim kiem ma khac hang cua hoa don");
+                System.out.println("\t\t\t\t\t4.An phim 4 de thoat");
+                System.out.println("\nLua chon cua ban la: ");
                 select = sc.nextInt();
                 sc.nextLine();
                 switch(select) {
                     case 1:
-                        System.out.print("Nhập vào mã hoá đơn cần tìm: ");
+                        System.out.print("Nhap vao ma hoa don can tim: ");
                         String mahd = sc.nextLine();
                         Search_MaHD(mahd);
                         break;
                     case 2:
-                        System.out.print("Nhập họ và tên lót hoặc tên của nhân viên phụ trách mà bạn muốn tìm: ");
+                        System.out.print("Nhap ho va ten lot hoac ten cua nhan vien phu trach ma ban muon tim: ");
                         String ho = sc.nextLine();
                         Search_Ho(ho);
                         break;
                     case 3:
-                        System.out.print("Nhập vào mã khách hàng mà bạn muốn tìm trong hoá đơn: ");
+                        System.out.print("Nhap vao ma khach hang ma ban muon tim trong hoa don: ");
                         String makh = sc.nextLine();
                         Search_MKH(makh);
                         break;
                     case 4: 
                         return;
                     default:
-                        System.err.println("Bạn đã nhập sai lựa chọn của mình. Xin mời vào lại chức năng!!!");
+                        System.err.println("Ban da nhap sai lua chon cua minh. Xin moi vao lai chuc nang!!!");
                         break;
                 }
             }
-            
         }
+
+        //THAO TAC
         public void ThaoTac() {
             int select = 0;
             String mahd = "";
             loop:
                 while(true) {
-                    System.out.println("\t\t\t\t\t======BẢNG LỰA CHỌN======");
-                    System.out.println("\t\t\t\t\t1.Ấn phím 1 để thêm hoá đơn");
-                    System.out.println("\t\t\t\t\t2.Ấn phím 2 để xoá hoá đơn");
-                    System.out.println("\t\t\t\t\t3.Ấn phím 3 để sửa thông tin hoá đơn");
-                    System.out.println("\t\t\t\t\t4.Ấn phím 4 để tìm kiếm hoá đơn");
-                    System.out.println("\t\t\t\t\t5.Ấn phím 5 để xuất danh sách hoá đơn");
-                    System.out.println("\t\t\t\t\t6.Ấn phím 6 để dừng các thao tác");
-                    System.out.print("\nLựa chọn của bạn là: ");
+                    System.out.println("\t\t\t\t\t======BANG LUA CHON======");
+                    System.out.println("\t\t\t\t\t1.An phim 1 de them hoa don");
+                    System.out.println("\t\t\t\t\t2.An phim 2 de xoa hoa don");
+                    System.out.println("\t\t\t\t\t3.An phim 3 de sua thong tin hoa don");
+                    System.out.println("\t\t\t\t\t4.An phim 4 de tim kiem hoa don");
+                    System.out.println("\t\t\t\t\t5.An phim 5 de xuat danh sach hoa don");
+                    System.out.println("\t\t\t\t\t6.An phim 6 de dung cac thao tac");
+                    System.out.print("\nLua chon cua ban la: ");
                     select = sc.nextInt();
                     sc.nextLine();
                     switch(select) {
                         case 1:
-                            System.out.print("Nhập vào số lượng hoá đơn cần thêm: ");
+                            System.out.print("Nhap vao so luong hoa don can them: ");
                             int sl = sc.nextInt();
                             them();
                             break;
                         case 2:
-                            System.out.print("Nhập vào mã hoá đơn cần xoá: ");
+                            System.out.print("Nhap vao ma hoa don can xoa: ");
                             mahd = sc.nextLine();
                             xoa(mahd);
                             XuatDanhSach();
                             break;
                         case 3:
-                            System.out.print("Nhập vào mã hoá đơn cần sửa: ");
+                            System.out.print("Nhap vao ma hoa don can sua: ");
                             mahd = sc.nextLine();
                             sua(mahd);
                             break;
@@ -218,12 +217,14 @@ public class DanhSachHoaDon {
                         case 6:
                             break loop;
                         default:
-                            System.out.println("Bạn đã nhập sai lựa chọn");
+                            System.out.println("Ban da nhap sai lua chon");
                             break;
                     }
                 }
         }
-       public void DocFileJava(String filename) {
+    
+    //DOC GHI FILE
+    public void DocFileJava(String filename) {
 		int i = 0;
 		try {
 			DataInputStream dis = new DataInputStream(new FileInputStream(filename));
