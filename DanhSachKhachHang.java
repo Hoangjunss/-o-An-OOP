@@ -33,7 +33,7 @@ public class DanhSachKhachHang {
         String makh = sc.nextLine();
         int tk = tim_kiem_theo_ma(makh);
         if (tk != -1){
-            dskh.remove(viTri); // Xoá nhân viên tại vị trí đã tìm được
+            dskh.remove(tk); // Xoá nhân viên tại vị trí đã tìm được
             System.out.println("Da xoa khach hang co ma: " + makh);
         }
         else
@@ -67,7 +67,7 @@ public class DanhSachKhachHang {
                 case 2:
                     System.out.print("Nhap ten khach hang muon tim: ");
                     String tenkh = sc.nextLine();
-                    tim_kiem_theo_tenkh(tenkh);
+                    tim_kiem_theo_ten(tenkh);
                     break;
                 case 3:
                     return;
@@ -141,18 +141,18 @@ public class DanhSachKhachHang {
                         System.out.print("Nhap so dien thoai: ");
                         sdt = sc.nextLine();
                     }
-                    dskh.get(vi_tri).setsdt(sdt);
+                    dskh.get(vi_tri).setSdt(sdt);
                     break;
                 case 3:
                     System.out.print("Nhap ma khach hang: ");
-                    String makh = sc.nextLine();
-                    while (!makh.matches("^\\d{5}$")) {
+                    String makhtk = sc.nextLine();
+                    while (!makhtk.matches("^\\d{5}$")) {
                         System.out.println("Khong dung dinh dang!");
                         System.out.println("Chung minh phai co 5 so");
                         System.out.print("Nhap ma khach hang: ");
-                        makh = sc.nextLine();
+                        makhtk = sc.nextLine();
                     }
-                    dskh.get(vi_tri).setMakh(makh);
+                    dskh.get(vi_tri).setMakh(makhtk);
                     break;
             }
             System.out.print("Nhap 'enter' de tiep tuc!");

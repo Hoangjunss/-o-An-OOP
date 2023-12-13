@@ -8,8 +8,9 @@ public class KhachHang {
     private String sdt;
     private String diachi;
 
-    Scanner scanner = new Scanner(System.in);
+    Scanner sc = new Scanner(System.in);
 
+    public KhachHang(){}
     public KhachHang(String makh, String hokh, String tenkh, String sdt, String diachi) {
         this.makh = makh;
         this.hokh = hokh;
@@ -17,33 +18,41 @@ public class KhachHang {
         this.sdt = sdt;
         this.diachi = diachi;
     }
+    public KhachHang(KhachHang kh) {
+        this.makh = kh.makh;
+        this.hokh = kh.hokh;
+        this.tenkh = kh.tenkh;
+        this.sdt = kh.sdt;
+        this.diachi = kh.diachi;
+    }   
 
-    public String getmakh() {
-        return makh;
+
+    public String getMakh() {
+        return this.makh;
     }
 
-    public void setmakh(String makh) {
+    public void setMakh(String makh) {
         this.makh = makh;
     }
 
     public String getHokh() {
-        return hokh;
+        return this.hokh;
     }
 
     public void setHokh(String hokh) {
         this.hokh = hokh;
     }
 
-    public String gettenkh() {
-        return tenkh;
+    public String getTenkh() {
+        return this.tenkh;
     }
 
-    public void settenkh(String tenkh) {
+    public void setTenkh(String tenkh) {
         this.tenkh = tenkh;
     }
 
-    public int getSdt() {
-        return sdt;
+    public String getSdt() {
+        return this.sdt;
     }
 
     public void setSdt(String sdt) {
@@ -51,7 +60,7 @@ public class KhachHang {
     }
 
     public String getDiachi() {
-        return diachi;
+        return this.diachi;
     }
 
     public void setDiachi(String diachi) {
@@ -67,7 +76,7 @@ public class KhachHang {
             System.out.println("Khong dung dinh dang!");
             System.out.println("Ma khach hang phai co 5 so");
             System.out.print("Nhap ma khach hang: ");
-            cmnd = sc.nextLine();
+            makh = sc.nextLine();
         }
 
         System.out.print("Nhap ho khach hang: ");

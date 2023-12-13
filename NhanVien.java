@@ -8,8 +8,9 @@ public class NhanVien {
     private String sdt;
     private String diachi;
 
-    Scanner scanner = new Scanner(System.in);
+    Scanner sc = new Scanner(System.in);
 
+    public NhanVien(){}
     public NhanVien(String manv, String honv, String tennv, String sdt, String diachi) {
         this.manv = manv;
         this.honv = honv;
@@ -17,9 +18,16 @@ public class NhanVien {
         this.sdt = sdt;
         this.diachi = diachi;
     }
+    public NhanVien(NhanVien nv) {
+        this.manv = nv.manv;
+        this.honv = nv.honv;
+        this.tennv = nv.tennv;
+        this.sdt = nv.sdt;
+        this.diachi = nv.diachi;
+    }   
 
     public String getManv() {
-        return manv;
+        return this.manv;
     }
 
     public void setManv(String manv) {
@@ -27,7 +35,7 @@ public class NhanVien {
     }
 
     public String getHonv() {
-        return honv;
+        return this.honv;
     }
 
     public void setHonv(String honv) {
@@ -35,7 +43,7 @@ public class NhanVien {
     }
 
     public String getTennv() {
-        return tennv;
+        return this.tennv;
     }
 
     public void setTennv(String tennv) {
@@ -43,10 +51,10 @@ public class NhanVien {
     }
 
     public String getSdt() {
-        return sdt;
+        return this.sdt;
     }
 
-    public void setSdt(int sdt) {
+    public void setSdt(String sdt) {
         this.sdt = sdt;
     }
 
@@ -67,7 +75,7 @@ public class NhanVien {
             System.out.println("Khong dung dinh dang!");
             System.out.println("Ma nhan vien phai co 5 so");
             System.out.print("Nhap ma nhan vien: ");
-            cmnd = sc.nextLine();
+            manv = sc.nextLine();
         }
 
         System.out.print("Nhap ho nhan vien: ");

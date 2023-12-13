@@ -33,11 +33,11 @@ public class DanhSachNhanVien {
         String manv = sc.nextLine();
         int tk = tim_kiem_theo_ma(manv);
         if (tk != -1){
-            dsnv.remove(viTri); // Xoá nhân viên tại vị trí đã tìm được
+            dsnv.remove(tk); // Xoá nhân viên tại vị trí đã tìm được
             System.out.println("Da xoa nhan vien co ma: " + manv);
         }
         else
-            System.out.println("Khong tim thay nhan vien co ma: " + maNV);
+            System.out.println("Khong tim thay nhan vien co ma: " + manv);
     }
 
     public void tim_kiem() {
@@ -79,7 +79,7 @@ public class DanhSachNhanVien {
 
     public void tim_kiem_theo_ten(String ten) {
         for (int i = 0; i < dsnv.size(); i++) {
-            if (dsnv.get(i).getTen().contains(ten)) {
+            if (dsnv.get(i).getTennv().contains(ten)) {
                 dsnv.get(i).xuat();
             }
         }
@@ -123,14 +123,14 @@ public class DanhSachNhanVien {
             switch (chon) {
                 case 1:
                     System.out.print("Nhap ten nhan vien: ");
-                    String ten = sc.nextLine();
-                    while (!ten.matches("^[a-zA-Z ]{" + ten.length() + "}$")) {
+                    String tennv = sc.nextLine();
+                    while (!tennv.matches("^[a-zA-Z ]{" + tennv.length() + "}$")) {
                         System.out.println("Khong dung dinh dang!");
                         System.out.println("Ten khong chua so va cac ky tu dac biet");
                         System.out.print("Nhap ten nhan vien: ");
-                        ten = sc.nextLine();
+                        tennv = sc.nextLine();
                     }
-                    dsnv.get(vi_tri).setTen(ten);
+                    dsnv.get(vi_tri).setTennv(tennv);
                     break;
                 case 2:
                     System.out.print("Nhap so dien thoai: ");
@@ -141,18 +141,18 @@ public class DanhSachNhanVien {
                         System.out.print("Nhap so dien thoai: ");
                         sdt = sc.nextLine();
                     }
-                    dsnv.get(vi_tri).setsdt(sdt);
+                    dsnv.get(vi_tri).setSdt(sdt);
                     break;
                 case 3:
                     System.out.print("Nhap ma nhan vien: ");
-                    String manv = sc.nextLine();
+                    String manvtk = sc.nextLine();
                     while (!manv.matches("^\\d{5}$")) {
                         System.out.println("Khong dung dinh dang!");
                         System.out.println("Chung minh phai co 5 so");
                         System.out.print("Nhap ma nhan vien: ");
-                        manv = sc.nextLine();
+                        manvtk = sc.nextLine();
                     }
-                    dsnv.get(vi_tri).setManv(manv);
+                    dsnv.get(vi_tri).setManv(manvtk);
                     break;
             }
             System.out.print("Nhap 'enter' de tiep tuc!");
