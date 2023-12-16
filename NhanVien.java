@@ -26,6 +26,7 @@ public class NhanVien {
         this.diachi = nv.diachi;
     }   
 
+
     public String getManv() {
         return this.manv;
     }

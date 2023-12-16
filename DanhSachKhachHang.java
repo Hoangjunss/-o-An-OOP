@@ -270,7 +270,6 @@ public class DanhSachKhachHang {
             BufferedWriter bw = new BufferedWriter(f);
             for (KhachHang kh : dskh) {
                 bw.write(kh.toString());
-                bw.newLine(); // Thêm dòng mới sau mỗi nhân viên
             }
             System.out.println("Luu du lieu thanh cong!");
             bw.close();
@@ -298,23 +297,18 @@ public class DanhSachKhachHang {
                     sc.nextLine();
                     break;
                 case 2:
-                    tai_du_lieu();
                     them();
                     break;
                 case 3:
-                    tai_du_lieu();
                     xoa();
                     break;
                 case 4:
-                    tai_du_lieu();
                     thay_doi_thong_tin();
                     break;
                 case 5:
-                    tai_du_lieu();
                     nhap();
                     break;
                 case 6:
-                    tai_du_lieu();
                     tim_kiem();
                     break;
                 default:

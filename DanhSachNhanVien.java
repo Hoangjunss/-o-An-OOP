@@ -184,7 +184,6 @@ public class DanhSachNhanVien {
     }
 
     public void them() {
-        tai_du_lieu();
         int index = 0;
         while (true) {
             System.out.println("-----------------Them nhan vien-----------------");
@@ -279,7 +278,6 @@ public class DanhSachNhanVien {
             BufferedWriter bw = new BufferedWriter(f);
             for (NhanVien nv : dsnv) {
                 bw.write(nv.toString());
-                bw.newLine(); // Thêm dòng mới sau mỗi nhân viên
             }
             System.out.println("Luu du lieu thanh cong!");
             bw.close();
