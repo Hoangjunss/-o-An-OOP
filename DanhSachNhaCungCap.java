@@ -308,7 +308,7 @@ public class DanhSachNhaCungCap {
         }
         if(i>=n){
             System.out.println("Ten Nha Cung Cap Sai Hoac Khong Ton Tai!");
-                return null;
+            return null;
         }
         return dsncc[i];
     }
@@ -316,14 +316,16 @@ public class DanhSachNhaCungCap {
     public NhaCungCap timKiem_Sdt(String sdt){
         int i=0;
         while(i<n){
-            if(dsncc[i].getSdt().equals(sdt)){
+           if (dsncc[i].getSdt().equalsIgnoreCase(sdt)) {
+                break;
+            }
+            if(dsncc[i].getSdt().indexOf(sdt) != -1){
                 break;
             }
             i++;
         }
         if(i>=n){
-            System.out.println("Sdt Nha Cung Cap Sai Hoac Khong Ton Tai!");
-                return null;
+            return null;
         }
         return dsncc[i];
     }
@@ -360,8 +362,13 @@ public class DanhSachNhaCungCap {
                     System.out.println("======================================================================================================================");
                     System.out.format("|| %10s | %26s| %40s | %20s ||\n", "MA NCC" , "TEN NCC" , "DIA CHI" , "SDT");
                     System.out.print("|");
-					timKiem_Ten(tenNCCTim).xuat();
-                    System.out.println("======================================================================================================================");
+					if(timKiem_Ten(tenNCCTim) != null){
+                        timKiem_Ten(tenNCCTim).xuat();
+                    }else{
+                        System.out.format("| %10s | %26s| %40s | %20s ||\n", "","","","");
+                    }
+                        System.out.println("Ten Nha Cung Cap Sai Hoac Khong Ton Tai!");
+                        System.out.println("======================================================================================================================");
 					return;
 				case 3:
 					System.out.print("So dien thoai nha cung cap can tim: ");
@@ -369,7 +376,12 @@ public class DanhSachNhaCungCap {
                     System.out.println("======================================================================================================================");
                     System.out.format("|| %10s | %26s| %40s | %20s ||\n", "MA NCC" , "TEN NCC" , "DIA CHI" , "SDT");
                     System.out.print("|");
-					timKiem_Sdt(sdtNCCTIm).xuat();
+					if(timKiem_Sdt(sdtNCCTIm) != null){
+                        timKiem_Sdt(sdtNCCTIm).xuat();
+                    }else{
+                        System.out.println("Sdt Nha Cung Cap Sai Hoac Khong Ton Tai!");
+                        System.out.format("| %10s | %26s| %40s | %20s ||\n", "","","","");
+                    }
                     System.out.println("======================================================================================================================");
 					return;
 				case 4: 

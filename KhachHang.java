@@ -71,10 +71,10 @@ public class KhachHang {
     {
         System.out.print("Nhap ma khach hang: ");
         makh = sc.nextLine();
-        while(!makh.matches("^\\d{5}$"))
+        while(!makh.matches("^[a-zA-Z]{2}\\d{3}$"))
         {
             System.out.println("Khong dung dinh dang!");
-            System.out.println("Ma khach hang phai co 5 so");
+            System.out.println("Ma khach hang phai co 5 so(2 chu, 3 so)");
             System.out.print("Nhap ma khach hang: ");
             makh = sc.nextLine();
         }
@@ -104,13 +104,13 @@ public class KhachHang {
         {
             System.out.println("Khong dung dinh dang!");
             System.out.println("So dien thoai co 10 so va bat dau bang 0");
-            System.out.print("Nhap so dien thoai: s");
+            System.out.print("Nhap so dien thoai: ");
             sdt = sc.nextLine();
         }
 
         System.out.print("Nhap dia chi: ");
         diachi = sc.nextLine();
-        while(!diachi.matches("^[a-zA-Z ]{"+ diachi.length() +"}$"))
+        while(!diachi.matches("^[a-zA-Z0-9 ]{"+ diachi.length() +"}$"))
         {
             System.out.println("Khong dung dinh dang!");
             System.out.println("Dia chi khong chua so va cac ky tu dac biet");

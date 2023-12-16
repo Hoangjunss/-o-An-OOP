@@ -5,26 +5,36 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Vector;
-
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class DanhSachKhachHang {
-    private Vector<KhachHang> dskh;
+    private int N;
     Scanner sc = new Scanner(System.in);
-
-    // khởi tạo giá trị đầu
+    private KhachHang[] dskh; // Khai báo một mảng của các đối tượng KhachHang
+    
+    // Khởi tạo với kích thước mặc định N
     public DanhSachKhachHang() {
-        dskh = new Vector<KhachHang>();
+        dskh = new KhachHang[N];
     }
-
-    public DanhSachKhachHang(Vector<KhachHang> dskh) {
+    
+    // Khởi tạo với một mảng được cung cấp
+    public DanhSachKhachHang(KhachHang[] dskh) {
         this.dskh = dskh;
+        this.N = dskh.length; // Đặt N bằng độ dài của mảng được cung cấp
     }
-
-        public String toString() {
-        // xuất toàn bộ phòng
-        return dskh + "\n";
+    
+    public String toString() {
+        // In toàn bộ mảng của các đối tượng KhachHang
+        StringBuilder result = new StringBuilder();
+        for (KhachHang kh : dskh) {
+            if (kh != null) {
+                result.append(kh).append("\n");
+            }
+        }
+        return result.toString();
     }
 
     // các thao tác với danh sách
@@ -32,16 +42,19 @@ public class DanhSachKhachHang {
         System.out.print("Nhap ma khach hang muon xoa: ");
         String makh = sc.nextLine();
         int tk = tim_kiem_theo_ma(makh);
-        if (tk != -1){
-            dskh.remove(tk); // Xoá nhân viên tại vị trí đã tìm được
+        if (tk != -1) {
+            for (int i = tk; i < dskh.length - 1; i++) {
+                dskh[i] = dskh[i + 1];
+            }
+            dskh = Arrays.copyOf(dskh, dskh.length - 1);
             System.out.println("Da xoa khach hang co ma: " + makh);
-        }
-        else
+        } else {
             System.out.println("Khong tim thay khach hang co ma: " + makh);
+        }
     }
 
     public void tim_kiem() {
-        if (dskh.size() == 0) {
+        if (dskh.length == 0) {
             System.out.println("Danh sach trong!");
             System.out.print("Nhap 'Enter' de tiep tuc!");
             sc.nextLine();
@@ -60,14 +73,14 @@ public class DanhSachKhachHang {
                     String makh = sc.nextLine();
                     int tk = tim_kiem_theo_ma(makh);
                     if (tk != -1)
-                        dskh.get(tk).xuat();
+                        dskh[tk].xuat();
                     else
                         System.out.println("Khong tim thay duoc khach hang!");
                     break;
                 case 2:
                     System.out.print("Nhap ten khach hang muon tim: ");
-                    String tenkh = sc.nextLine();
-                    tim_kiem_theo_ten(tenkh);
+                    String ten = sc.nextLine();
+                    tim_kiem_theo_ten(ten);
                     break;
                 case 3:
                     return;
@@ -77,24 +90,24 @@ public class DanhSachKhachHang {
         }
     }
 
-    public void tim_kiem_theo_ten(String tenkh) {
-        for (int i = 0; i < dskh.size(); i++) {
-            if (dskh.get(i).getTenkh().contains(tenkh)) {
-                dskh.get(i).xuat();
+    public void tim_kiem_theo_ten(String ten) {
+        for (int i = 0; i < dskh.length; i++) {
+            if (dskh[i].getTenkh().contains(ten)) {
+                dskh[i].xuat();
             }
         }
     }
 
     public int tim_kiem_theo_ma(String makh) {
-        for (int i = 0; i < dskh.size(); i++) {
-            if (dskh.get(i).getMakh().equals(makh))
+        for (int i = 0; i < dskh.length; i++) {
+            if (dskh[i].getMakh().equals(makh))
                 return i;
         }
         return -1;
     }
 
     public void thay_doi_thong_tin() {
-        if (dskh.size() == 0) {
+        if (dskh.length == 0) {
             System.out.println("Danh sach trong!");
             System.out.print("Nhap 'Enter' de tiep tuc!");
             sc.nextLine();
@@ -103,34 +116,38 @@ public class DanhSachKhachHang {
         while (true) {
             System.out.println("--------------Thay doi thong tin--------------");
             System.out.println("1: Thay doi ten        2: Thay doi so dien thoai");
-            System.out.println("3: Thay doi makh       ");
+            System.out.println("3: Thay doi ma khach hang");
             System.out.println("4: Thoat chuong trinh");
             System.out.println("----------------------------------------------");
             int chon = sc.nextInt();
-            sc.nextInt();
+            sc.nextLine(); // Consume newline after nextInt() to prevent issues with nextLine()
+    
             if (chon == 4)
                 return;
+    
             xuat();
             System.out.print("Nhap ma khach hang: ");
             String makh = sc.nextLine();
             int vi_tri = tim_kiem_theo_ma(makh);
+    
             while (vi_tri == -1) {
                 System.out.println("Khong tim thay khach hang!");
                 System.out.print("Nhap ma khach hang: ");
                 makh = sc.nextLine();
                 vi_tri = tim_kiem_theo_ma(makh);
             }
+    
             switch (chon) {
                 case 1:
                     System.out.print("Nhap ten khach hang: ");
                     String tenkh = sc.nextLine();
-                    while (!tenkh.matches("^[a-zA-Z ]{" + tenkh.length() + "}$")) {
+                    while (!tenkh.matches("^[a-zA-Z ]+$")) {
                         System.out.println("Khong dung dinh dang!");
                         System.out.println("Ten khong chua so va cac ky tu dac biet");
                         System.out.print("Nhap ten khach hang: ");
                         tenkh = sc.nextLine();
                     }
-                    dskh.get(vi_tri).setTenkh(tenkh);
+                    dskh[vi_tri].setTenkh(tenkh);
                     break;
                 case 2:
                     System.out.print("Nhap so dien thoai: ");
@@ -141,18 +158,18 @@ public class DanhSachKhachHang {
                         System.out.print("Nhap so dien thoai: ");
                         sdt = sc.nextLine();
                     }
-                    dskh.get(vi_tri).setSdt(sdt);
+                    dskh[vi_tri].setSdt(sdt);
                     break;
                 case 3:
-                    System.out.print("Nhap ma khach hang: ");
+                    System.out.print("Nhap ma khach hang moi: ");
                     String makhtk = sc.nextLine();
-                    while (!makhtk.matches("^\\d{5}$")) {
+                    while (!makhtk.matches("^[a-zA-Z]{2}\\d{3}$")) {
                         System.out.println("Khong dung dinh dang!");
-                        System.out.println("Chung minh phai co 5 so");
-                        System.out.print("Nhap ma khach hang: ");
+                        System.out.println("Ma khach hang phai co 5 ky tu (2 chu, 3 so)");
+                        System.out.print("Nhap ma khach hang moi: ");
                         makhtk = sc.nextLine();
                     }
-                    dskh.get(vi_tri).setMakh(makhtk);
+                    dskh[vi_tri].setMakh(makhtk);
                     break;
             }
             System.out.print("Nhap 'enter' de tiep tuc!");
@@ -161,58 +178,82 @@ public class DanhSachKhachHang {
     }
 
     public void them() {
+        int index = 0;
         while (true) {
             System.out.println("-----------------Them khach hang-----------------");
             KhachHang kh = new KhachHang();
             kh.nhap();
-            dskh.add(kh);
+            
+            // Tạo mảng mới có độ dài lớn hơn mảng hiện tại 1 đơn vị
+            KhachHang[] newDskh = Arrays.copyOf(dskh, dskh.length + 1);
+            newDskh[index++] = kh; // Thêm nhân viên mới vào cuối mảng
+            dskh = newDskh; // Gán mảng mới vào mảng ban đầu
+    
             System.out.println("Da them thanh cong!");
             System.out.print("Nhap 'enter' de tiep tuc hoac 'e' de dung lai: ");
-            if (sc.nextLine().equalsIgnoreCase("e"))
-                return;
+            String chon = sc.next();
+            if (chon.equalsIgnoreCase("e"))
+                luu_du_lieu();
+                break;
         }
     }
 
     public void nhap() {
-        dskh.removeAll(dskh);
+        dskh = new KhachHang[0]; // Khởi tạo mảng rỗng
+    
+        int index = 0;
         while (true) {
             System.out.println("--------------Tao danh sach moi--------------");
             KhachHang kh = new KhachHang();
             kh.nhap();
-            dskh.add(kh);
+    
+            KhachHang[] newDskh = Arrays.copyOf(dskh, dskh.length + 1); // Tạo mảng mới lớn hơn 1 đơn vị
+            newDskh[index++] = kh; // Thêm nhân viên vào cuối mảng mới
+            dskh = newDskh; // Gán mảng mới vào mảng ban đầu
+    
             System.out.println("Da tao thanh cong!");
             System.out.print("Nhap 'enter' de tiep tuc hoac 'e' de dung lai: ");
-            if (sc.nextLine().equalsIgnoreCase("e"))
-                return;
+            String chon = sc.next();
+            if (chon.equalsIgnoreCase("e")){
+                luu_du_lieu();
+                break;
+            }
         }
     }
+    
 
     public void xuat() {
-        if (dskh.size() == 0) {
+        if (dskh.length == 0) {
             System.out.println("Danh sach trong!");
             System.out.print("Nhap 'Enter' de tiep tuc!");
             sc.nextLine();
             return;
         }
         System.out.println("-------------------------------DANH SACH khach hang-------------------------------");
-        System.out.printf("%-20s%-25s%-15s%-15s%-10s\n", "Ma khach hang", "Ho khach hang", "Ten khach hang", "Dien thoai",
-                "Dia chi");
-        for (int i = 0; i < dskh.size(); i++) {
-            dskh.get(i).xuat();
+        System.out.printf("%-20s%-25s%-15s%-15s%-10s\n", "Ma khach hang", "Ho khach hang", "Ten khach hang", "Dien thoai", "Dia chi");
+        for (KhachHang kh : dskh) {
+            kh.xuat();
         }
     }
+    
 
     // các phương thức tải và lưu dữ liệu
     public void tai_du_lieu() {
         try {
-            FileReader f = new FileReader("D:\\data\\data_KhachHang.txt");
+            FileReader f = new FileReader("data_KhachHang.txt");
             BufferedReader br = new BufferedReader(f);
             String s;
+            List<KhachHang> tempKhachHangList = new ArrayList<>(); // Tạo một danh sách tạm thời
+
             while ((s = br.readLine()) != null) {
                 String data[] = s.split(",");
                 KhachHang kh = new KhachHang(data[0], data[1], data[2], data[3], data[4]);
-                dskh.add(kh);
+                tempKhachHangList.add(kh); // Thêm nhân viên vào danh sách tạm thời
             }
+
+            // Chuyển danh sách tạm thời sang mảng
+            dskh = tempKhachHangList.toArray(new KhachHang[0]);
+
             System.out.println("Tai du lieu thanh cong!");
             br.close();
             f.close();
@@ -225,10 +266,10 @@ public class DanhSachKhachHang {
 
     public void luu_du_lieu() {
         try {
-            FileWriter f = new FileWriter("D:\\data\\data_KhachHang.txt");
+            FileWriter f = new FileWriter("data_KhachHang.txt",true);
             BufferedWriter bw = new BufferedWriter(f);
-            for (int i = 0; i < dskh.size(); i++) {
-                bw.write(dskh.get(i).toString());
+            for (KhachHang kh : dskh) {
+                bw.write(kh.toString());
             }
             System.out.println("Luu du lieu thanh cong!");
             bw.close();
@@ -238,17 +279,19 @@ public class DanhSachKhachHang {
         }
     }
     
+    
     public void menu_kh() {
         while (true) {
             System.out.println("--------------------MENU THAO TAC-------------------");
             System.out.println("1: Xem tat ca cac khach hang   2: Them khach hang");
             System.out.println("3: Xoa khach hang              4: Thay doi thong tin");
-            System.out.println("5: Tao moi danh sach          6: Thoat chuong trinh");
+            System.out.println("5: Tao moi danh sach          6: Tim kiem khach hang");
+            System.out.println("7:Thoat chuong trinh");
             System.out.println("----------------------------------------------------");
             int chon = sc.nextInt();
-            sc.nextInt();
             switch (chon) {
                 case 1:
+                    tai_du_lieu();
                     xuat();
                     System.out.print("\nNhap 'enter' de tiep tuc");
                     sc.nextLine();
@@ -265,10 +308,14 @@ public class DanhSachKhachHang {
                 case 5:
                     nhap();
                     break;
+                case 6:
+                    tim_kiem();
+                    break;
                 default:
                     luu_du_lieu();
                     return;
             }
         }
     }
+
 }
