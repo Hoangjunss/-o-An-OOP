@@ -5,26 +5,36 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Vector;
-
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class DanhSachNhanVien {
-    private Vector<NhanVien> dsnv;
+    private int N;
     Scanner sc = new Scanner(System.in);
-
-    // khởi tạo giá trị đầu
+    private NhanVien[] dsnv; // Khai báo một mảng của các đối tượng NhanVien
+    
+    // Khởi tạo với kích thước mặc định N
     public DanhSachNhanVien() {
-        dsnv = new Vector<NhanVien>();
+        dsnv = new NhanVien[N];
     }
-
-    public DanhSachNhanVien(Vector<NhanVien> dsnv) {
+    
+    // Khởi tạo với một mảng được cung cấp
+    public DanhSachNhanVien(NhanVien[] dsnv) {
         this.dsnv = dsnv;
+        this.N = dsnv.length; // Đặt N bằng độ dài của mảng được cung cấp
     }
-
-        public String toString() {
-        // xuất toàn bộ phòng
-        return dsnv + "\n";
+    
+    public String toString() {
+        // In toàn bộ mảng của các đối tượng NhanVien
+        StringBuilder result = new StringBuilder();
+        for (NhanVien nv : dsnv) {
+            if (nv != null) {
+                result.append(nv).append("\n");
+            }
+        }
+        return result.toString();
     }
 
     // các thao tác với danh sách
@@ -32,16 +42,19 @@ public class DanhSachNhanVien {
         System.out.print("Nhap ma nhan vien muon xoa: ");
         String manv = sc.nextLine();
         int tk = tim_kiem_theo_ma(manv);
-        if (tk != -1){
-            dsnv.remove(tk); // Xoá nhân viên tại vị trí đã tìm được
+        if (tk != -1) {
+            for (int i = tk; i < dsnv.length - 1; i++) {
+                dsnv[i] = dsnv[i + 1];
+            }
+            dsnv = Arrays.copyOf(dsnv, dsnv.length - 1);
             System.out.println("Da xoa nhan vien co ma: " + manv);
-        }
-        else
+        } else {
             System.out.println("Khong tim thay nhan vien co ma: " + manv);
+        }
     }
 
     public void tim_kiem() {
-        if (dsnv.size() == 0) {
+        if (dsnv.length == 0) {
             System.out.println("Danh sach trong!");
             System.out.print("Nhap 'Enter' de tiep tuc!");
             sc.nextLine();
@@ -60,7 +73,7 @@ public class DanhSachNhanVien {
                     String manv = sc.nextLine();
                     int tk = tim_kiem_theo_ma(manv);
                     if (tk != -1)
-                        dsnv.get(tk).xuat();
+                        dsnv[tk].xuat();
                     else
                         System.out.println("Khong tim thay duoc nhan vien!");
                     break;
@@ -78,23 +91,23 @@ public class DanhSachNhanVien {
     }
 
     public void tim_kiem_theo_ten(String ten) {
-        for (int i = 0; i < dsnv.size(); i++) {
-            if (dsnv.get(i).getTennv().contains(ten)) {
-                dsnv.get(i).xuat();
+        for (int i = 0; i < dsnv.length; i++) {
+            if (dsnv[i].getTennv().contains(ten)) {
+                dsnv[i].xuat();
             }
         }
     }
 
     public int tim_kiem_theo_ma(String manv) {
-        for (int i = 0; i < dsnv.size(); i++) {
-            if (dsnv.get(i).getManv().equals(manv))
+        for (int i = 0; i < dsnv.length; i++) {
+            if (dsnv[i].getManv().equals(manv))
                 return i;
         }
         return -1;
     }
 
     public void thay_doi_thong_tin() {
-        if (dsnv.size() == 0) {
+        if (dsnv.length == 0) {
             System.out.println("Danh sach trong!");
             System.out.print("Nhap 'Enter' de tiep tuc!");
             sc.nextLine();
@@ -103,34 +116,38 @@ public class DanhSachNhanVien {
         while (true) {
             System.out.println("--------------Thay doi thong tin--------------");
             System.out.println("1: Thay doi ten        2: Thay doi so dien thoai");
-            System.out.println("3: Thay doi manv       ");
+            System.out.println("3: Thay doi ma nhan vien");
             System.out.println("4: Thoat chuong trinh");
             System.out.println("----------------------------------------------");
             int chon = sc.nextInt();
-            sc.nextInt();
+            sc.nextLine(); // Consume newline after nextInt() to prevent issues with nextLine()
+    
             if (chon == 4)
                 return;
+    
             xuat();
             System.out.print("Nhap ma nhan vien: ");
             String manv = sc.nextLine();
             int vi_tri = tim_kiem_theo_ma(manv);
+    
             while (vi_tri == -1) {
                 System.out.println("Khong tim thay nhan vien!");
                 System.out.print("Nhap ma nhan vien: ");
                 manv = sc.nextLine();
                 vi_tri = tim_kiem_theo_ma(manv);
             }
+    
             switch (chon) {
                 case 1:
                     System.out.print("Nhap ten nhan vien: ");
                     String tennv = sc.nextLine();
-                    while (!tennv.matches("^[a-zA-Z ]{" + tennv.length() + "}$")) {
+                    while (!tennv.matches("^[a-zA-Z ]+$")) {
                         System.out.println("Khong dung dinh dang!");
                         System.out.println("Ten khong chua so va cac ky tu dac biet");
                         System.out.print("Nhap ten nhan vien: ");
                         tennv = sc.nextLine();
                     }
-                    dsnv.get(vi_tri).setTennv(tennv);
+                    dsnv[vi_tri].setTennv(tennv);
                     break;
                 case 2:
                     System.out.print("Nhap so dien thoai: ");
@@ -141,18 +158,18 @@ public class DanhSachNhanVien {
                         System.out.print("Nhap so dien thoai: ");
                         sdt = sc.nextLine();
                     }
-                    dsnv.get(vi_tri).setSdt(sdt);
+                    dsnv[vi_tri].setSdt(sdt);
                     break;
                 case 3:
-                    System.out.print("Nhap ma nhan vien: ");
+                    System.out.print("Nhap ma nhan vien moi: ");
                     String manvtk = sc.nextLine();
-                    while (!manv.matches("^\\d{5}$")) {
+                    while (!manvtk.matches("^[a-zA-Z]{2}\\d{3}$")) {
                         System.out.println("Khong dung dinh dang!");
-                        System.out.println("Chung minh phai co 5 so");
-                        System.out.print("Nhap ma nhan vien: ");
+                        System.out.println("Ma nhan vien phai co 5 ky tu (2 chu, 3 so)");
+                        System.out.print("Nhap ma nhan vien moi: ");
                         manvtk = sc.nextLine();
                     }
-                    dsnv.get(vi_tri).setManv(manvtk);
+                    dsnv[vi_tri].setManv(manvtk);
                     break;
             }
             System.out.print("Nhap 'enter' de tiep tuc!");
@@ -161,58 +178,81 @@ public class DanhSachNhanVien {
     }
 
     public void them() {
+        int index = 0;
         while (true) {
             System.out.println("-----------------Them nhan vien-----------------");
             NhanVien nv = new NhanVien();
             nv.nhap();
-            dsnv.add(nv);
+            
+            // Tạo mảng mới có độ dài lớn hơn mảng hiện tại 1 đơn vị
+            NhanVien[] newDsnv = Arrays.copyOf(dsnv, dsnv.length + 1);
+            newDsnv[index++] = nv; // Thêm nhân viên mới vào cuối mảng
+            dsnv = newDsnv; // Gán mảng mới vào mảng ban đầu
+    
             System.out.println("Da them thanh cong!");
             System.out.print("Nhap 'enter' de tiep tuc hoac 'e' de dung lai: ");
-            if (sc.nextLine().equalsIgnoreCase("e"))
-                return;
+            String chon = sc.nextLine();
+            sc.nextLine();
+            if (chon.equalsIgnoreCase("e"))
+                break;
         }
     }
 
     public void nhap() {
-        dsnv.removeAll(dsnv);
+        dsnv = new NhanVien[0]; // Khởi tạo mảng rỗng
+    
+        int index = 0;
         while (true) {
             System.out.println("--------------Tao danh sach moi--------------");
             NhanVien nv = new NhanVien();
             nv.nhap();
-            dsnv.add(nv);
+    
+            NhanVien[] newDsnv = Arrays.copyOf(dsnv, dsnv.length + 1); // Tạo mảng mới lớn hơn 1 đơn vị
+            newDsnv[index++] = nv; // Thêm nhân viên vào cuối mảng mới
+            dsnv = newDsnv; // Gán mảng mới vào mảng ban đầu
+    
             System.out.println("Da tao thanh cong!");
             System.out.print("Nhap 'enter' de tiep tuc hoac 'e' de dung lai: ");
-            if (sc.nextLine().equalsIgnoreCase("e"))
-                return;
+            String chon = sc.nextLine();
+            sc.nextLine();
+            if (chon.equalsIgnoreCase("e"))
+                break;
         }
     }
+    
 
     public void xuat() {
-        if (dsnv.size() == 0) {
+        if (dsnv.length == 0) {
             System.out.println("Danh sach trong!");
             System.out.print("Nhap 'Enter' de tiep tuc!");
             sc.nextLine();
             return;
         }
         System.out.println("-------------------------------DANH SACH NHAN VIEN-------------------------------");
-        System.out.printf("%-20s%-25s%-15s%-15s%-10s\n", "Ma nhan vien", "Ho nhan vien", "Ten nhan vien", "Dien thoai",
-                "Dia chi");
-        for (int i = 0; i < dsnv.size(); i++) {
-            dsnv.get(i).xuat();
+        System.out.printf("%-20s%-25s%-15s%-15s%-10s\n", "Ma nhan vien", "Ho nhan vien", "Ten nhan vien", "Dien thoai", "Dia chi");
+        for (NhanVien nv : dsnv) {
+            nv.xuat();
         }
     }
+    
 
     // các phương thức tải và lưu dữ liệu
     public void tai_du_lieu() {
         try {
-            FileReader f = new FileReader("D:\\data\\data_NhanVien.txt");
+            FileReader f = new FileReader("data_NhanVien.txt");
             BufferedReader br = new BufferedReader(f);
             String s;
+            List<NhanVien> tempNhanVienList = new ArrayList<>(); // Tạo một danh sách tạm thời
+
             while ((s = br.readLine()) != null) {
                 String data[] = s.split(",");
                 NhanVien nv = new NhanVien(data[0], data[1], data[2], data[3], data[4]);
-                dsnv.add(nv);
+                tempNhanVienList.add(nv); // Thêm nhân viên vào danh sách tạm thời
             }
+
+            // Chuyển danh sách tạm thời sang mảng
+            dsnv = tempNhanVienList.toArray(new NhanVien[0]);
+
             System.out.println("Tai du lieu thanh cong!");
             br.close();
             f.close();
@@ -225,10 +265,11 @@ public class DanhSachNhanVien {
 
     public void luu_du_lieu() {
         try {
-            FileWriter f = new FileWriter("D:\\data\\data_NhanVien.txt");
+            FileWriter f = new FileWriter("data_NhanVien.txt");
             BufferedWriter bw = new BufferedWriter(f);
-            for (int i = 0; i < dsnv.size(); i++) {
-                bw.write(dsnv.get(i).toString());
+            for (NhanVien nv : dsnv) {
+                bw.write(nv.toString());
+                bw.newLine(); // Thêm dòng mới sau mỗi nhân viên
             }
             System.out.println("Luu du lieu thanh cong!");
             bw.close();
@@ -238,6 +279,7 @@ public class DanhSachNhanVien {
         }
     }
     
+    
     public void menu_nv() {
         while (true) {
             System.out.println("--------------------MENU THAO TAC-------------------");
@@ -246,7 +288,6 @@ public class DanhSachNhanVien {
             System.out.println("5: Tao moi danh sach          6: Thoat chuong trinh");
             System.out.println("----------------------------------------------------");
             int chon = sc.nextInt();
-            sc.nextInt();
             switch (chon) {
                 case 1:
                     xuat();

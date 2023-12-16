@@ -71,10 +71,10 @@ public class KhachHang {
     {
         System.out.print("Nhap ma khach hang: ");
         makh = sc.nextLine();
-        while(!makh.matches("^\\d{5}$"))
+        while(!makh.matches("^[a-zA-Z]{2}\\d{3}$"))
         {
             System.out.println("Khong dung dinh dang!");
-            System.out.println("Ma khach hang phai co 5 so");
+            System.out.println("Ma khach hang phai co 5 so(2 chu, 3 so)");
             System.out.print("Nhap ma khach hang: ");
             makh = sc.nextLine();
         }

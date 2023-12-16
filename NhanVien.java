@@ -70,10 +70,10 @@ public class NhanVien {
     {
         System.out.print("Nhap ma nhan vien: ");
         manv = sc.nextLine();
-        while(!manv.matches("^\\d{5}$"))
+        while(!manv.matches("^[a-zA-Z]{2}\\d{3}$"))
         {
             System.out.println("Khong dung dinh dang!");
-            System.out.println("Ma nhan vien phai co 5 so");
+            System.out.println("Ma nhan vien phai co 5 so(2 chu, 3 so)");
             System.out.print("Nhap ma nhan vien: ");
             manv = sc.nextLine();
         }
