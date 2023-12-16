@@ -9,7 +9,7 @@ public class Menu {
     DanhSachPhieuNhap dspn = new DanhSachPhieuNhap();
     DanhSachSanPham dssp = new DanhSachSanPham();
     public void Menushop(){
-    int key;
+        int key;
         do{
             System.out.println("1./ Quan Ly San Pham");
             System.out.println("2./ Quan Ly Hoa Don");
@@ -22,24 +22,24 @@ public class Menu {
             switch(key){
                 case 1:
                     dssp.ThaoTac();
-                    break;
+                break;
                 case 2:
                     dshd.ThaoTac();
-                    break;
+                break;
                 case 3:
-                    dspn.thaoTac();
-                    break;
+                    dspn.nhap();
+                break;
                 case 4:
-                    dskh.menu_kh();
-                    break;
+                    dskh.nhap();
+                break;
                 case 5:
-                    dsnv.menu_nv();
-                    break;
+                    dsnv.nhap();
+                break;
                 case 6:
                     dsncc.thaoTac();
-                    break;
+                break;
                 case 0:
-                    break;
+                break;
                 default: 
                     System.out.println("LUA CHON KHONG HOP LE!. VUI LONG CHON LAI");
             }

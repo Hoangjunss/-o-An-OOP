@@ -1,4 +1,3 @@
-package Class;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.EOFException;
@@ -34,7 +33,7 @@ public class DanhSachHoaDon {
 		System.out.println("\t\t\t\t\t\t\t\t=====DANH SACH HOA Đ0N=====");
         System.out.println("\n==================================================================================================================================");
         System.out.format("|| %4s | %10s | %20s | %15s | %15s | %8s | %8s | %10s | %10s ||\n", "STT", "Ma Hoa Don"," Ngay Lap Hoa Don", "Ma Khach Hang", "Ma Nhan Vien", "Ma SP", "So Luong"," Don Gia", "Thanh Tien");
-	    DocFileJava("hoadon.txt");
+	   // DocFileJava("hoadon.txt");
 		for(int i = 0; i < n; i++) {
 				System.out.format("|| %4s ", (i+1));
 				hd[i].Xuat();
@@ -47,11 +46,13 @@ public class DanhSachHoaDon {
 		hd = Arrays.copyOf(hd, n+1);
 		hd[n] = new ChiTietHoaDon();
 		System.out.print("\t\t\t\t\tHOÁ ĐƠN THỨ " + (n + 1) + "\n");
-
 		hd[n].Nhap();
         n++;
 		XuatDanhSach();
+        GhiFileJava("hoadon.txt");
 	}
+
+
     public void xoa(String mahd) {
 		boolean flag = false;
 		int j = 0;
@@ -65,6 +66,7 @@ public class DanhSachHoaDon {
 		for(int i = j; i < n - 1; i++) {
 			hd[i] = hd[i + 1];
 		} 
+        GhiFileJava("hoadon.txt");
 		n--;
 		
 		if(flag)
@@ -85,9 +87,9 @@ public class DanhSachHoaDon {
 					System.out.println("==================================================================================================================================");					
 					hd[i] = new ChiTietHoaDon();
 					hd[i].Nhap();
+                    GhiFileJava("hoadon.txt");
 					return;
 			}
-				
 		}
 	}
 
@@ -181,6 +183,7 @@ public class DanhSachHoaDon {
             String mahd = "";
             loop:
                 while(true) {
+                    DocFileJava("hoadon.txt");
                     System.out.println("\t\t\t\t\t======BANG LUA CHON======");
                     System.out.println("\t\t\t\t\t1.An phim 1 de them hoa don");
                     System.out.println("\t\t\t\t\t2.An phim 2 de xoa hoa don");
@@ -193,8 +196,8 @@ public class DanhSachHoaDon {
                     sc.nextLine();
                     switch(select) {
                         case 1:
-                            System.out.print("Nhap vao so luong hoa don can them: ");
-                            int sl = sc.nextInt();
+                            /* System.out.print("Nhap vao so luong hoa don can them: ");
+                            int sl = sc.nextInt(); */
                             them();
                             break;
                         case 2:
@@ -222,6 +225,17 @@ public class DanhSachHoaDon {
                     }
                 }
         }
+
+    public void themHoaDon(String mahdsp, String ngaylaphoadonsp, String makhsp, String manvsp,String masp,  int slsp, long dongiasp, long thanhtiensp){
+        DocFileJava("hoadon.txt");
+        n=hd.length;
+		hd = Arrays.copyOf(hd, n+1);
+		hd[n] = new ChiTietHoaDon(mahdsp, ngaylaphoadonsp, makhsp, manvsp, masp, slsp, dongiasp, thanhtiensp);
+        n++;
+        GhiFileJava("hoadon.txt");
+    }
+
+
     
     //DOC GHI FILE
     public void DocFileJava(String filename) {

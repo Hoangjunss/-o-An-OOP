@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
-public class ChiTietSanPham {
-	 private String maSP;
+public class ChiTietSanPham extends SanPham {
+	 	private String maSP;
 	    private String Ram;
 	    private String Rom;
 	    private String CPU;

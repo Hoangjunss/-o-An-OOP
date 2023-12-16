@@ -1,4 +1,3 @@
-
 import java.io.DataOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -112,7 +111,7 @@ public class SanPham{
         System.out.print("So luong: "); Sl = sc.nextInt();
         System.out.print("Don Gia: "); DonGia = sc.nextLong();
         System.out.print("Don vi tinh: "); DonViTinh = sc.nextLine();
-        sc.nextLine();
+        DonViTinh = sc.nextLine();
         System.out.print("O Cung: "); OCung = sc.nextLine();
         System.out.print("Man Hinh: "); ManHinh = sc.nextLine();
         System.out.print("Phim: "); Phim = sc.nextLine();
@@ -120,16 +119,7 @@ public class SanPham{
         System.out.print("Loa: "); Loa = sc.nextLine();
     }
     public void Xuat(){
-        System.out.println("Ma: "+maSP);
-        System.out.println("Ten: "+tenSP);
-        System.out.println("So luong: "+Sl);
-        System.out.println("Don Gia: "+DonGia);
-        System.out.println("Don vi tinh: "+DonViTinh);
-        System.out.println("O Cung: "+OCung);
-        System.out.println("Man Hinh: "+ManHinh);
-        System.out.println("Phim: "+Phim);
-        System.out.println("Chuot: "+Chuot);
-        System.out.println("Loa: "+Loa);
+        System.out.format("|| %7s | %10s | %5s | %10s | %10s | %15s | %20s | %15s | %15s | %15s |\n",maSP, tenSP, Sl, DonGia, DonViTinh, OCung, ManHinh, Phim, Chuot, Loa); 
     }
 
     public void sua(SanPham SP){
@@ -137,9 +127,8 @@ public class SanPham{
         System.out.print("Ten San Pham: "); tenSP = sc.nextLine(); SP.setTensp(tenSP);
         System.out.print("So luong: "); Sl = sc.nextInt(); SP.setSl(Sl);
         System.out.print("Don Gia: "); DonGia = sc.nextLong(); SP.setDonGia(DonGia);
-        System.out.print("Don vi tinh: "); DonViTinh = sc.nextLine(); SP.setDonViTinh(DonViTinh);
-        sc.nextLine();
-       System.out.print("O cung: "); OCung = sc.nextLine(); SP.setOCung(OCung);
+        System.out.print("Don vi tinh: "); DonViTinh = sc.nextLine();DonViTinh = sc.nextLine(); SP.setDonViTinh(DonViTinh);
+        System.out.print("O cung: "); OCung = sc.nextLine(); SP.setOCung(OCung);
         System.out.print("Man Hinh: "); ManHinh = sc.nextLine(); SP.setManHinh(ManHinh);
         System.out.print("Phim: "); Phim = sc.nextLine(); SP.setPhim(Phim);
         System.out.print("Chuot: "); Chuot = sc.nextLine(); SP.setChuot(Chuot);

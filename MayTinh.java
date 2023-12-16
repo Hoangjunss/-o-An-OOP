@@ -1,5 +1,3 @@
-
-
 import java.io.DataOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -37,14 +35,14 @@ public class MayTinh extends SanPham {
         System.out.print("So luong khe cam: "); Slkhecam = sc.nextInt();
     }
     @Override public void Xuat(){
-        super.Xuat();
-        System.out.println("Loai CASE: "+LoaiCase+" | So luong khe cam: "+Slkhecam);
+        System.out.format("|| %7s | %17s | %3s | %8s | %10s | %10s | %17s | %10s | %17s | %10s | %10s | %10s ||\n",maSP, tenSP, Sl, DonGia, DonViTinh, OCung, ManHinh, Phim, Chuot, Loa, LoaiCase, Slkhecam); 
     }
 
     public void sua(MayTinh mt){
         super.sua(mt);
         System.out.print("Loai CASE: "); LoaiCase = sc.nextLine(); mt.setLoaiCASE(LoaiCase);
         System.out.print("So luong khe cam: "); Slkhecam = sc.nextInt(); mt.setSlkhecam(Slkhecam);
+        
     }
 
     public void GhiFile(String filename) throws IOException {

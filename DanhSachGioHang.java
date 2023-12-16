@@ -1,11 +1,9 @@
-package Class;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class DanhSachGioHang{
     private GioHang[] gh = new GioHang[0];
     private int n=0;
-    private long thanhtien =0;
     Scanner sc = new Scanner(System.in);
     public DanhSachGioHang(){}
     public DanhSachGioHang(int n, GioHang[] gh){
@@ -55,12 +53,13 @@ public class DanhSachGioHang{
     public void suasp(int i){
         System.out.print("1./ SUA 2./KHONG.\n LUA CHON CUA BAN: "); int choose = sc.nextInt();
         if(choose == 2) return;
-        else{
+        else if (choose == 1){
             System.out.print("NHAP LAI MA SAN PHAM: "); String masp = sc.nextLine();masp=sc.nextLine(); gh[i].setmaSP(masp);
             System.out.print("So Luong Dat Hang: "); int sl = sc.nextInt(); gh[i].setsoluong(sl);
             System.out.println("THONG TIN DAT HANG DA DUOC SUA THANH");
             gh[i].xuat();
         }
+        else return;
     }
     public void them(int them){
         int j=n;
