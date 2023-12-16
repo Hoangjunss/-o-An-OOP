@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 30cd10bf96e1c8127758d96a17df972c207dbc6b
 import java.util.Arrays;
 import java.util.Scanner;
 
