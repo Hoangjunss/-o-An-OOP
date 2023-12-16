@@ -59,12 +59,12 @@ public class DanhSachSanPham implements ThaoTac{
                 default: System.out.println("Chon Lai");
             }
         }
-        GhiFileJava("SanPham-copy.txt");
+        GhiFileJava("SanPham-test.txt");
     }
 
     public void xuat(int i){
         System.out.println("DANH SACH SAN PHAM");
-        //DocFileJava("SanPham-copy.txt");
+        //DocFileJava("SanPham-test.txt");
         if(i == 0){
             System.out.println("\t\t\t\t\t\t\t\tTHONG TIN SAN PHAM LAPTOP");
             System.out.format("|| %7s | %15s | %3s | %8s | %7s | %10s | %17s | %15s | %17s | %10s | %7s | %5s | %10s ||\n", "MaSP", "TenSP", "SL", "DonGia", "DonVi", "OCung", "ManHinh", "Phim", "Chuot", "Loa", "Pin", "CN", "KichThuoc"); 
@@ -138,7 +138,7 @@ public class DanhSachSanPham implements ThaoTac{
         if(checkmt==0) System.out.println("Khong co san pham MAY TINH");
     }
     public void xuatBoSanPham(int i){
-            if(SP[i].getMasp().indexOf("sp")!=-1){ 
+            if(SP[i].getMasp().indexOf("SP")!=-1){ 
                 SP[i].Xuat();
             }
     }
@@ -146,7 +146,7 @@ public class DanhSachSanPham implements ThaoTac{
     //TIM KIEM
     public void timkiem(){
         int key;
-        //DocFileJava("SanPham-copy.txt");
+        //DocFileJava("SanPham-test.txt");
         do{
             System.out.println("========TIM KIEM SAN PHAM========");
             System.out.println("1./ Tim kiem theo so luong");
@@ -261,12 +261,12 @@ public class DanhSachSanPham implements ThaoTac{
                 sc.nextLine();
                 System.out.print("NHAP LAI MA SAN PHAM: "); String mamoi = sc.nextLine();
                 SP[i].setMasp(mamoi);
-                GhiFileJava("SanPham-copy.txt");
+                GhiFileJava("SanPham-test.txt");
             }
         }while(kiemtraMasp(SP[i].getMasp(), i));
     }
     public boolean kiemtraMasp(String masp, int k){
-        DocFileJava("SanPham-copy.txt");
+        DocFileJava("SanPham-test.txt");
         for(int i=a-1; i>=0; i--){
             if(SP[i].getMasp().equals(masp) && i!=k) return true;
         }
@@ -275,7 +275,7 @@ public class DanhSachSanPham implements ThaoTac{
 
     //THONG KE SAN PHAM
     public void thongke(){
-        //DocFileJava("SanPham-copy.txt");
+        //DocFileJava("SanPham-test.txt");
         int choose;
         do{
             System.out.println("========THONG KE========");
@@ -404,21 +404,21 @@ public class DanhSachSanPham implements ThaoTac{
             if(select == 1){
                 SP[i] = new MayTinh();
                 SP[i].Nhap();
-                GhiFileJava("SanPham-copy.txt");
+                GhiFileJava("SanPham-test.txt");
                 sc.nextLine();
                 thayMasp(i);
             }
             else if(select == 2){
                 SP[i] = new LapTop();
                 SP[i].Nhap();
-                GhiFileJava("SanPham-copy.txt");
+                GhiFileJava("SanPham-test.txt");
                 sc.nextLine();
                 thayMasp(i);
             }
             else if(select == 3){
                 SP[i] = new SanPham();
                 SP[i].Nhap();
-                GhiFileJava("SanPham-copy.txt");
+                GhiFileJava("SanPham-test.txt");
                 sc.nextLine();
                 thayMasp(i);
             }
@@ -439,7 +439,7 @@ public class DanhSachSanPham implements ThaoTac{
                 SP = Arrays.copyOf(SP, N-1);
                 thongtin = 1;
                 N--;
-                GhiFileJava("SanPham-copy.txt");
+                GhiFileJava("SanPham-test.txt");
                 break;
             }
         }
@@ -476,7 +476,7 @@ public class DanhSachSanPham implements ThaoTac{
                         break;
                     }
                 }while(key!=0);
-                GhiFileJava("SanPham-copy.txt");
+                GhiFileJava("SanPham-test.txt");
             }
             i++;
         }
@@ -488,7 +488,7 @@ public class DanhSachSanPham implements ThaoTac{
         int key;
         System.out.println("========THAP TAC VOI DANH SACH SAN PHAM========");
         do{
-            DocFileJava("SanPham-copy.txt");
+            DocFileJava("SanPham-test.txt");
             System.out.println("1./ Them San Pham");
             System.out.println("2./ Xuat San Pham");
             System.out.println("3./ Sua San Pham");
@@ -538,7 +538,7 @@ public class DanhSachSanPham implements ThaoTac{
         System.out.println("\t\t\tGIO HANG CUA BAN");
         int choose;
         do{
-            DocFileJava("SanPham-copy.txt");
+            DocFileJava("SanPham-test.txt");
             System.out.println("1./ Xem Chi Tiet Gio Hang");
             System.out.println("2./ Sua Gio Hang");
             System.out.println("3./ Bo Sung San Pham Gio Hang");
@@ -602,7 +602,7 @@ public class DanhSachSanPham implements ThaoTac{
                     int capnhatsl = SP[j].getSl();
                     capnhatsl -= sltsp;
                     SP[j].setSl(capnhatsl);
-                    GhiFileJava("SanPham-copy.txt");
+                    GhiFileJava("SanPham-test.txt");
                     //dshd.themHoaDon("hd017", "16/12/2023", "kh017", "nv001", SP[j].getMasp(), sltsp, SP[j].getDonGia(), tong);
                 }
             }
@@ -625,7 +625,7 @@ public class DanhSachSanPham implements ThaoTac{
         }
     }
     public boolean kiemtraslsp(String masp, int slsp){
-        DocFileJava("SanPham-copy.txt");
+        DocFileJava("SanPham-test.txt");
         for(int i=0; i<N; i++){
             if(SP[i].getMasp().equals(masp)){
                 if(slsp > SP[i].getSl()){
@@ -642,7 +642,7 @@ public class DanhSachSanPham implements ThaoTac{
             if(SP[i].getMasp().equals(masp)){
                 SP[i].setSl(solong);
                 SP[i].setDonGia(dongia);
-                GhiFileJava("SanPham-copy.txt");
+                GhiFileJava("SanPham-test.txt");
             }
         }
     }
@@ -666,18 +666,18 @@ public class DanhSachSanPham implements ThaoTac{
                     String Phim = dis.readUTF();
                     String Chuot = dis.readUTF();
                     String Loa = dis.readUTF();
-                    if(masp.indexOf("lap") != -1){ 
+                    if(masp.indexOf("LAP") != -1){ 
                         String Pin = dis.readUTF();
                         Float CanNang = dis.readFloat();
                         Float KichThuoc = dis.readFloat();
                         SP[i] = new LapTop(masp, tenSP, Sl, DonGia, DonViTinh, OCung, ManHinh, Phim, Chuot, Loa, Pin, CanNang, KichThuoc);
                     }
-                    else if(masp.indexOf("may") != -1){
+                    else if(masp.indexOf("MAY") != -1){
                         String LoaiCase = dis.readUTF();
                         int Slkhecam = dis.readInt();
                         SP[i] = new MayTinh(masp, tenSP, Sl, DonGia, DonViTinh, OCung, ManHinh, Phim, Chuot, Loa, LoaiCase, Slkhecam);
                     }
-                    else{
+                    else if(masp.indexOf("SP") != -1){
                         SP[i] = new SanPham(masp, tenSP, Sl, DonGia, DonViTinh, OCung, ManHinh, Phim, Chuot, Loa);
                     }
                     i++;
