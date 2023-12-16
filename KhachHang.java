@@ -104,13 +104,13 @@ public class KhachHang {
         {
             System.out.println("Khong dung dinh dang!");
             System.out.println("So dien thoai co 10 so va bat dau bang 0");
-            System.out.print("Nhap so dien thoai: s");
+            System.out.print("Nhap so dien thoai: ");
             sdt = sc.nextLine();
         }
 
         System.out.print("Nhap dia chi: ");
         diachi = sc.nextLine();
-        while(!diachi.matches("^[a-zA-Z ]{"+ diachi.length() +"}$"))
+        while(!diachi.matches("^[a-zA-Z0-9 ]{"+ diachi.length() +"}$"))
         {
             System.out.println("Khong dung dinh dang!");
             System.out.println("Dia chi khong chua so va cac ky tu dac biet");

@@ -39,8 +39,10 @@ public class DanhSachNhanVien {
 
     // các thao tác với danh sách
     public void xoa() {
+        tai_du_lieu();
         System.out.print("Nhap ma nhan vien muon xoa: ");
         String manv = sc.nextLine();
+        sc.nextLine();
         int tk = tim_kiem_theo_ma(manv);
         if (tk != -1) {
             for (int i = tk; i < dsnv.length - 1; i++) {
@@ -54,6 +56,7 @@ public class DanhSachNhanVien {
     }
 
     public void tim_kiem() {
+        tai_du_lieu();
         if (dsnv.length == 0) {
             System.out.println("Danh sach trong!");
             System.out.print("Nhap 'Enter' de tiep tuc!");
@@ -71,6 +74,7 @@ public class DanhSachNhanVien {
                 case 1:
                     System.out.print("Nhap ma nhan vien muon tim: ");
                     String manv = sc.nextLine();
+                    sc.nextLine();
                     int tk = tim_kiem_theo_ma(manv);
                     if (tk != -1)
                         dsnv[tk].xuat();
@@ -107,6 +111,7 @@ public class DanhSachNhanVien {
     }
 
     public void thay_doi_thong_tin() {
+        tai_du_lieu();
         if (dsnv.length == 0) {
             System.out.println("Danh sach trong!");
             System.out.print("Nhap 'Enter' de tiep tuc!");
@@ -141,33 +146,34 @@ public class DanhSachNhanVien {
                 case 1:
                     System.out.print("Nhap ten nhan vien: ");
                     String tennv = sc.nextLine();
+                    sc.nextLine();
                     while (!tennv.matches("^[a-zA-Z ]+$")) {
                         System.out.println("Khong dung dinh dang!");
                         System.out.println("Ten khong chua so va cac ky tu dac biet");
                         System.out.print("Nhap ten nhan vien: ");
-                        tennv = sc.nextLine();
+                        tennv = sc.next();
                     }
                     dsnv[vi_tri].setTennv(tennv);
                     break;
                 case 2:
                     System.out.print("Nhap so dien thoai: ");
-                    String sdt = sc.nextLine();
+                    String sdt = sc.next();
                     while (!sdt.matches("^0\\d{9}$")) {
                         System.out.println("Khong dung dinh dang!");
                         System.out.println("So dien thoai co 10 so va bat dau bang 0");
                         System.out.print("Nhap so dien thoai: ");
-                        sdt = sc.nextLine();
+                        sdt = sc.next();
                     }
                     dsnv[vi_tri].setSdt(sdt);
                     break;
                 case 3:
                     System.out.print("Nhap ma nhan vien moi: ");
-                    String manvtk = sc.nextLine();
+                    String manvtk = sc.next();
                     while (!manvtk.matches("^[a-zA-Z]{2}\\d{3}$")) {
                         System.out.println("Khong dung dinh dang!");
                         System.out.println("Ma nhan vien phai co 5 ky tu (2 chu, 3 so)");
                         System.out.print("Nhap ma nhan vien moi: ");
-                        manvtk = sc.nextLine();
+                        manvtk = sc.next();
                     }
                     dsnv[vi_tri].setManv(manvtk);
                     break;
@@ -178,6 +184,7 @@ public class DanhSachNhanVien {
     }
 
     public void them() {
+        tai_du_lieu();
         int index = 0;
         while (true) {
             System.out.println("-----------------Them nhan vien-----------------");
@@ -188,13 +195,14 @@ public class DanhSachNhanVien {
             NhanVien[] newDsnv = Arrays.copyOf(dsnv, dsnv.length + 1);
             newDsnv[index++] = nv; // Thêm nhân viên mới vào cuối mảng
             dsnv = newDsnv; // Gán mảng mới vào mảng ban đầu
-    
+
             System.out.println("Da them thanh cong!");
             System.out.print("Nhap 'enter' de tiep tuc hoac 'e' de dung lai: ");
-            String chon = sc.nextLine();
-            sc.nextLine();
-            if (chon.equalsIgnoreCase("e"))
+            String chon = sc.next();
+            if (chon.equalsIgnoreCase("e")){
+                luu_du_lieu();                
                 break;
+            }
         }
     }
 
@@ -213,15 +221,17 @@ public class DanhSachNhanVien {
     
             System.out.println("Da tao thanh cong!");
             System.out.print("Nhap 'enter' de tiep tuc hoac 'e' de dung lai: ");
-            String chon = sc.nextLine();
-            sc.nextLine();
-            if (chon.equalsIgnoreCase("e"))
+            String chon = sc.next();
+            if (chon.equalsIgnoreCase("e")){
+                luu_du_lieu();
                 break;
+            }
         }
     }
     
 
     public void xuat() {
+        tai_du_lieu();
         if (dsnv.length == 0) {
             System.out.println("Danh sach trong!");
             System.out.print("Nhap 'Enter' de tiep tuc!");
@@ -265,7 +275,7 @@ public class DanhSachNhanVien {
 
     public void luu_du_lieu() {
         try {
-            FileWriter f = new FileWriter("data_NhanVien.txt");
+            FileWriter f = new FileWriter("data_NhanVien.txt", true);
             BufferedWriter bw = new BufferedWriter(f);
             for (NhanVien nv : dsnv) {
                 bw.write(nv.toString());
@@ -285,7 +295,8 @@ public class DanhSachNhanVien {
             System.out.println("--------------------MENU THAO TAC-------------------");
             System.out.println("1: Xem tat ca cac nhan vien   2: Them nhan vien");
             System.out.println("3: Xoa nhan vien              4: Thay doi thong tin");
-            System.out.println("5: Tao moi danh sach          6: Thoat chuong trinh");
+            System.out.println("5: Tao moi danh sach          6: Tiem kiem nhan vien");
+            System.out.println("7:Thoat chuong trinh");
             System.out.println("----------------------------------------------------");
             int chon = sc.nextInt();
             switch (chon) {
@@ -294,7 +305,7 @@ public class DanhSachNhanVien {
                     System.out.print("\nNhap 'enter' de tiep tuc");
                     sc.nextLine();
                     break;
-                case 2:
+                case 2:               
                     them();
                     break;
                 case 3:
@@ -305,6 +316,9 @@ public class DanhSachNhanVien {
                     break;
                 case 5:
                     nhap();
+                    break;
+                case 6:
+                    tim_kiem();
                     break;
                 default:
                     luu_du_lieu();
