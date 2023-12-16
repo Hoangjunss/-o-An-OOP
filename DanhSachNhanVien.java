@@ -121,7 +121,7 @@ public class DanhSachNhanVien {
         while (true) {
             System.out.println("--------------Thay doi thong tin--------------");
             System.out.println("1: Thay doi ten        2: Thay doi so dien thoai");
-            System.out.println("3: Thay doi ma nhan vien");
+            System.out.println("3: Thay doi dia chi");
             System.out.println("4: Thoat chuong trinh");
             System.out.println("----------------------------------------------");
             int chon = sc.nextInt();
