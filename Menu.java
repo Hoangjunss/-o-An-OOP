@@ -21,13 +21,15 @@ public class Menu {
             System.out.print("LUA CHON CUA BAN: "); key = sc.nextInt();
             switch(key){
                 case 1:
+                    dssp.DocFileJava("SanPham.txt");
                     dssp.ThaoTac();
                 break;
                 case 2:
                     dshd.ThaoTac();
                 break;
                 case 3:
-                    dspn.nhap();
+                    dspn.docFileJava("PhieuNhap.txt");
+                    dspn.thaoTac();
                 break;
                 case 4:
                     dskh.nhap();
@@ -36,6 +38,7 @@ public class Menu {
                     dsnv.nhap();
                 break;
                 case 6:
+                    dsncc.docFileJava("NhaCungCap.txt");
                     dsncc.thaoTac();
                 break;
                 case 0:

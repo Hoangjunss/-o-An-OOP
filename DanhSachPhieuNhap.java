@@ -13,6 +13,7 @@ import java.util.Scanner;
 public class DanhSachPhieuNhap {
     private int n, a=0;
     private  ChiTietPhieuNhap[] dspn = new ChiTietPhieuNhap[0];
+    DanhSachSanPham dssp = new DanhSachSanPham();
 
     Scanner sc = new Scanner(System.in);
 
@@ -38,6 +39,7 @@ public class DanhSachPhieuNhap {
             System.out.println("\t\t\t\t\tPHIEU NHAP THU " + (i + 1));
             dspn[i] = new ChiTietPhieuNhap(); // Khởi tạo phần tử mảng
             dspn[i].nhap();
+            themSanPham(dspn[i]);
             ghiFileJava("PhieuNhap.txt");
             if (i > 0) {
                 thayMaPN(i);
@@ -113,6 +115,7 @@ public class DanhSachPhieuNhap {
             System.out.println("\t\t\t\t\tPHIEU NHAP THU "+ (i+1));
             dspn[i] = new ChiTietPhieuNhap();
             dspn[i].nhap();
+            themSanPham(dspn[i]);
             ghiFileJava("PhieuNhap.txt");
             thayMaPN(i);
         }
@@ -285,6 +288,19 @@ public class DanhSachPhieuNhap {
                 break;
         }
     }
+
+    public void themSanPham(ChiTietPhieuNhap pn){
+        dssp.DocFileJava("SanPham.txt");
+        if(dssp.timKiemChoNCC(pn.getMaSP()) == true){
+            System.out.println(dssp.timKiemChoNCC(pn.getMaSP()) + "1");
+            dssp.capNhatSoLuong(pn.getMaSP(),pn.getSoluong());
+        }else{
+            System.out.println(dssp.timKiemChoNCC(pn.getMaSP()) + "0");
+            dssp.themSanPham(pn.getMaSP(), pn.getTenSP(),pn.getSoluong(), pn.getDonGia());
+        }
+    }
+
+
 //TÌM KIẾM
     public ChiTietPhieuNhap timKiem_Ma(String tkPN){
         int i=0;
@@ -485,7 +501,7 @@ public void thaoTac(){
                     dspn[i].ghiFile(fileName);
                 }
             } catch (NullPointerException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
             }
             dos.close();
         } catch (IOException e) {

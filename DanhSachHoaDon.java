@@ -191,8 +191,8 @@ public class DanhSachHoaDon {
                     System.out.println("\t\t\t\t\t3.An phim 3 de sua thong tin hoa don");
                     System.out.println("\t\t\t\t\t4.An phim 4 de tim kiem hoa don");
                     System.out.println("\t\t\t\t\t5.An phim 5 de xuat danh sach hoa don");
-                    System.out.println("\t\t\t\t\t6.An phim 6 de dung cac thao tac");
-                    System.out.println("\t\t\t\t\t7.An phim 7 de thong ke");
+                    System.out.println("\t\t\t\t\t6.An phim 6 de thong ke");
+                    System.out.println("\t\t\t\t\t7.An phim 7 de dung thao tac");
                     System.out.print("\nLua chon cua ban la: ");
                     select = sc.nextInt();
                     sc.nextLine();
@@ -242,9 +242,9 @@ public class DanhSachHoaDon {
 		int dem = 0;
 		DocFileJava("HoaDon.txt");
 		String date;
-		System.out.println("\t\t\t\t\t     =====BẢNG THỐNG KÊ=====");
+		System.out.println("\t\t\t\t\t     =====BANG THONG KE=====");
 		System.out.println("\t\t\t\t\t================================");
-		System.out.format("\t\t\t\t\t|| %16s| %8s ||\n", "NGÀY LẬP HÓA ĐƠN", "BÁN ĐƯỢC");
+		System.out.format("\t\t\t\t\t|| %16s| %8s ||\n", "NGAY LAP HOA ĐƠN", "BAN ĐUOC");
 		for(int i = 0; i < n; i++) {
 			date = hd[i].getNgayLapHoaDon();
 			dem = Dem(date, i);

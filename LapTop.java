@@ -4,14 +4,14 @@ import java.io.IOException;
 
 public class LapTop extends SanPham {
     private String Pin;
-    private Float CanNang;
-    private Float KichThuoc;
+    private double CanNang;
+    private double KichThuoc;
     public LapTop(){}
-    public LapTop(String Masp, String Tensp, int Sl, long Dongia, String Donvitinh, String Ocung, String Manhinh, String Phim, String Chuot, String Loa, String Pin, Float Cannang, Float Kichthuoc){
+    public LapTop(String Masp, String Tensp, int Sl, long Dongia, String Donvitinh, String Ocung, String Manhinh, String Phim, String Chuot, String Loa, String Pin, double d, double e){
         super(Masp, Tensp, Sl, Dongia, Donvitinh, Ocung, Manhinh, Phim, Chuot, Loa);
         this.Pin = Pin;
-        this.CanNang = Cannang;
-        this.KichThuoc = Kichthuoc;
+        this.CanNang = d;
+        this.KichThuoc = e;
     }
     public LapTop(LapTop LT){
         super((SanPham)LT);
@@ -19,22 +19,82 @@ public class LapTop extends SanPham {
         CanNang = LT.CanNang;
         KichThuoc = LT.KichThuoc;
     }
+    public String getMaSP(){
+        return maSP;
+    }
+    public void setMaSP(String MaSP){
+        this.maSP = MaSP;
+    }
+    public String getTenSP(){
+        return  tenSP;
+    }
+    public void setTenSP(String TenSP){
+        this.tenSP = TenSP;
+    }
+    public int getSl(){
+        return Sl;
+    }
+    public void setSl(int Sl){
+        this.Sl = Sl;
+    }
+    public long getDonGia(){
+        return DonGia;
+    }
+    public void setDonGia(long Dongia){
+        this.DonGia = Dongia;
+    }
+    public String getDonViTinh(){
+        return DonViTinh;
+    }
+    public void setDonViTinh(String Donvitinh){
+        this.DonViTinh = Donvitinh;
+    }
+    public String getOCung(){
+        return OCung;
+    }
+    public void setOCung(String Ocung){
+        this.OCung = Ocung;
+    }
+    public String getManHinh(){
+        return ManHinh;
+    }
+    public void setManHinh(String Manhinh){
+        this.ManHinh = Manhinh;
+    }
+    public String getPhim(){
+        return Phim;
+    }
+    public void setPhim(String Phim){
+        this.Phim = Phim;
+    }
+    public String getChuot(){
+        return Chuot;
+    }
+    public void setChuot(String Chuot){
+        this.Chuot = Chuot;
+    }
+    public String getLoa(){
+        return Loa;
+    }
+    public void setLoa(String Loa){
+        this.Loa = Loa;
+    }
     public String getPin(){
         return Pin;
     }
     public void setPin(String Pin){
         this.Pin = Pin;
     }
-    public Float getCanNang(){
+    public double getCanNang(){
         return CanNang;
     }
-    public void setCanNang(Float Cannang){
+    public void setCanNang(double Cannang){
         this.CanNang = Cannang;
     }
-    public Float getKichThuoc(){
+    public double getKichThuoc(){
         return KichThuoc;
     }
-    public void setKichThuoc(Float Kichthuoc){
+    public void setKichThuoc(double Kichthuoc){
         this.KichThuoc = Kichthuoc;
     }
 
@@ -69,8 +129,8 @@ public class LapTop extends SanPham {
         dos.writeUTF(Chuot);
         dos.writeUTF(Loa);
         dos.writeUTF(Pin);
-        dos.writeFloat(CanNang);
-        dos.writeFloat(KichThuoc);
+        dos.writeDouble(CanNang);
+        dos.writeDouble(KichThuoc);
         dos.close();
 	}
 }
