@@ -17,9 +17,9 @@ public class SanPham{
     protected String Loa;
     //Contruster
     public SanPham(){}
-    public SanPham(String Masp, String Tensp, int Sl, long Dongia, String Donvitinh, String Ocung, String Manhinh, String Phim, String Chuot, String Loa){
-        this.maSP = Masp;
-        this.tenSP = Tensp;
+    public SanPham(String MaSP, String TenSP, int Sl, long Dongia, String Donvitinh, String Ocung, String Manhinh, String Phim, String Chuot, String Loa){
+        this.maSP = MaSP;
+        this.tenSP = TenSP;
         this.Sl = Sl;
         this.DonGia = Dongia;
         this.DonViTinh = Donvitinh;
@@ -43,17 +43,17 @@ public class SanPham{
     }
 
     //Get-Set
-    public String getMasp(){
+    public String getMaSP(){
         return maSP;
     }
-    public void setMasp(String Masp){
-        this.maSP = Masp;
+    public void setMaSP(String MaSP){
+        this.maSP = MaSP;
     }
-    public String getTensp(){
+    public String getTenSP(){
         return  tenSP;
     }
-    public void setTensp(String Tensp){
-        this.tenSP = Tensp;
+    public void setTenSP(String TenSP){
+        this.tenSP = TenSP;
     }
     public int getSl(){
         return Sl;
@@ -124,7 +124,7 @@ public class SanPham{
 
     public void sua(SanPham SP){
         System.out.println("NHAP THONG TIN CAN SUA");
-        System.out.print("Ten San Pham: "); tenSP = sc.nextLine(); SP.setTensp(tenSP);
+        System.out.print("Ten San Pham: "); tenSP = sc.nextLine(); SP.setTenSP(tenSP);
         System.out.print("So luong: "); Sl = sc.nextInt(); SP.setSl(Sl);
         System.out.print("Don Gia: "); DonGia = sc.nextLong(); SP.setDonGia(DonGia);
         System.out.print("Don vi tinh: "); DonViTinh = sc.nextLine();DonViTinh = sc.nextLine(); SP.setDonViTinh(DonViTinh);
