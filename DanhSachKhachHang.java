@@ -4,9 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class DanhSachKhachHang {
@@ -105,32 +103,32 @@ public class DanhSachKhachHang {
         }
         return -1;
     }
-    public void tim_kiem_theoma(String makh) {
-        tai_du_lieu();
-        for (int i = 0; i < dskh.length; i++) {
-            if(dskh[i].getMakh().equals(makh)){
-                System.out.println("\t\tMA KHANH HANG: "+dskh[i].getMakh());
-                System.out.println("HO VA TEN: "+dskh[i].getHokh()+" "+dskh[i].getTenkh());
-                System.out.println("SO DIEN THOAI: "+dskh[i].getSdt()+ " DIA CHI: "+dskh[i].getDiachi());
-                break;
-            }
-            else{
-                int n = dskh.length;
-                dskh = Arrays.copyOf(dskh, n+1);
-                System.out.println("\t\t\tNHAP THONG TIN KHACH HANG MOI");
-                System.out.printf("Ho Khach Hang Moi: "); String hoKHmoi = sc.nextLine();
-                System.out.printf("Ten Khach hang moi: "); String tenKHmoi = sc.nextLine();
-                System.out.printf("So dien thoai: "); String sdtmoi = sc.nextLine();
-                System.out.printf("Dia Chi: "); String diachimoi = sc.nextLine();
-                dskh[n] = new KhachHang(makh, hoKHmoi, tenKHmoi, sdtmoi, diachimoi);
-                luu_du_lieu();
-                System.out.println("\t\t\tDA LUU THONG TIN");
-                break;
-            }
-        }
-        return;
-    }
-    //KET THUC 
+    // public void tim_kiem_theoma(String makh) {
+    //     tai_du_lieu();
+    //     for (int i = 0; i < dskh.length; i++) {
+    //         if(dskh[i].getMakh().equals(makh)){
+    //             System.out.println("\t\tMA KHANH HANG: "+dskh[i].getMakh());
+    //             System.out.println("HO VA TEN: "+dskh[i].getHokh()+" "+dskh[i].getTenkh());
+    //             System.out.println("SO DIEN THOAI: "+dskh[i].getSdt()+ " DIA CHI: "+dskh[i].getDiachi());
+    //             break;
+    //         }
+    //         else{
+    //             int n = dskh.length;
+    //             dskh = Arrays.copyOf(dskh, n+1);
+    //             System.out.println("\t\t\tNHAP THONG TIN KHACH HANG MOI");
+    //             System.out.printf("Ho Khach Hang Moi: "); String hoKHmoi = sc.nextLine();
+    //             System.out.printf("Ten Khach hang moi: "); String tenKHmoi = sc.nextLine();
+    //             System.out.printf("So dien thoai: "); String sdtmoi = sc.nextLine();
+    //             System.out.printf("Dia Chi: "); String diachimoi = sc.nextLine();
+    //             dskh[n] = new KhachHang(makh, hoKHmoi, tenKHmoi, sdtmoi, diachimoi);
+    //             luu_du_lieu();
+    //             System.out.println("\t\t\tDA LUU THONG TIN");
+    //             break;
+    //         }
+    //     }
+    //     return;
+    // }
+    // //KET THUC 
 
     public void thay_doi_thong_tin() {
         if (dskh.length == 0) {
@@ -269,18 +267,30 @@ public class DanhSachKhachHang {
             FileReader f = new FileReader("data_KhachHang.txt");
             BufferedReader br = new BufferedReader(f);
             String s;
-            List<KhachHang> tempKhachHangList = new ArrayList<>(); // Tạo một danh sách tạm thời
-
+            int numberOfLines = 0;
+    
+            while (br.readLine() != null) {
+                numberOfLines++; // Counting lines in the file
+            }
+    
+            // Resetting the reader after counting lines
+            br.close();
+            f = new FileReader("data_KhachHang.txt");
+            br = new BufferedReader(f);
+    
+            KhachHang[] tempKhachHangArray = new KhachHang[numberOfLines]; // Create an array to hold the data
+    
+            int index = 0;
             while ((s = br.readLine()) != null) {
                 String data[] = s.split(",");
                 KhachHang kh = new KhachHang(data[0], data[1], data[2], data[3], data[4]);
-                tempKhachHangList.add(kh); // Thêm nhân viên vào danh sách tạm thời
+                tempKhachHangArray[index] = kh; // Assign KhachHang object to the array
+                index++;
             }
-
-            // Chuyển danh sách tạm thời sang mảng
-            dskh = tempKhachHangList.toArray(new KhachHang[0]);
-
-            //System.out.println("Tai du lieu thanh cong!");
+    
+            dskh = tempKhachHangArray; // Assign the temporary array to your class variable
+    
+            // System.out.println("Tai du lieu thanh cong!");
             br.close();
             f.close();
         } catch (FileNotFoundException e) {
@@ -297,7 +307,7 @@ public class DanhSachKhachHang {
             for (KhachHang kh : dskh) {
                 bw.write(kh.toString());
             }
-            //System.out.println("Luu du lieu thanh cong!");
+            System.out.println("Luu du lieu thanh cong!");
             bw.close();
             f.close();
         } catch (IOException e) {
