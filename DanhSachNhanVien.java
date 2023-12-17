@@ -39,7 +39,6 @@ public class DanhSachNhanVien {
 
     // các thao tác với danh sách
     public void xoa() {
-        tai_du_lieu();
         System.out.print("Nhap ma nhan vien muon xoa: ");
         String manv = sc.nextLine();
         sc.nextLine();
@@ -49,10 +48,12 @@ public class DanhSachNhanVien {
                 dsnv[i] = dsnv[i + 1];
             }
             dsnv = Arrays.copyOf(dsnv, dsnv.length - 1);
+            N--;
             System.out.println("Da xoa nhan vien co ma: " + manv);
         } else {
             System.out.println("Khong tim thay nhan vien co ma: " + manv);
         }
+        luu_du_lieu();
     }
 
     public void tim_kiem() {
@@ -110,7 +111,7 @@ public class DanhSachNhanVien {
         return -1;
     }
     
-    //TIM KIEM MA NHAN VIEN TU GIO HANG
+    //---TIM KIEM MA NHAN VIEN TU GIO HANG
     public void tim_kiem_theoma(String manv) {
         tai_du_lieu();
         for (int i = 0; i < dsnv.length; i++) {
@@ -120,7 +121,7 @@ public class DanhSachNhanVien {
         }
         return;
     }
-    //XUAT NHAN VIEN TU GIO HANG
+    //---XUAT NHAN VIEN TU GIO HANG
     public void xuatNV(String maNV) {
         tai_du_lieu();
         int n = dsnv.length;
@@ -133,8 +134,7 @@ public class DanhSachNhanVien {
             }
         }
     }
-    //KET THUC
-
+    //---KET THUC
 
     public void thay_doi_thong_tin() {
         tai_du_lieu();
@@ -209,6 +209,7 @@ public class DanhSachNhanVien {
         }
     }
 
+
     public void them() {
         int index = 0;
         while (true) {
@@ -230,6 +231,17 @@ public class DanhSachNhanVien {
             }
         }
     }
+    //---TEST HAM THEM
+    public void themNV(){
+        N = dsnv.length;
+        dsnv = Arrays.copyOf(dsnv,N+1);
+        dsnv[N] = new NhanVien();
+        dsnv[N].nhap();
+        N++;
+        luu_du_lieu();
+        System.out.println("Nhan Vien Da Them!");
+    }
+    //---KET THUC
 
     public void nhap() {
         dsnv = new NhanVien[0]; // Khởi tạo mảng rỗng
@@ -299,7 +311,7 @@ public class DanhSachNhanVien {
 
     public void luu_du_lieu() {
         try {
-            FileWriter f = new FileWriter("data_NhanVien.txt", true);
+            FileWriter f = new FileWriter("data_NhanVien.txt", false);
             BufferedWriter bw = new BufferedWriter(f);
             for (NhanVien nv : dsnv) {
                 bw.write(nv.toString());
@@ -330,7 +342,7 @@ public class DanhSachNhanVien {
                     sc.nextLine();
                     break;
                 case 2:               
-                    them();
+                    themNV();
                     break;
                 case 3:
                     xoa();
