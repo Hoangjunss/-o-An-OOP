@@ -29,6 +29,7 @@ public class Menu {
                 break;
                 case 3:
                     dspn.docFileJava("PhieuNhap.txt");
+                    dspn.nhap();
                     dspn.thaoTac();
                 break;
                 case 4:
