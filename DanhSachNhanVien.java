@@ -5,9 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class DanhSachNhanVien {
@@ -57,7 +55,6 @@ public class DanhSachNhanVien {
     }
 
     public void tim_kiem() {
-        tai_du_lieu();
         if (dsnv.length == 0) {
             System.out.println("Danh sach trong!");
             System.out.print("Nhap 'Enter' de tiep tuc!");
@@ -111,6 +108,7 @@ public class DanhSachNhanVien {
         return -1;
     }
     
+<<<<<<< HEAD
     //---TIM KIEM MA NHAN VIEN TU GIO HANG
     public void tim_kiem_theoma(String manv) {
         tai_du_lieu();
@@ -135,9 +133,35 @@ public class DanhSachNhanVien {
         }
     }
     //---KET THUC
+=======
+    // //TIM KIEM MA NHAN VIEN TU GIO HANG
+    // public void tim_kiem_theoma(String manv) {
+    //     tai_du_lieu();
+    //     for (int i = 0; i < dsnv.length; i++) {
+    //         if (dsnv[i].getManv().equals(manv))
+    //             dsnv[i].xuat();
+    //             break;
+    //     }
+    //     return;
+    // }
+    // //XUAT NHAN VIEN TU GIO HANG
+    // public void xuatNV(String maNV) {
+    //     tai_du_lieu();
+    //     int n = dsnv.length;
+    //     for(int i=0; i<n; i++){
+    //         if(dsnv[i].getManv().equals(maNV)){
+    //             System.out.println("\t\tMA NHAN VIEN: "+dsnv[i].getManv());
+    //             System.out.println("HO VA TEN: "+dsnv[i].getHonv()+" "+dsnv[i].getTennv());
+    //             System.out.println("SO DIEN THOAI: "+dsnv[i].getSdt());
+    //             break;
+    //         }
+    //     }
+    // }
+    // //KET THUC
+
+>>>>>>> 56f5cd87b543a20e8765ba2f33b4351746fe2262
 
     public void thay_doi_thong_tin() {
-        tai_du_lieu();
         if (dsnv.length == 0) {
             System.out.println("Danh sach trong!");
             System.out.print("Nhap 'Enter' de tiep tuc!");
@@ -267,7 +291,6 @@ public class DanhSachNhanVien {
     
 
     public void xuat() {
-        tai_du_lieu();
         if (dsnv.length == 0) {
             System.out.println("Danh sach trong!");
             System.out.print("Nhap 'Enter' de tiep tuc!");
@@ -288,18 +311,31 @@ public class DanhSachNhanVien {
             FileReader f = new FileReader("data_NhanVien.txt");
             BufferedReader br = new BufferedReader(f);
             String s;
-            List<NhanVien> tempNhanVienList = new ArrayList<>(); // Tạo một danh sách tạm thời
-
+            int numberOfLines = 0;
+    
+            // Counting lines in the file
+            while (br.readLine() != null) {
+                numberOfLines++;
+            }
+    
+            // Resetting the reader after counting lines
+            br.close();
+            f = new FileReader("data_NhanVien.txt");
+            br = new BufferedReader(f);
+    
+            NhanVien[] tempNhanVienArray = new NhanVien[numberOfLines]; // Create an array to hold the data
+    
+            int index = 0;
             while ((s = br.readLine()) != null) {
                 String data[] = s.split(",");
                 NhanVien nv = new NhanVien(data[0], data[1], data[2], data[3], data[4]);
-                tempNhanVienList.add(nv); // Thêm nhân viên vào danh sách tạm thời
+                tempNhanVienArray[index] = nv; // Assign NhanVien object to the array
+                index++;
             }
-
-            // Chuyển danh sách tạm thời sang mảng
-            dsnv = tempNhanVienList.toArray(new NhanVien[0]);
-
-            //System.out.println("Tai du lieu thanh cong!");
+    
+            dsnv = tempNhanVienArray; // Assign the temporary array to your class variable
+    
+            // System.out.println("Tai du lieu thanh cong!");
             br.close();
             f.close();
         } catch (FileNotFoundException e) {
@@ -327,7 +363,6 @@ public class DanhSachNhanVien {
     
     public void menu_nv() {
         while (true) {
-            tai_du_lieu();
             System.out.println("--------------------MENU THAO TAC-------------------");
             System.out.println("1: Xem tat ca cac nhan vien   2: Them nhan vien");
             System.out.println("3: Xoa nhan vien              4: Thay doi thong tin");
