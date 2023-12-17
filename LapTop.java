@@ -4,14 +4,14 @@ import java.io.IOException;
 
 public class LapTop extends SanPham {
     private String Pin;
-    private double CanNang;
-    private double KichThuoc;
+    private float CanNang;
+    private float KichThuoc;
     public LapTop(){}
-    public LapTop(String Masp, String Tensp, int Sl, long Dongia, String Donvitinh, String Ocung, String Manhinh, String Phim, String Chuot, String Loa, String Pin, double d, double e){
+    public LapTop(String Masp, String Tensp, int Sl, long Dongia, String Donvitinh, String Ocung, String Manhinh, String Phim, String Chuot, String Loa, String Pin, float CanNang, float KichThuoc){
         super(Masp, Tensp, Sl, Dongia, Donvitinh, Ocung, Manhinh, Phim, Chuot, Loa);
         this.Pin = Pin;
-        this.CanNang = d;
-        this.KichThuoc = e;
+        this.CanNang = CanNang;
+        this.KichThuoc = KichThuoc;
     }
     public LapTop(LapTop LT){
         super((SanPham)LT);
@@ -88,13 +88,13 @@ public class LapTop extends SanPham {
     public double getCanNang(){
         return CanNang;
     }
-    public void setCanNang(double Cannang){
+    public void setCanNang(float Cannang){
         this.CanNang = Cannang;
     }
     public double getKichThuoc(){
         return KichThuoc;
     }
-    public void setKichThuoc(double Kichthuoc){
+    public void setKichThuoc(float Kichthuoc){
         this.KichThuoc = Kichthuoc;
     }
 
@@ -129,8 +129,8 @@ public class LapTop extends SanPham {
         dos.writeUTF(Chuot);
         dos.writeUTF(Loa);
         dos.writeUTF(Pin);
-        dos.writeDouble(CanNang);
-        dos.writeDouble(KichThuoc);
+        dos.writeFloat(CanNang);
+        dos.writeFloat(KichThuoc);
         dos.close();
 	}
 }

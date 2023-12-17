@@ -108,7 +108,6 @@ public class DanhSachNhanVien {
         return -1;
     }
     
-<<<<<<< HEAD
     //---TIM KIEM MA NHAN VIEN TU GIO HANG
     public void tim_kiem_theoma(String manv) {
         tai_du_lieu();
@@ -133,7 +132,6 @@ public class DanhSachNhanVien {
         }
     }
     //---KET THUC
-=======
     // //TIM KIEM MA NHAN VIEN TU GIO HANG
     // public void tim_kiem_theoma(String manv) {
     //     tai_du_lieu();
@@ -159,7 +157,7 @@ public class DanhSachNhanVien {
     // }
     // //KET THUC
 
->>>>>>> 56f5cd87b543a20e8765ba2f33b4351746fe2262
+
 
     public void thay_doi_thong_tin() {
         if (dsnv.length == 0) {
