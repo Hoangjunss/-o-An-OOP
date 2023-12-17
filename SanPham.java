@@ -1,3 +1,4 @@
+
 import java.io.DataOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -17,9 +18,9 @@ public class SanPham{
     protected String Loa;
     //Contruster
     public SanPham(){}
-    public SanPham(String MaSP, String TenSP, int Sl, long Dongia, String Donvitinh, String Ocung, String Manhinh, String Phim, String Chuot, String Loa){
-        this.maSP = MaSP;
-        this.tenSP = TenSP;
+    public SanPham(String Masp, String Tensp, int Sl, long Dongia, String Donvitinh, String Ocung, String Manhinh, String Phim, String Chuot, String Loa){
+        this.maSP = Masp;
+        this.tenSP = Tensp;
         this.Sl = Sl;
         this.DonGia = Dongia;
         this.DonViTinh = Donvitinh;
@@ -46,14 +47,14 @@ public class SanPham{
     public String getMaSP(){
         return maSP;
     }
-    public void setMaSP(String MaSP){
-        this.maSP = MaSP;
+    public void setMaSP(String Masp){
+        this.maSP = Masp;
     }
-    public String getTenSP(){
+    public String getTensp(){
         return  tenSP;
     }
-    public void setTenSP(String TenSP){
-        this.tenSP = TenSP;
+    public void setTensp(String Tensp){
+        this.tenSP = Tensp;
     }
     public int getSl(){
         return Sl;
@@ -107,6 +108,10 @@ public class SanPham{
     public void Nhap(){
         System.out.println("***Nhap Thong Tin San Pham***");
         System.out.print("Ma San Pham: "); maSP = sc.nextLine();
+        while(maSP.indexOf("LAP")==-1 && maSP.indexOf("MAY")==-1 && maSP.indexOf("SP")==-1){
+            System.out.print("DINH DANG MA SAN PHAM SAI. Ma Phai chua LAP, MAY hoac SP va so thu tu.\nVui Long Nhap lai: ");
+            maSP = sc.nextLine();
+        }
         System.out.print("Ten San Pham: "); tenSP = sc.nextLine();
         System.out.print("So luong: "); Sl = sc.nextInt();
         System.out.print("Don Gia: "); DonGia = sc.nextLong();
@@ -124,7 +129,7 @@ public class SanPham{
 
     public void sua(SanPham SP){
         System.out.println("NHAP THONG TIN CAN SUA");
-        System.out.print("Ten San Pham: "); tenSP = sc.nextLine(); SP.setTenSP(tenSP);
+        System.out.print("Ten San Pham: "); tenSP = sc.nextLine(); SP.setTensp(tenSP);
         System.out.print("So luong: "); Sl = sc.nextInt(); SP.setSl(Sl);
         System.out.print("Don Gia: "); DonGia = sc.nextLong(); SP.setDonGia(DonGia);
         System.out.print("Don vi tinh: "); DonViTinh = sc.nextLine();DonViTinh = sc.nextLine(); SP.setDonViTinh(DonViTinh);

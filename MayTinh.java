@@ -16,66 +16,6 @@ public class MayTinh extends SanPham {
         LoaiCase = MT.LoaiCase;
         Slkhecam = MT.Slkhecam;
     }
-    public String getMaSP(){
-        return maSP;
-    }
-    public void setMaSP(String MaSP){
-        this.maSP = MaSP;
-    }
-    public String getTenSP(){
-        return  tenSP;
-    }
-    public void setTenSP(String TenSP){
-        this.tenSP = TenSP;
-    }
-    public int getSl(){
-        return Sl;
-    }
-    public void setSl(int Sl){
-        this.Sl = Sl;
-    }
-    public long getDonGia(){
-        return DonGia;
-    }
-    public void setDonGia(long Dongia){
-        this.DonGia = Dongia;
-    }
-    public String getDonViTinh(){
-        return DonViTinh;
-    }
-    public void setDonViTinh(String Donvitinh){
-        this.DonViTinh = Donvitinh;
-    }
-    public String getOCung(){
-        return OCung;
-    }
-    public void setOCung(String Ocung){
-        this.OCung = Ocung;
-    }
-    public String getManHinh(){
-        return ManHinh;
-    }
-    public void setManHinh(String Manhinh){
-        this.ManHinh = Manhinh;
-    }
-    public String getPhim(){
-        return Phim;
-    }
-    public void setPhim(String Phim){
-        this.Phim = Phim;
-    }
-    public String getChuot(){
-        return Chuot;
-    }
-    public void setChuot(String Chuot){
-        this.Chuot = Chuot;
-    }
-    public String getLoa(){
-        return Loa;
-    }
-    public void setLoa(String Loa){
-        this.Loa = Loa;
-    }
     public String getLoaiCASE(){
         return LoaiCase;
     }
@@ -95,7 +35,7 @@ public class MayTinh extends SanPham {
         System.out.print("So luong khe cam: "); Slkhecam = sc.nextInt();
     }
     @Override public void Xuat(){
-        System.out.format("|| %7s | %17s | %3s | %8s | %10s | %10s | %17s | %10s | %17s | %10s | %10s | %10s ||\n",maSP, tenSP, Sl, DonGia, DonViTinh, OCung, ManHinh, Phim, Chuot, Loa, LoaiCase, Slkhecam); 
+        System.out.format("|| %7s | %17s | %3s | %10s | %10s | %10s | %17s | %10s | %17s | %10s | %10s | %10s ||\n",maSP, tenSP, Sl, DonGia, DonViTinh, OCung, ManHinh, Phim, Chuot, Loa, LoaiCase, Slkhecam); 
     }
 
     public void sua(MayTinh mt){
