@@ -29,14 +29,15 @@ public class Menu {
                 break;
                 case 3:
                     dspn.docFileJava("PhieuNhap.txt");
-                    
                     dspn.thaoTac();
                 break;
                 case 4:
-                    dskh.nhap();
+                    dskh.tai_du_lieu();
+                    dskh.menu_kh();
                 break;
                 case 5:
-                    dsnv.nhap();
+                    dsnv.tai_du_lieu();
+                    dsnv.menu_nv();
                 break;
                 case 6:
                     dsncc.docFileJava("NhaCungCap.txt");

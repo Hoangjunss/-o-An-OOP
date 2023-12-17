@@ -282,6 +282,7 @@ public class DanhSachPhieuNhap {
                 break;
             case 0:
                 break;
+                
 
             default:
                 System.out.println("Lua Chon Khong Hop Le!");
