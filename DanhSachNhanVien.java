@@ -109,6 +109,32 @@ public class DanhSachNhanVien {
         }
         return -1;
     }
+    
+    //TIM KIEM MA NHAN VIEN TU GIO HANG
+    public void tim_kiem_theoma(String manv) {
+        tai_du_lieu();
+        for (int i = 0; i < dsnv.length; i++) {
+            if (dsnv[i].getManv().equals(manv))
+                dsnv[i].xuat();
+                break;
+        }
+        return;
+    }
+    //XUAT NHAN VIEN TU GIO HANG
+    public void xuatNV(String maNV) {
+        tai_du_lieu();
+        int n = dsnv.length;
+        for(int i=0; i<n; i++){
+            if(dsnv[i].getManv().equals(maNV)){
+                System.out.println("\t\tMA NHAN VIEN: "+dsnv[i].getManv());
+                System.out.println("HO VA TEN: "+dsnv[i].getHonv()+" "+dsnv[i].getTennv());
+                System.out.println("SO DIEN THOAI: "+dsnv[i].getSdt());
+                break;
+            }
+        }
+    }
+    //KET THUC
+
 
     public void thay_doi_thong_tin() {
         tai_du_lieu();
@@ -121,7 +147,7 @@ public class DanhSachNhanVien {
         while (true) {
             System.out.println("--------------Thay doi thong tin--------------");
             System.out.println("1: Thay doi ten        2: Thay doi so dien thoai");
-            System.out.println("3: Thay doi dia chi");
+            System.out.println("3: Thay doi ma nhan vien");
             System.out.println("4: Thoat chuong trinh");
             System.out.println("----------------------------------------------");
             int chon = sc.nextInt();
@@ -207,7 +233,6 @@ public class DanhSachNhanVien {
 
     public void nhap() {
         dsnv = new NhanVien[0]; // Khởi tạo mảng rỗng
-    
         int index = 0;
         while (true) {
             System.out.println("--------------Tao danh sach moi--------------");
@@ -262,7 +287,7 @@ public class DanhSachNhanVien {
             // Chuyển danh sách tạm thời sang mảng
             dsnv = tempNhanVienList.toArray(new NhanVien[0]);
 
-            System.out.println("Tai du lieu thanh cong!");
+            //System.out.println("Tai du lieu thanh cong!");
             br.close();
             f.close();
         } catch (FileNotFoundException e) {
@@ -290,6 +315,7 @@ public class DanhSachNhanVien {
     
     public void menu_nv() {
         while (true) {
+            tai_du_lieu();
             System.out.println("--------------------MENU THAO TAC-------------------");
             System.out.println("1: Xem tat ca cac nhan vien   2: Them nhan vien");
             System.out.println("3: Xoa nhan vien              4: Thay doi thong tin");
@@ -319,7 +345,6 @@ public class DanhSachNhanVien {
                     tim_kiem();
                     break;
                 default:
-                    luu_du_lieu();
                     return;
             }
         }
