@@ -179,12 +179,10 @@ public class DanhSachPhieuNhap {
                                 ghiFileJava("NhaCungCap.txt");
                                 thayMaPN(timKiem_Private(pnCanSua));
                                 break;
-        
                             case 2:
                                 // Sua tung dac diem
                                 suaTungDacDiem(pnCanSua);
                                 break;
-        
                             case 0:
                                 return;
                             default:
@@ -282,8 +280,6 @@ public class DanhSachPhieuNhap {
                 break;
             case 0:
                 break;
-                
-
             default:
                 System.out.println("Lua Chon Khong Hop Le!");
                 break;
@@ -402,6 +398,66 @@ public class DanhSachPhieuNhap {
         }
     }
 
+    public void timKiemKhoanNgayLap() {
+        System.out.print("--Nhap Vao Ngay Bat Dau (dd/MM/yyyy): ");
+        String ngayBatDauStr = sc.next();
+
+        System.out.print("--Nhap Vao Ngay Ket Thuc (dd/MM/yyyy): ");
+        String ngayKetThucStr = sc.next();
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+        try {
+            Date ngayBatDau = dateFormat.parse(ngayBatDauStr);
+            Date ngayKetThuc = dateFormat.parse(ngayKetThucStr);
+
+            System.out.println("\t\t\t\t\tBANG TIM KIEM PHIEU NHAP TRONG KHOAN NGAY " + ngayBatDauStr + " DEN " + ngayKetThucStr);
+            System.out.println("==============================================================================================================================================================");
+            System.out.format("|| %4s | %8s | %12s | %8s | %8s | %8s | %45s | %10s | %10s | %12s ||\n", "STT", "MaPN" , "Ngay" , "MaNV" , "MaNCC" , "MaSP" , "TenSP" , "So Luong" , "Don Gia" , "Thanh Tien" );
+
+            int j = 1;
+            for (int i = 0; i < n; i++) {
+                String ngayPhieuNhapStr = dspn[i].getNgay();
+                Date ngayPhieuNhap = dateFormat.parse(ngayPhieuNhapStr);
+
+                if (ngayPhieuNhap.after(ngayBatDau) && ngayPhieuNhap.before(ngayKetThuc)) {
+                    System.out.format("|| %4s |", (j));
+                    j++;
+                    dspn[i].xuat();
+                }
+            }
+
+            System.out.println("==============================================================================================================================================================");
+        } catch (ParseException e) {
+            System.out.println("Loi dinh dang ngay. Hay nhap theo dinh dang dd/MM/yyyy.");
+        }
+    }
+
+    public void timKiemKhoanGia() {
+
+        System.out.print("--Nhap Vao Gia Tri Bat Dau: ");
+        long giaTriBatDau = sc.nextLong();
+
+        System.out.print("--Nhap Vao Gia Tri Ket Thuc: ");
+        long giaTriKetThuc = sc.nextLong();
+
+        System.out.println("\t\t\t\t\tBANG TIM KIEM PHIEU NHAP TRONG KHOAN GIA " + giaTriBatDau + " DEN " + giaTriKetThuc);
+        System.out.println("==============================================================================================================================================================");
+        System.out.format("|| %4s | %8s | %12s | %8s | %8s | %8s | %45s | %10s | %10s | %12s ||\n", "STT", "MaPN" , "Ngay" , "MaNV" , "MaNCC" , "MaSP" , "TenSP" , "So Luong" , "Don Gia" , "Thanh Tien" );
+
+        int j = 1;
+        for (int i = 0; i < n; i++) {
+            long thanhTien = dspn[i].getThanhtien();
+
+            if (thanhTien >= giaTriBatDau && thanhTien <= giaTriKetThuc) {
+                System.out.format("|| %4s |", (j));
+                j++;
+                dspn[i].xuat();
+            }
+        }
+        System.out.println("==============================================================================================================================================================");
+    }
+
     private int timKiem_Private(ChiTietPhieuNhap tkPN){
         int i=0;
         while(i<n){
@@ -413,84 +469,287 @@ public class DanhSachPhieuNhap {
         return i;
     }
 
-//MENU TÌM KIẾM
-public void timKiem(){
-    int select;
-    do{
-        select =4;
-        System.out.println("\n\t\t\t\t\t======BANG LUA CHON======");
-        System.out.println("\t\t\t\t\t1.An phim 1 de tim kiem phieu nhap theo ma");
-        System.out.println("\t\t\t\t\t2.An phim 2 de tim kiem phieu nhap theo ten san pham");
-        System.out.println("\t\t\t\t\t3.An phim 3 de tim kiem phieu nhap theo ngay lap phieu");
-        System.out.println("\t\t\t\t\t4.An phim 4 de thoat");
-        System.out.print("Lua chon ban la: ");
-        select = sc.nextInt();
-        sc.nextLine();
-        switch(select) {
-            case 1:
-                timKiem_Ma();
-                break;
-            case 2:
-                timKiem_TenSP();
-                break;
-            case 3:
-                timKiem_Ngay();
-                break;
-            case 4: 
-                return;
-            default:
-                System.err.println("Bạn đã nhập sai lựa chọn của mình. Xin mời vào lại chức năng!!!");
-                break;
-        }
-    }while(select !=4 );
-}
 
-//THAO TAC
-public void thaoTac(){
-    int select = 0;
-    docFileJava("PhieuNhap.txt");
-    do{
-        System.out.println("\t\t\t\t\t======BANG LUA CHON======");
-        System.out.println("\t\t\t\t\t1.An phim 1 de them phieu nhap");
-        System.out.println("\t\t\t\t\t2.An phim 2 de xoa phieu nhap");
-        System.out.println("\t\t\t\t\t3.An phim 3 de sua thong tin phieu nhap");
-        System.out.println("\t\t\t\t\t4.An phim 4 de tim kiem thong tin phieu nhap");
-        System.out.println("\t\t\t\t\t5.An phim 5 de xuat danh sach phieu nhap");
-        System.out.println("\t\t\t\t\t6.An phim 6 de xoa toan bo phieu nhap va nhap vao danh sach moi");
-        System.out.println("\t\t\t\t\t7.An phim 7 de dung cac thao tac");
-        System.out.print("\nLua chon cua ban la: ");
-        select = sc.nextInt();
-        sc.nextLine();
-        switch(select) {
-            case 1:
-                them();
-                xuat();
-                break;
-            case 2:
-                xoa();
-                xuat();
-                break;
-            case 3:
-                sua();
-                xuat();
-                break;
-            case 4:
-                timKiem();
-                break;
-            case 5: 
-                xuat();
-                break;
-            case 6:
-                nhap();
-                break;
-            case 7:
-                return;
-            default:
-                System.err.println("Bạn đã nhập sai lựa chọn");
-                break;
+
+//MENU TÌM KIẾM
+    public void timKiemNangCao(){
+        int select;
+        do{
+            select = 3;
+            System.out.println("\t\t\t\t\t======BANG LUA CHON======");
+            System.out.println("\t\t\t\t\t1.An phim 1 de tim kiem theo khoan ngay");
+            System.out.println("\t\t\t\t\t2.An phim 2 de tim kiem theo khoan gia");
+            System.out.println("\t\t\t\t\t3.An phim 3 de thoat");
+            System.out.print("Lua Chon Cua Ban: ");
+            select = sc.nextInt();
+            switch (select) {
+                case 1:
+                    timKiemKhoanNgayLap();
+                    select = 3;
+                    break;
+                case 2:
+                    timKiemKhoanGia();
+                    select = 3;
+                    break;
+                case 3:
+                    break;
+                default:
+                    System.err.println("Bạn đã nhập sai lựa chọn của mình. Xin mời vào lại chức năng!!!");
+                    break;
             }
-    }while(select != 7);
-}
+        }while(select != 3);
+    }
+
+    public void timKiem(){
+        int select;
+        do{
+            select =5;
+            System.out.println("\n\t\t\t\t\t======BANG LUA CHON======");
+            System.out.println("\t\t\t\t\t1.An phim 1 de tim kiem phieu nhap theo ma");
+            System.out.println("\t\t\t\t\t2.An phim 2 de tim kiem phieu nhap theo ten san pham");
+            System.out.println("\t\t\t\t\t3.An phim 3 de tim kiem phieu nhap theo ngay lap phieu");
+            System.out.println("\t\t\t\t\t4.An phim 4 de su dung tim kiem nang cao");
+            System.out.println("\t\t\t\t\t5.An phim 5 de thoat");
+            System.out.print("Lua chon ban la: ");
+            select = sc.nextInt();
+            sc.nextLine();
+            switch(select) {
+                case 1:
+                    timKiem_Ma();
+                    select =5;
+                    break;
+                case 2:
+                    timKiem_TenSP();
+                    select =5;
+                    break;
+                case 3:
+                    timKiem_Ngay();
+                    select =5;
+                    break;
+                case 4:
+                    timKiemNangCao();
+                    select =5;
+                    break;
+                case 5:
+                    break;
+                default:
+                    System.err.println("Bạn đã nhập sai lựa chọn của mình. Xin mời vào lại chức năng!!!");
+                    break;
+            }
+        }while(select !=5 );
+    }
+
+    //THAO TAC
+    public void thaoTac(){
+        int select = 0;
+        docFileJava("PhieuNhap.txt");
+        do{
+            System.out.println("\t\t\t\t\t======BANG LUA CHON======");
+            System.out.println("\t\t\t\t\t1.An phim 1 de them phieu nhap");
+            System.out.println("\t\t\t\t\t2.An phim 2 de xoa phieu nhap");
+            System.out.println("\t\t\t\t\t3.An phim 3 de sua thong tin phieu nhap");
+            System.out.println("\t\t\t\t\t4.An phim 4 de tim kiem thong tin phieu nhap");
+            System.out.println("\t\t\t\t\t5.An phim 5 de xuat danh sach phieu nhap");
+            System.out.println("\t\t\t\t\t6.An phim 6 de xoa toan bo phieu nhap va nhap vao danh sach moi");
+            System.out.println("\t\t\t\t\t7.An phim 7 de thong ke");
+            System.out.println("\t\t\t\t\t8.An phim 8 de thoat ");
+            System.out.print("\nLua chon cua ban la: ");
+            select = sc.nextInt();
+            sc.nextLine();
+            switch(select) {
+                case 1:
+                    them();
+                    xuat();
+                    break;
+                case 2:
+                    xoa();
+                    xuat();
+                    break;
+                case 3:
+                    sua();
+                    xuat();
+                    break;
+                case 4:
+                    timKiem();
+                    break;
+                case 5: 
+                    xuat();
+                    break;
+                case 6:
+                    nhap();
+                    break;
+                case 7:
+                    thongKe();
+                    break;
+                case 8:
+                    break;
+                default:
+                    System.err.println("Bạn đã nhập sai lựa chọn");
+                    break;
+                }
+        }while(select != 8);
+    }
+//THỐNG KÊ
+    public void thongKe(){
+        int select;
+        do{
+            select =3;
+            System.out.println("\n\t\t\t\t\t======BANG LUA CHON======");
+            System.out.println("\t\t\t\t\t1.An phim 1 de thong ke phieu nhap theo quy");
+            System.out.println("\t\t\t\t\t2.An phim 2 de thong ke theo gia tri");
+            System.out.println("\t\t\t\t\t3.An phim 3 de thoat");
+            System.out.print("Lua chon ban la: ");
+            select = sc.nextInt();
+            sc.nextLine();
+            switch(select) {
+                case 1:
+                    thongKeTheoQuy();
+                    select =3;
+                    break;
+                case 2:
+                    thongKeThanhTien();
+                    select =3;
+                    break;
+                case 3:
+                    break;
+                default:
+                    System.err.println("Bạn đã nhập sai lựa chọn của mình. Xin mời vào lại chức năng!!!");
+                    break;
+            }
+        }while(select !=3 );
+    }
+
+    public void thongKeTheoQuy(){
+        System.out.print("--Nhap Vao Nam Muon Thong Ke: ");
+        String nam = sc.next();
+        int j=1;
+        System.out.println("\t\t\t\t\tBANG THONG KE PHIEU NHAP QUY 1 NAM " + nam);
+        System.out.println("==============================================================================================================================================================");
+        System.out.format("|| %4s | %8s | %12s | %8s | %8s | %8s | %45s | %10s | %10s | %12s ||\n", "STT", "MaPN" , "Ngay" , "MaNV" , "MaNCC" , "MaSP" , "TenSP" , "So Luong" , "Don Gia" , "Thanh Tien" );
+        for(int i=0;i<n;i++){
+            String temp = dspn[i].getNgay();
+            if(temp.substring(temp.length()-4).equals(nam)){
+                if(temp.substring(3, 5).equals("01") || temp.substring(3, 5).equals("02") || temp.substring(3, 5).equals("03")){
+                    docFileJava("PhieuNhap.txt");
+                    System.out.format("|| %4s |", (j));
+                    j++;
+                    dspn[i].xuat();
+                }
+            }
+        }
+        System.out.println("==============================================================================================================================================================");
+        j=1;
+        System.out.println("\t\t\t\t\tBANG THONG KE PHIEU NHAP QUY 2 NAM " + nam);
+        System.out.println("==============================================================================================================================================================");
+        System.out.format("|| %4s | %8s | %12s | %8s | %8s | %8s | %45s | %10s | %10s | %12s ||\n", "STT", "MaPN" , "Ngay" , "MaNV" , "MaNCC" , "MaSP" , "TenSP" , "So Luong" , "Don Gia" , "Thanh Tien" );
+        for(int i=0;i<n;i++){
+            String temp = dspn[i].getNgay();
+            if(temp.substring(temp.length()-4).equals(nam)){
+                if(temp.substring(3, 5).equals("04") || temp.substring(3, 5).equals("05") || temp.substring(3, 5).equals("06")){
+                    docFileJava("PhieuNhap.txt");
+                    System.out.format("|| %4s |", (j));
+                    j++;
+                    dspn[i].xuat();
+                }
+            }
+        }
+        System.out.println("==============================================================================================================================================================");
+        j=1;
+        System.out.println("\t\t\t\t\tBANG THONG KE PHIEU NHAP QUY 3 NAM " + nam);
+        System.out.println("==============================================================================================================================================================");
+        System.out.format("|| %4s | %8s | %12s | %8s | %8s | %8s | %45s | %10s | %10s | %12s ||\n", "STT", "MaPN" , "Ngay" , "MaNV" , "MaNCC" , "MaSP" , "TenSP" , "So Luong" , "Don Gia" , "Thanh Tien" );
+        for(int i=0;i<n;i++){
+            String temp = dspn[i].getNgay();
+            if(temp.substring(temp.length()-4).equals(nam)){
+                if(temp.substring(3, 5).equals("07") || temp.substring(3, 5).equals("08") || temp.substring(3, 5).equals("09") ){
+                    docFileJava("PhieuNhap.txt");
+                    System.out.format("|| %4s |", (j));
+                    j++;
+                    dspn[i].xuat();
+                }
+            }
+        }
+        System.out.println("==============================================================================================================================================================");
+        j=1;
+        System.out.println("\t\t\t\t\tBANG THONG KE PHIEU NHAP QUY 4 NAM " + nam);
+        System.out.println("==============================================================================================================================================================");
+        System.out.format("|| %4s | %8s | %12s | %8s | %8s | %8s | %45s | %10s | %10s | %12s ||\n", "STT", "MaPN" , "Ngay" , "MaNV" , "MaNCC" , "MaSP" , "TenSP" , "So Luong" , "Don Gia" , "Thanh Tien" );
+        for(int i=0;i<n;i++){
+            String temp = dspn[i].getNgay();
+            if(temp.substring(temp.length()-4).equals(nam)){
+                if(temp.substring(3, 5).equals("10") || temp.substring(3, 5).equals("11") || temp.substring(3, 5).equals("12")){
+                    docFileJava("PhieuNhap.txt");
+                    System.out.format("|| %4s |", (j));
+                    j++;
+                    dspn[i].xuat();
+                }
+            }
+        }
+        System.out.println("==============================================================================================================================================================");
+    }
+
+    public void thongKeThanhTien(){
+        int j=1;
+        System.out.println("\t\t\t\t\tBANG THONG KE PHIEU NHAP CO GIA TRI 0-100TR");
+        System.out.println("==============================================================================================================================================================");
+        System.out.format("|| %4s | %8s | %12s | %8s | %8s | %8s | %45s | %10s | %10s | %12s ||\n", "STT", "MaPN" , "Ngay" , "MaNV" , "MaNCC" , "MaSP" , "TenSP" , "So Luong" , "Don Gia" , "Thanh Tien" );
+        for(int i=0;i<n;i++){
+            if(dspn[i].getThanhtien()>=0 && dspn[i].getThanhtien()<=100000000){
+                docFileJava("PhieuNhap.txt");
+                System.out.format("|| %4s |", (j));
+                j++;
+                dspn[i].xuat();
+            }
+        }
+        System.out.println("==============================================================================================================================================================");
+
+        j=1;
+        System.out.println("\t\t\t\t\tBANG THONG KE PHIEU NHAP CO GIA TRI 100TR-500TR");
+        System.out.println("==============================================================================================================================================================");
+        System.out.format("|| %4s | %8s | %12s | %8s | %8s | %8s | %45s | %10s | %10s | %12s ||\n", "STT", "MaPN" , "Ngay" , "MaNV" , "MaNCC" , "MaSP" , "TenSP" , "So Luong" , "Don Gia" , "Thanh Tien" );
+        for(int i=0;i<n;i++){
+            if(dspn[i].getThanhtien()>=100000000 && dspn[i].getThanhtien()<=500000000){
+                docFileJava("PhieuNhap.txt");
+                System.out.format("|| %4s |", (j));
+                j++;
+                dspn[i].xuat();
+            }
+        }
+        System.out.println("==============================================================================================================================================================");
+
+        j=1;
+        System.out.println("\t\t\t\t\tBANG THONG KE PHIEU NHAP CO GIA TRI LON HON 500TR");
+        System.out.println("==============================================================================================================================================================");
+        System.out.format("|| %4s | %8s | %12s | %8s | %8s | %8s | %45s | %10s | %10s | %12s ||\n", "STT", "MaPN" , "Ngay" , "MaNV" , "MaNCC" , "MaSP" , "TenSP" , "So Luong" , "Don Gia" , "Thanh Tien" );
+        for(int i=0;i<n;i++){
+            if(dspn[i].getThanhtien()>=500000000){
+                docFileJava("PhieuNhap.txt");
+                System.out.format("|| %4s |", (j));
+                j++;
+                dspn[i].xuat();
+            }
+        }
+        System.out.println("==============================================================================================================================================================");
+
+    }
+
+//CÁC PHƯƠNG THỨC HỖ TRỢ
+    public int length(){
+        return n;
+    }
+
+    public String getMaNCC(int i){
+        return dspn[i].getMaNCC();
+    }
+
+    public long getTongTien(int i){
+        return dspn[i].getThanhtien();
+    }
+
+    public String getMaSP(int i){
+        return dspn[i].getMaSP();
+    }
+
 
 //GHI VÀ ĐỌC FILE
     public void ghiFileJava(String fileName){
