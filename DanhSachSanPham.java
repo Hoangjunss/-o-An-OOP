@@ -688,7 +688,7 @@ public class DanhSachSanPham implements ThaoTac{
             xuat(0);
         }else
         if(maSP.startsWith("LAP")){
-            LapTop temp= new LapTop(maSP, tenSP, soLuong, donGia, "", "", "", "", "", "", "", 0f, 0f);
+            LapTop temp= new LapTop(maSP, tenSP, soLuong, donGia, "", "", "", "", "", "", "", 0.0, 0.0);
             SP[j] = new LapTop();
             SP[j] = temp;
             SP[j].Xuat();

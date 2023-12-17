@@ -52,8 +52,6 @@ public class DanhSachHoaDon {
 		XuatDanhSach();
         GhiFileJava("HoaDon.txt");
 	}
-
-
     public void xoa(String mahd) {
 		boolean flag = false;
 		int j = 0;
