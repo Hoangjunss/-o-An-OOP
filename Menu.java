@@ -32,10 +32,10 @@ public class Menu {
                     dspn.thaoTac();
                 break;
                 case 4:
-                    dskh.nhap();
+                    dskh.menu_kh();
                 break;
                 case 5:
-                    dsnv.nhap();
+                    dsnv.menu_nv();
                 break;
                 case 6:
                     dsncc.docFileJava("NhaCungCap.txt");

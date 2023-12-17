@@ -86,7 +86,7 @@ public class NhanVien {
             System.out.println("Khong dung dinh dang!");
             System.out.println("Ho khong chua so va cac ky tu dac biet");
             System.out.print("Nhap ho nhan vien: ");
-            tennv = sc.nextLine();
+            honv = sc.nextLine();
         }
 
         System.out.print("Nhap ten nhan vien: ");
@@ -115,7 +115,7 @@ public class NhanVien {
             System.out.println("Khong dung dinh dang!");
             System.out.println("Dia chi khong chua so va cac ky tu dac biet");
             System.out.print("Nhap dia chi nhan vien: ");
-            tennv = sc.nextLine();
+            diachi = sc.nextLine();
         }        
     }
 
