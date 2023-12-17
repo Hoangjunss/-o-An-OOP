@@ -1,7 +1,13 @@
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class NhanVien {
+    private static final String Boolean = null;
     private String manv;
     private String honv;
     private String tennv;
@@ -86,7 +92,7 @@ public class NhanVien {
             System.out.println("Khong dung dinh dang!");
             System.out.println("Ho khong chua so va cac ky tu dac biet");
             System.out.print("Nhap ho nhan vien: ");
-            honv = sc.nextLine();
+            tennv = sc.nextLine();
         }
 
         System.out.print("Nhap ten nhan vien: ");
@@ -115,7 +121,7 @@ public class NhanVien {
             System.out.println("Khong dung dinh dang!");
             System.out.println("Dia chi khong chua so va cac ky tu dac biet");
             System.out.print("Nhap dia chi nhan vien: ");
-            diachi = sc.nextLine();
+            tennv = sc.nextLine();
         }        
     }
 
@@ -127,5 +133,15 @@ public class NhanVien {
     public String toString() 
     {
         return manv + "," + honv + "," + tennv + "," + sdt + "," + diachi + "\n";
+    }
+
+    public void GhiFile(String filename) throws IOException {
+        DataOutputStream dos = new DataOutputStream(new FileOutputStream(filename, true));
+        dos.writeUTF(manv);
+        dos.writeUTF(honv);
+        dos.writeUTF(tennv);
+        dos.writeUTF(sdt);
+        dos.writeUTF(diachi);
+        dos.close();
     }
 }
