@@ -147,7 +147,7 @@ public class DanhSachHoaDon {
             while(true) {
                 System.out.println("\t\t\t\t\t======BANG LUA CHON======");
                 System.out.println("\t\t\t\t\t1.An phim 1 de tim kiem Hoa Don theo ma");
-                System.out.println("\t\t\t\t\t2.An phim 2 de tim kiem ten nhan vien phu trach");
+                System.out.println("\t\t\t\t\t2.An phim 2 de tim kiem theo ma nhan vien");
                 System.out.println("\t\t\t\t\t3.An phim 3 de tim kiem ma khac hang cua hoa don");
                 System.out.println("\t\t\t\t\t4.An phim 4 de thoat");
                 System.out.println("\nLua chon cua ban la: ");
@@ -192,6 +192,7 @@ public class DanhSachHoaDon {
                     System.out.println("\t\t\t\t\t4.An phim 4 de tim kiem hoa don");
                     System.out.println("\t\t\t\t\t5.An phim 5 de xuat danh sach hoa don");
                     System.out.println("\t\t\t\t\t6.An phim 6 de dung cac thao tac");
+                    System.out.println("\t\t\t\t\t7.An phim 7 de thong ke");
                     System.out.print("\nLua chon cua ban la: ");
                     select = sc.nextInt();
                     sc.nextLine();
@@ -219,7 +220,9 @@ public class DanhSachHoaDon {
                             XuatDanhSach();
                             break;
                         case 6:
-                            break loop;
+                           ThongKe();
+                        case 7:
+                          break loop;
                         default:
                             System.out.println("Ban da nhap sai lua chon");
                             break;
@@ -235,6 +238,42 @@ public class DanhSachHoaDon {
         n++;
         GhiFileJava("HoaDon.txt");
     }
+    public void ThongKe() {
+		int dem = 0;
+		DocFileJava("HoaDon.txt");
+		String date;
+		System.out.println("\t\t\t\t\t     =====BẢNG THỐNG KÊ=====");
+		System.out.println("\t\t\t\t\t================================");
+		System.out.format("\t\t\t\t\t|| %16s| %8s ||\n", "NGÀY LẬP HÓA ĐƠN", "BÁN ĐƯỢC");
+		for(int i = 0; i < n; i++) {
+			date = hd[i].getNgayLapHoaDon();
+			dem = Dem(date, i);
+			if(dem != 0)
+				System.out.format("\t\t\t\t\t|| %16s| %8s ||\n", date, dem);
+			dem = 0;
+		}
+		System.out.println("\t\t\t\t\t================================\n");
+	}
+	
+	public int Dem(String date, int k) {
+		int dem = 1;
+		for(int i = 0; i < n; i++) {
+			if(KiemTraNLHD(date, k)){
+				if(date.equals(hd[i].getNgayLapHoaDon()) && i != k)
+					dem++;
+			}
+			else
+				dem = 0;
+		}
+		return dem;
+	}
+    public boolean KiemTraNLHD(String date, int k) {
+		for(int i = k; i < n; i++) {
+			if(date.equals(hd[i].getNgayLapHoaDon()) && i != k)
+				return false;
+		}
+		return true;
+	}
 
 
     
