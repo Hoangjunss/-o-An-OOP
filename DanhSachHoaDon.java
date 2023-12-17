@@ -1,4 +1,3 @@
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.EOFException;
@@ -9,8 +8,6 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class DanhSachHoaDon {
-    DanhSachKhachHang dskh = new DanhSachKhachHang();
-    DanhSachNhanVien dsnv = new DanhSachNhanVien();
     ChiTietHoaDon []hd;
     Scanner sc = new Scanner(System.in);
     private int n;
@@ -29,15 +26,15 @@ public class DanhSachHoaDon {
 			System.out.print("\n\t\t\t\t\tHOA DON THU " + (i + 1) + "\n");
 			hd[i] = new ChiTietHoaDon();
 			hd[i].Nhap();
-            GhiFileJava("HoaDon-test.txt");
+            GhiFileJava("HoaDon.txt");
 		}
 	}
 	public void XuatDanhSach(){
-        DocFileJava("HoaDon-test.txt");
+        DocFileJava("HoaDon.txt");
 		System.out.println("\t\t\t\t\t\t\t\t=====DANH SACH HOA Đ0N=====");
         System.out.println("\n==================================================================================================================================");
         System.out.format("|| %4s | %10s | %20s | %15s | %15s | %8s | %8s | %10s | %10s ||\n", "STT", "Ma Hoa Don"," Ngay Lap Hoa Don", "Ma Khach Hang", "Ma Nhan Vien", "Ma SP", "So Luong"," Don Gia", "Thanh Tien");
-	   // DocFileJava("HoaDon-test.txt");
+	   // DocFileJava("HoaDon.txt");
 		for(int i = 0; i < n; i++) {
 				System.out.format("|| %4s ", (i+1));
 				hd[i].Xuat();
@@ -53,7 +50,7 @@ public class DanhSachHoaDon {
 		hd[n].Nhap();
         n++;
 		XuatDanhSach();
-        GhiFileJava("HoaDon-test.txt");
+        GhiFileJava("HoaDon.txt");
 	}
 
 
@@ -70,8 +67,8 @@ public class DanhSachHoaDon {
 		for(int i = j; i < n - 1; i++) {
 			hd[i] = hd[i + 1];
 		} 
-        n--;
-        GhiFileJava("HoaDon-test.txt");
+        GhiFileJava("HoaDon.txt");
+		n--;
 		
 		if(flag)
 			System.out.println("\nĐã xoá thành công hoá đơn");
@@ -91,7 +88,7 @@ public class DanhSachHoaDon {
 					System.out.println("==================================================================================================================================");					
 					hd[i] = new ChiTietHoaDon();
 					hd[i].Nhap();
-                    GhiFileJava("HoaDon-test.txt");
+                    GhiFileJava("HoaDon.txt");
 					return;
 			}
 		}
@@ -150,7 +147,7 @@ public class DanhSachHoaDon {
             while(true) {
                 System.out.println("\t\t\t\t\t======BANG LUA CHON======");
                 System.out.println("\t\t\t\t\t1.An phim 1 de tim kiem Hoa Don theo ma");
-                System.out.println("\t\t\t\t\t2.An phim 2 de tim kiem ten nhan vien phu trach");
+                System.out.println("\t\t\t\t\t2.An phim 2 de tim kiem theo ma nhan vien");
                 System.out.println("\t\t\t\t\t3.An phim 3 de tim kiem ma khac hang cua hoa don");
                 System.out.println("\t\t\t\t\t4.An phim 4 de thoat");
                 System.out.println("\nLua chon cua ban la: ");
@@ -187,14 +184,15 @@ public class DanhSachHoaDon {
             String mahd = "";
             loop:
                 while(true) {
-                    DocFileJava("HoaDon-test.txt");
+                    DocFileJava("HoaDon.txt");
                     System.out.println("\t\t\t\t\t======BANG LUA CHON======");
                     System.out.println("\t\t\t\t\t1.An phim 1 de them hoa don");
                     System.out.println("\t\t\t\t\t2.An phim 2 de xoa hoa don");
                     System.out.println("\t\t\t\t\t3.An phim 3 de sua thong tin hoa don");
                     System.out.println("\t\t\t\t\t4.An phim 4 de tim kiem hoa don");
                     System.out.println("\t\t\t\t\t5.An phim 5 de xuat danh sach hoa don");
-                    System.out.println("\t\t\t\t\t6.An phim 6 de dung cac thao tac");
+                    System.out.println("\t\t\t\t\t6.An phim 6 de thong ke");
+                    System.out.println("\t\t\t\t\t7.An phim 7 de dung thao tac");
                     System.out.print("\nLua chon cua ban la: ");
                     select = sc.nextInt();
                     sc.nextLine();
@@ -222,7 +220,9 @@ public class DanhSachHoaDon {
                             XuatDanhSach();
                             break;
                         case 6:
-                            break loop;
+                           ThongKe();
+                        case 7:
+                          break loop;
                         default:
                             System.out.println("Ban da nhap sai lua chon");
                             break;
@@ -230,30 +230,51 @@ public class DanhSachHoaDon {
                 }
         }
 
-    public void themHoaDon(String masp,  int slsp, long dongiasp, long thanhtiensp){
-        DocFileJava("HoaDon-test.txt");
+    public void themHoaDon(String mahdsp, String ngaylaphoadonsp, String makhsp, String manvsp,String masp,  int slsp, long dongiasp, long thanhtiensp){
+        DocFileJava("HoaDon.txt");
         n=hd.length;
 		hd = Arrays.copyOf(hd, n+1);
-        System.out.print("Nhap ma Hoa Don Moi: "); String maHDmoi = sc.nextLine();
-        System.out.print("Ngay Lap Hoa Don: "); String NgayLap = sc.nextLine();
-        System.out.print("Ma Khach Hang: "); String maKHmoi = sc.nextLine();
-        System.out.print("Ma Nhan Vien: "); String maNV = sc.nextLine();
-		hd[n] = new ChiTietHoaDon(maHDmoi, NgayLap, maKHmoi, maNV, masp, slsp, dongiasp, thanhtiensp);
+		hd[n] = new ChiTietHoaDon(mahdsp, ngaylaphoadonsp, makhsp, manvsp, masp, slsp, dongiasp, thanhtiensp);
         n++;
-        GhiFileJava("HoaDon-test.txt");
-        HoaDoncuaban(n-1);
+        GhiFileJava("HoaDon.txt");
     }
-    public void HoaDoncuaban(int i){
-        DocFileJava("HoaDon-test.txt");
-        DanhSachSanPham dssp = new DanhSachSanPham();
-        System.out.println("\t\t\t\t\tCHI TIET HOA DON");
-        System.out.println("MA HOA DON: "+hd[i].getmaHD()+ "\tNgay Lap Hoa Don: "+hd[i].getNgayLapHoaDon());
-        dssp.timkiem_masp(hd[i].getMaSP());
-        dsnv.xuatNV(hd[i].getmaNV());
-        System.out.println("SO LUONG: "+hd[i].getSoLuong()+" \tDON GIA: "+hd[i].getDonGia());
-        System.out.println("THANH TIEN: "+hd[i].getThanhTien());
-        dskh.tim_kiem_theoma(hd[i].getmaKH());
-    }
+    public void ThongKe() {
+		int dem = 0;
+		DocFileJava("HoaDon.txt");
+		String date;
+		System.out.println("\t\t\t\t\t     =====BANG THONG KE=====");
+		System.out.println("\t\t\t\t\t================================");
+		System.out.format("\t\t\t\t\t|| %16s| %8s ||\n", "NGAY LAP HOA ĐƠN", "BAN ĐUOC");
+		for(int i = 0; i < n; i++) {
+			date = hd[i].getNgayLapHoaDon();
+			dem = Dem(date, i);
+			if(dem != 0)
+				System.out.format("\t\t\t\t\t|| %16s| %8s ||\n", date, dem);
+			dem = 0;
+		}
+		System.out.println("\t\t\t\t\t================================\n");
+	}
+	
+	public int Dem(String date, int k) {
+		int dem = 1;
+		for(int i = 0; i < n; i++) {
+			if(KiemTraNLHD(date, k)){
+				if(date.equals(hd[i].getNgayLapHoaDon()) && i != k)
+					dem++;
+			}
+			else
+				dem = 0;
+		}
+		return dem;
+	}
+    public boolean KiemTraNLHD(String date, int k) {
+		for(int i = k; i < n; i++) {
+			if(date.equals(hd[i].getNgayLapHoaDon()) && i != k)
+				return false;
+		}
+		return true;
+	}
+
 
     
     //DOC GHI FILE
