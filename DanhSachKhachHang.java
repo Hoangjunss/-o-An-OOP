@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -98,6 +97,7 @@ public class DanhSachKhachHang {
         }
     }
 
+    //TIM KIEM MA KHACH HANG TU GIO HANG
     public int tim_kiem_theo_ma(String makh) {
         for (int i = 0; i < dskh.length; i++) {
             if (dskh[i].getMakh().equals(makh))
@@ -105,6 +105,32 @@ public class DanhSachKhachHang {
         }
         return -1;
     }
+    public void tim_kiem_theoma(String makh) {
+        tai_du_lieu();
+        for (int i = 0; i < dskh.length; i++) {
+            if(dskh[i].getMakh().equals(makh)){
+                System.out.println("\t\tMA KHANH HANG: "+dskh[i].getMakh());
+                System.out.println("HO VA TEN: "+dskh[i].getHokh()+" "+dskh[i].getTenkh());
+                System.out.println("SO DIEN THOAI: "+dskh[i].getSdt()+ " DIA CHI: "+dskh[i].getDiachi());
+                break;
+            }
+            else{
+                int n = dskh.length;
+                dskh = Arrays.copyOf(dskh, n+1);
+                System.out.println("\t\t\tNHAP THONG TIN KHACH HANG MOI");
+                System.out.printf("Ho Khach Hang Moi: "); String hoKHmoi = sc.nextLine();
+                System.out.printf("Ten Khach hang moi: "); String tenKHmoi = sc.nextLine();
+                System.out.printf("So dien thoai: "); String sdtmoi = sc.nextLine();
+                System.out.printf("Dia Chi: "); String diachimoi = sc.nextLine();
+                dskh[n] = new KhachHang(makh, hoKHmoi, tenKHmoi, sdtmoi, diachimoi);
+                luu_du_lieu();
+                System.out.println("\t\t\tDA LUU THONG TIN");
+                break;
+            }
+        }
+        return;
+    }
+    //KET THUC 
 
     public void thay_doi_thong_tin() {
         if (dskh.length == 0) {
@@ -254,7 +280,7 @@ public class DanhSachKhachHang {
             // Chuyển danh sách tạm thời sang mảng
             dskh = tempKhachHangList.toArray(new KhachHang[0]);
 
-            System.out.println("Tai du lieu thanh cong!");
+            //System.out.println("Tai du lieu thanh cong!");
             br.close();
             f.close();
         } catch (FileNotFoundException e) {
@@ -271,7 +297,7 @@ public class DanhSachKhachHang {
             for (KhachHang kh : dskh) {
                 bw.write(kh.toString());
             }
-            System.out.println("Luu du lieu thanh cong!");
+            //System.out.println("Luu du lieu thanh cong!");
             bw.close();
             f.close();
         } catch (IOException e) {
@@ -282,6 +308,7 @@ public class DanhSachKhachHang {
     
     public void menu_kh() {
         while (true) {
+            tai_du_lieu();
             System.out.println("--------------------MENU THAO TAC-------------------");
             System.out.println("1: Xem tat ca cac khach hang   2: Them khach hang");
             System.out.println("3: Xoa khach hang              4: Thay doi thong tin");
@@ -291,7 +318,6 @@ public class DanhSachKhachHang {
             int chon = sc.nextInt();
             switch (chon) {
                 case 1:
-                    tai_du_lieu();
                     xuat();
                     System.out.print("\nNhap 'enter' de tiep tuc");
                     sc.nextLine();
@@ -312,7 +338,6 @@ public class DanhSachKhachHang {
                     tim_kiem();
                     break;
                 default:
-                    luu_du_lieu();
                     return;
             }
         }
