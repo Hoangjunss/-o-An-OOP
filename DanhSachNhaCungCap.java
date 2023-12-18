@@ -160,11 +160,11 @@ public class DanhSachNhaCungCap {
             if(nccCanSua != null){
                 NhaCungCap temp = new NhaCungCap(timKiem_Ma(maSua));
                 System.out.println("Thong Tin Nha Cung Cap Can Sua:");
-                System.out.println("======================================================================================================================");
+                System.out.println("==============================================================================================================");
                 System.out.format("|| %10s | %26s| %40s | %20s ||\n", "MA NCC" , "TEN NCC" , "DIA CHI" , "SDT");
                 System.out.print("|");
                 temp.xuat();
-                System.out.println("======================================================================================================================");
+                System.out.println("==============================================================================================================");
                 System.out.println("Xac Nhan Dung Nha Cung Cap Can Sua Khong! \n1:Dung \n2:Sai,Can Nhap Lai! \n0:Thoat");
                 choice1 = sc.nextInt();
                 switch (choice1) {
@@ -231,18 +231,18 @@ public class DanhSachNhaCungCap {
                 break;
 
             case 2:
-                System.out.print("Nhap Ten NCC moi: ");
-                ncc.setTen(sc.next());
+                System.out.print("Nhap Ten NCC moi: ");sc.nextLine();
+                ncc.setTen(sc.nextLine());
                 ghiFileJava("NhaCungCap.txt");
                 break;
             case 3:
-                System.out.print("Nhap Dia Chi NCC mô: ");
-                ncc.setDiaChi(sc.next());
+                System.out.print("Nhap Dia Chi NCC mô: ");sc.nextLine();
+                ncc.setDiaChi(sc.nextLine());
                 ghiFileJava("NhaCungCap.txt");
                 break;
             case 4:
-                System.out.print("Nhap SDT NCC moi: ");
-                ncc.setSdt(sc.next());
+                System.out.print("Nhap SDT NCC moi: ");sc.nextLine();
+                ncc.setSdt(sc.nextLine());
                 ghiFileJava("NhaCungCap.txt");
                 thaySDT(timKiem_Private(ncc));
                 break;
@@ -453,6 +453,7 @@ public class DanhSachNhaCungCap {
 
 //THAO TÁC TRONG DANH SÁCH
     public void thaoTac(){
+        dspn.docFileJava("PhieuNhap.txt");
         int select = 0;
 		do{
 			System.out.println("\t\t\t\t\t======BANG LUA CHON======");

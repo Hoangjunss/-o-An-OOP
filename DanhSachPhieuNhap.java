@@ -289,10 +289,8 @@ public class DanhSachPhieuNhap {
     public void themSanPham(ChiTietPhieuNhap pn){
         dssp.DocFileJava("SanPham.txt");
         if(dssp.timKiemChoNCC(pn.getMaSP()) == true){
-            System.out.println(dssp.timKiemChoNCC(pn.getMaSP()) + "1");
             dssp.capNhatSoLuong(pn.getMaSP(),pn.getSoluong());
         }else{
-            System.out.println(dssp.timKiemChoNCC(pn.getMaSP()) + "0");
             dssp.themSanPham(pn.getMaSP(), pn.getTenSP(),pn.getSoluong(), pn.getDonGia());
         }
     }
