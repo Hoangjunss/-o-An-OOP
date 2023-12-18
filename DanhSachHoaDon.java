@@ -193,7 +193,8 @@ public class DanhSachHoaDon {
                     System.out.println("\t\t\t\t\t4.An phim 4 de tim kiem hoa don");
                     System.out.println("\t\t\t\t\t5.An phim 5 de xuat danh sach hoa don");
                     System.out.println("\t\t\t\t\t6.An phim 6 de thong ke");
-                    System.out.println("\t\t\t\t\t7.An phim 7 de dung thao tac");
+                    System.out.println("\t\t\t\t\t7.An phim 7 de xem chi tiet hoa don");
+                    System.out.println("\t\t\t\t\t8.Nhap phim 8 de thoat");
                     System.out.print("\nLua chon cua ban la: ");
                     select = sc.nextInt();
                     sc.nextLine();
@@ -223,6 +224,14 @@ public class DanhSachHoaDon {
                         case 6:
                            ThongKe();
                         case 7:
+                            System.out.println("Nhap ma hoa don can tim");
+                            mahd=sc.nextLine();
+                           for(int i=0;i<n;i++){
+                            if(hd[i].getmaHD().indexOf(mahd)!=-1){
+                                HoaDoncuaban(i);
+                            }
+                           }
+                        case 8:
                           break loop;
                         default:
                             System.out.println("Ban da nhap sai lua chon");
