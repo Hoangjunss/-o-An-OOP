@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class DanhSachNhaCungCap {
     private int n,a=0;
     private NhaCungCap[] dsncc = new NhaCungCap[0];
+    private DanhSachPhieuNhap dspn = new DanhSachPhieuNhap();
     
     Scanner sc = new Scanner(System.in);
     
@@ -330,6 +331,31 @@ public class DanhSachNhaCungCap {
         return dsncc[i];
     }
 
+    public void timKiemKhoanTien(){
+        System.out.print("--Nhap Vao Gia Tri Bat Dau: ");
+        long giaTriBatDau = sc.nextLong();
+
+        System.out.print("--Nhap Vao Gia Tri Ket Thuc: ");
+        long giaTriKetThuc = sc.nextLong();
+        System.out.println("\t\t\t\t\tBANG TIM KIEM NHA CUNG CAP TRONG KHOAN TIEN DA HOP TAC " + giaTriBatDau + " DEN " + giaTriKetThuc);
+        System.out.println("=====================================================================================================================================");
+        System.out.format("|| %10s | %26s| %40s | %20s | %20s ||\n", "MA NCC" , "TEN NCC" , "DIA CHI" , "SDT", "TONG TIEN");
+        dspn.docFileJava("PhieuNhap.txt");
+        for(int i=0; i<n; i++){
+            String matemp = dsncc[i].getMaNCC();
+            long count = 0;
+            for(int j=0; j<dspn.length(); j++){
+                if(dspn.getMaNCC(j).equals(matemp)){
+                    count+=dspn.getTongTien(j);
+                }
+            }
+            if(count >= giaTriBatDau && count <= giaTriKetThuc){
+                System.out.format("|| %10s | %26s| %40s | %20s | %20s ||\n", matemp, dsncc[i].getTen(), dsncc[i].getDiaChi(), dsncc[i].getSdt(), count);
+            }
+        }
+        System.out.println("=====================================================================================================================================");
+    }
+
     private int timKiem_Private(NhaCungCap tkNCC){
         int i=0;
         while(i<n){
@@ -341,6 +367,34 @@ public class DanhSachNhaCungCap {
         return i;
     }
 //TÌM KIẾM CHÍNH
+    public void timKiemNangCao(){
+        int select;
+        do{
+            select = 3;
+            System.out.println("\t\t\t\t\t======BANG LUA CHON======");
+            System.out.println("\t\t\t\t\t1.An phim 1 de tim kiem theo khoan tien da hop tac");
+            //System.out.println("\t\t\t\t\t2.An phim 2 de tim kiem theo ");
+            System.out.println("\t\t\t\t\t2.An phim 0 de thoat");
+            System.out.print("Lua Chon Cua Ban: ");
+            select = sc.nextInt();
+            switch (select) {
+                case 1:
+                    timKiemKhoanTien();
+                    select = 3;
+                    break;
+                //case 2:
+                    
+                  //  select = 3;
+                    //break;
+                case 0:
+                    break;
+                default:
+                    System.err.println("Bạn đã nhập sai lựa chọn của mình. Xin mời vào lại chức năng!!!");
+                    break;
+            }
+        }while(select != 3);
+    }
+
     public void timKiem(){
         int select =0;
         while(true){
@@ -348,14 +402,15 @@ public class DanhSachNhaCungCap {
 			System.out.println("\t\t\t\t\t1.An phim 1 de tim kiem nha cung cap theo ma");
 			System.out.println("\t\t\t\t\t2.An phim 2 de tim kiem nha cung cap theo ten");
 			System.out.println("\t\t\t\t\t3.An phim 3 de tim kiem nha cung cap theo so dien thoai");
-			System.out.println("\t\t\t\t\t4.An phim 4 de thoat");
+			System.out.println("\t\t\t\t\t4.An phim 4 de dung tim kiem nang cao");
+            System.out.println("\t\t\t\t\t5.An phim 5 de thoat");
 			System.out.print("Lua chon ban la: ");
 			select = sc.nextInt();
 			sc.nextLine();
 			switch(select) {
 				case 1:
                     timKiem_Ma();
-                    return;
+                    break;
 				case 2:
 					System.out.print("Nhap vao ten nha cung cap can tim: ");
 					String tenNCCTim = sc.nextLine();
@@ -369,7 +424,7 @@ public class DanhSachNhaCungCap {
                     }
                         System.out.println("Ten Nha Cung Cap Sai Hoac Khong Ton Tai!");
                         System.out.println("======================================================================================================================");
-					return;
+					break;
 				case 3:
 					System.out.print("So dien thoai nha cung cap can tim: ");
 					String sdtNCCTIm = sc.nextLine();
@@ -384,8 +439,11 @@ public class DanhSachNhaCungCap {
                     }
                     System.out.println("======================================================================================================================");
 					return;
-				case 4: 
-					return;
+				case 4:
+                    timKiemNangCao();
+					break;
+                case 5:
+                    break;
 				default:
 					System.err.println("Bạn đã nhập sai lựa chọn của mình. Xin mời vào lại chức năng!!!");
 					break;
@@ -404,7 +462,8 @@ public class DanhSachNhaCungCap {
 			System.out.println("\t\t\t\t\t4.An phim 4 de tim kiem thong tin nha cung cap");
 			System.out.println("\t\t\t\t\t5.An phim 5 de xuat danh sach nha cung cap");
             System.out.println("\t\t\t\t\t6.An phim 6 de doi danh nha cung cap moi");
-			System.out.println("\t\t\t\t\t7.An phim 7 de dung cac thao tac");
+            System.out.println("\t\t\t\t\t7.An phim 7 de thong ke");
+			System.out.println("\t\t\t\t\t8.An phim 8 de dung cac thao tac");
 			System.out.print("\nLua chon cua ban la: ");
 			select = sc.nextInt();
 			sc.nextLine();
@@ -431,12 +490,113 @@ public class DanhSachNhaCungCap {
                     nhap();
                     break;
 				case 7:
-					return;
+                    thongKe();
+					break;
+                case 8:
+                    break;
 				default:
 					System.err.println("Bạn đã nhập sai lựa chọn");
 					break;
 				}
-		}while(select != 7);
+		}while(select != 8);
+    }
+
+//THỐNG KÊ
+    public void thongKe(){
+        int select = 3;
+		do{
+			System.out.println("\t\t\t\t\t======BANG LUA CHON======");
+			System.out.println("\t\t\t\t\t1.An phim 1 de them thong ke theo so luong san pham và tong tien");
+			System.out.println("\t\t\t\t\t2.An phim 2 de thong ke theo loai hang");
+            System.out.println("\t\t\t\t\t3.An phim 3 de thoat");
+			System.out.print("\nLua chon cua ban la: ");
+			select = sc.nextInt();
+			sc.nextLine();
+			switch(select) {
+				case 1:
+					thongKeSLSP();
+                    select = 3;
+					break;
+				case 2:
+                    thongKeLoai();
+                    select = 3;
+					break;
+				case 3:
+                    break;
+				default:
+					System.err.println("Bạn đã nhập sai lựa chọn");
+					break;
+				}
+		}while(select != 3);
+    }
+
+    public void thongKeLoai(){
+        dspn.docFileJava("PhieuNhap.txt");
+        System.out.println("\t\t\t\t\tBANG THONG KE NHA CUNG CAP MAY TINH");
+        System.out.println("===============================================================================================================");
+        System.out.format("|| %10s | %26s| %40s | %20s ||\n", "MA NCC" , "TEN NCC" , "DIA CHI" , "SDT");
+        for(int i=0; i<n; i++){
+            String matemp = dsncc[i].getMaNCC();
+            //boolean flag = false;
+            for(int j=0; j<dspn.length(); j++){
+                if(dspn.getMaSP(j).startsWith("MAY") && dspn.getMaNCC(j).equals(matemp)){
+                    System.out.format("|| %10s | %26s| %40s | %20s ||\n", matemp, dsncc[i].getTen(), dsncc[i].getDiaChi(), dsncc[i].getSdt());
+                    break;
+                }
+            }
+        } 
+        System.out.println("===============================================================================================================");
+
+        System.out.println("\t\t\t\t\tBANG THONG KE NHA CUNG CAP LAPTOP");
+        System.out.println("===============================================================================================================");
+        System.out.format("|| %10s | %26s| %40s | %20s ||\n", "MA NCC" , "TEN NCC" , "DIA CHI" , "SDT");
+        for(int i=0; i<n; i++){
+            String matemp = dsncc[i].getMaNCC();
+            //boolean flag = false;
+            for(int j=0; j<dspn.length(); j++){
+                if(dspn.getMaSP(j).startsWith("LAP") && dspn.getMaNCC(j).equals(matemp)){
+                    System.out.format("|| %10s | %26s| %40s | %20s ||\n", matemp, dsncc[i].getTen(), dsncc[i].getDiaChi(), dsncc[i].getSdt());
+                    break;
+                }
+            }
+        } 
+        System.out.println("===============================================================================================================");
+
+        System.out.println("\t\t\t\t\tBANG THONG KE NHA CUNG CAP BO SAN PHAM");
+        System.out.println("===============================================================================================================");
+        System.out.format("|| %10s | %26s| %40s | %20s ||\n", "MA NCC" , "TEN NCC" , "DIA CHI" , "SDT");
+        for(int i=0; i<n; i++){
+            String matemp = dsncc[i].getMaNCC();
+            //boolean flag = false;
+            for(int j=0; j<dspn.length(); j++){
+                if(dspn.getMaSP(j).startsWith("SP") && dspn.getMaNCC(j).equals(matemp)){
+                    System.out.format("|| %10s | %26s| %40s | %20s ||\n", matemp, dsncc[i].getTen(), dsncc[i].getDiaChi(), dsncc[i].getSdt());
+                    break;
+                }
+            }
+        } 
+        System.out.println("===============================================================================================================");
+    }
+
+    public void thongKeSLSP(){
+        dspn.docFileJava("PhieuNhap.txt");
+        System.out.println("\t\t\t\t\t\tBANG THONG KE SO LUONG SAN PHAM DUOC NHAP TU NHA CUNG CAP");
+        System.out.println("=======================================================================================================================================================");
+        System.out.format("|| %10s | %26s| %40s | %20s | %20s | %15s ||\n", "MA NCC" , "TEN NCC" , "DIA CHI" , "SDT", "SO LUONG DA NHAP", "TONG TIEN");
+        for(int i=0; i<n; i++){
+            String matemp = dsncc[i].getMaNCC();
+            int count = 0;
+            long count1 = 0;
+            for(int j=0; j<dspn.length(); j++){
+                if(dspn.getMaNCC(j).equals(matemp)){
+                    count+=1;
+                    count1+=dspn.getTongTien(j);
+                }
+            }
+            System.out.format("|| %10s | %26s| %40s | %20s | %20s | %15s ||\n", matemp, dsncc[i].getTen(), dsncc[i].getDiaChi(), dsncc[i].getSdt(), count, count1);
+
+        }
+        System.out.println("=======================================================================================================================================================");
     }
 
 //GHI VÀ ĐỌC FILE
