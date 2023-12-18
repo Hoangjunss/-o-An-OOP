@@ -198,8 +198,8 @@ public class DanhSachNhanVien {
                     break;
                 case 3:
                     System.out.print("Nhap dia chi moi: ");
-                    String diachi = sc.nextLine();
-                    while (!diachi.matches("^[a-zA-Z ]+$")) {
+                    String diachi = sc.next();
+                    while(!diachi.matches("^[a-zA-Z0-9 ]{"+ diachi.length() +"}$"))  {
                         System.out.println("Khong dung dinh dang!");
                         System.out.println("Dia hi khong chua so va cac ky tu dac biet");
                         System.out.print("Nhap dia chi moi: ");
