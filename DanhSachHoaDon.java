@@ -161,7 +161,7 @@ public class DanhSachHoaDon {
                         Search_MaHD(mahd);
                         break;
                     case 2:
-                        System.out.print("Nhap ho va ten lot hoac ten cua nhan vien phu trach ma ban muon tim: ");
+                        System.out.print("Nhap ma nhan vien phu trach ma ban muon tim: ");
                         String ho = sc.nextLine();
                         Search_Ho(ho);
                         break;
