@@ -680,7 +680,6 @@ public class DanhSachSanPham implements ThaoTac{
     }
 
     public void themSanPham(String maSP, String tenSP,int soLuong, long donGia){
-        System.out.println(N);
         SP = Arrays.copyOf(SP, N+1);
         int j=N;
         this.N = N+1;
@@ -688,25 +687,19 @@ public class DanhSachSanPham implements ThaoTac{
             MayTinh temp = new MayTinh(maSP, tenSP, soLuong, donGia, "", "", "", "", "", "", "", 0);
             SP[j] = new MayTinh();
             SP[j] = temp;
-            SP[j].Xuat();
             GhiFileJava("SanPham.txt");
-            xuat(-1);
         }else
         if(maSP.startsWith("LAP")){
             LapTop temp= new LapTop(maSP, tenSP, soLuong, donGia, "", "", "", "", "", "", "", 0.0f, 0.0f);
             SP[j] = new LapTop();
             SP[j] = temp;
-            SP[j].Xuat();
             GhiFileJava("SanPham.txt");
-            xuat(-1);
         }else
         if(maSP.startsWith( "SP")){
             SanPham temp = new SanPham(maSP, tenSP, soLuong, donGia, "", "", "", "", "", "");
             SP[j] = new SanPham();
             SP[j] = temp;
-            SP[j].Xuat();
             GhiFileJava("SanPham.txt");
-            xuat(-1);
         }
     }
     public void capNhatSoLuong(String maCN, int sl){
