@@ -115,6 +115,29 @@ public class DanhSachNhanVien {
         }
         return -1;
     }
+    //TIM KIEM MA NHAN VIEN TU GIO HANG
+    public void tim_kiem_theoma(String manv) {
+        tai_du_lieu();
+        for (int i = 0; i < dsnv.length; i++) {
+            if (dsnv[i].getManv().equals(manv))
+                dsnv[i].xuat();
+                break;
+        }
+        return;
+    }
+    //XUAT NHAN VIEN TU GIO HANG
+    public void xuatNV(String maNV) {
+        tai_du_lieu();
+        int n = dsnv.length;
+        for(int i=0; i<n; i++){
+            if(dsnv[i].getManv().equals(maNV)){
+                System.out.println("\t\tMA NHAN VIEN: "+dsnv[i].getManv());
+                System.out.println("HO VA TEN: "+dsnv[i].getHonv()+" "+dsnv[i].getTennv());
+                System.out.println("SO DIEN THOAI: "+dsnv[i].getSdt());
+                break;
+            }
+        }
+    }
 
     public void thay_doi_thong_tin() {
         tai_du_lieu();

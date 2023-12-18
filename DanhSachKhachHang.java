@@ -101,6 +101,7 @@ public class DanhSachKhachHang {
         }
     }
 
+
     public int tim_kiem_theo_ten(String ten) {
         for (int i = 0; i < dskh.length; i++) {
             if (dskh[i].getTenkh().equals(ten)) {
@@ -116,6 +117,35 @@ public class DanhSachKhachHang {
                 return i;
         }
         return -1;
+    }
+    //TIM KIEM MA KHACH HANG TU GIO HANG
+    public void tim_kiem_theoma(String makh) {
+        tai_du_lieu();
+        for (int i = 0; i < dskh.length; i++) {
+            if(dskh[i].getMakh().indexOf(makh) != -1){
+                System.out.println("\t\tMA KHANH HANG: "+dskh[i].getMakh());
+                System.out.println("HO VA TEN: "+dskh[i].getHokh()+" "+dskh[i].getTenkh());
+                System.out.println("SO DIEN THOAI: "+dskh[i].getSdt()+ " DIA CHI: "+dskh[i].getDiachi());
+                break;
+            }
+            else if(i==(dskh.length-1) && dskh[i].getMakh().indexOf(makh) == -1){
+                int n = dskh.length;
+                dskh = Arrays.copyOf(dskh, n+1);
+                System.out.println("\t\t\tNHAP THONG TIN KHACH HANG MOI");
+                System.out.printf("Ho Khach Hang Moi: "); String hoKHmoi = sc.nextLine();
+                System.out.printf("Ten Khach hang moi: "); String tenKHmoi = sc.nextLine();
+                System.out.printf("So dien thoai: "); String sdtmoi = sc.nextLine();
+                System.out.printf("Dia Chi: "); String diachimoi = sc.nextLine();
+                dskh[n] = new KhachHang(makh, hoKHmoi, tenKHmoi, sdtmoi, diachimoi);
+                luu_du_lieu();
+                System.out.println("\t\tMA KHANH HANG: "+dskh[n].getMakh());
+                System.out.println("HO VA TEN: "+dskh[n].getHokh()+" "+dskh[n].getTenkh());
+                System.out.println("SO DIEN THOAI: "+dskh[n].getSdt()+ " DIA CHI: "+dskh[n].getDiachi());
+                System.out.println("\t\t\tDA LUU THONG TIN");
+                break;
+            }
+        }
+        return;
     }
 
     public void thay_doi_thong_tin() {
@@ -306,6 +336,7 @@ public class DanhSachKhachHang {
             System.out.println("Dia Chi " + entry.getKey() + " co " + entry.getValue() + " khach hang.");
         }
     }
+
     
     public void menu_kh() {
         while (true) {
