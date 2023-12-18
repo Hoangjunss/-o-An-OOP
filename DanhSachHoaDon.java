@@ -33,7 +33,7 @@ public class DanhSachHoaDon {
 	}
 	public void XuatDanhSach(){
         DocFileJava("HoaDon.txt");
-		System.out.println("\t\t\t\t\t\t\t\t=====DANH SACH HOA Đ0N=====");
+		System.out.println("\t\t\t\t\t\t\t\t=====DANH SACH HOA D0N=====");
         System.out.println("\n==================================================================================================================================");
         System.out.format("|| %4s | %10s | %20s | %15s | %15s | %8s | %8s | %10s | %10s ||\n", "STT", "Ma Hoa Don"," Ngay Lap Hoa Don", "Ma Khach Hang", "Ma Nhan Vien", "Ma SP", "So Luong"," Don Gia", "Thanh Tien");
 	   // DocFileJava("HoaDon.txt");
