@@ -204,7 +204,7 @@ public class DanhSachKhachHang {
                     break;
                 case 3:
                     System.out.print("Nhap dia chi moi: ");
-                    String diachi = sc.next();
+                    String diachi = sc.nextLine();
                     while (!diachi.matches("^[a-zA-Z ]+$")) {
                         System.out.println("Khong dung dinh dang!");
                         System.out.println("Dia hi khong chua so va cac ky tu dac biet");
