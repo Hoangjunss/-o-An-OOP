@@ -67,8 +67,9 @@ public class DanhSachHoaDon {
 		for(int i = j; i < n - 1; i++) {
 			hd[i] = hd[i + 1];
 		} 
+        n--;
         GhiFileJava("HoaDon.txt");
-		n--;
+		
 		
 		if(flag)
 			System.out.println("\nĐã xoá thành công hoá đơn");
