@@ -49,8 +49,8 @@ public class DanhSachHoaDon {
 		System.out.print("\t\t\t\t\tHOÁ ĐƠN THỨ " + (n + 1) + "\n");
 		hd[n].Nhap();
         n++;
-		XuatDanhSach();
         GhiFileJava("HoaDon.txt");
+        XuatDanhSach();
 	}
     public void xoa(String mahd) {
 		boolean flag = false;
