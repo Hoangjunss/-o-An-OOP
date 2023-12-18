@@ -229,7 +229,7 @@ public class DanhSachHoaDon {
         }
 
         public void themHoaDon(String masp,  int slsp, long dongiasp, long thanhtiensp){
-            DocFileJava("HoaDon-test.txt");
+            DocFileJava("HoaDon.txt");
             n=hd.length;
             hd = Arrays.copyOf(hd, n+1);
             System.out.print("Nhap ma Hoa Don Moi: "); String maHDmoi = sc.nextLine();
@@ -238,11 +238,11 @@ public class DanhSachHoaDon {
             System.out.print("Ma Nhan Vien: "); String maNV = sc.nextLine();
             hd[n] = new ChiTietHoaDon(maHDmoi, NgayLap, maKHmoi, maNV, masp, slsp, dongiasp, thanhtiensp);
             n++;
-            GhiFileJava("HoaDon-test.txt");
+            GhiFileJava("HoaDon.txt");
             HoaDoncuaban(n-1);
         }
         public void HoaDoncuaban(int i){
-            DocFileJava("HoaDon-test.txt");
+            DocFileJava("HoaDon.txt");
             DanhSachSanPham dssp = new DanhSachSanPham();
             System.out.println("\t\t\t\t\tCHI TIET HOA DON");
             System.out.println("MA HOA DON: "+hd[i].getmaHD()+ "\tNgay Lap Hoa Don: "+hd[i].getNgayLapHoaDon());

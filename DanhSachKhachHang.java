@@ -51,7 +51,7 @@ public class DanhSachKhachHang {
             System.arraycopy(dskh, 0, newDskh, 0, tk);
             System.arraycopy(dskh, tk + 1, newDskh, tk, dskh.length - tk - 1);
             dskh = newDskh;
-            luu_xoa();
+            luu_du_lieu();
             System.out.println("Da xoa khach hang co ma: " + makh);
         } else {
             System.out.println("Khong tim thay khach hang co ma: " + makh);
@@ -184,7 +184,7 @@ public class DanhSachKhachHang {
                     dskh[vi_tri].setDiachi(diachi);
                     break;
             }
-            luu_xoa();
+            luu_du_lieu();
             System.out.print("Nhap 'enter' de tiep tuc!");
             sc.nextLine();
         }
@@ -221,7 +221,7 @@ public class DanhSachKhachHang {
                 break;
             }
         }
-        luu_xoa();
+        luu_du_lieu();
     }
     
 
@@ -265,24 +265,8 @@ public class DanhSachKhachHang {
         }
     }
 
-    // public void luu_du_lieu() {
-    //     try {
-    //         FileWriter f = new FileWriter("data_KhachHang.txt",true);
-    //         BufferedWriter bw = new BufferedWriter(f);
-    //         for (KhachHang kh : dskh) {
-    //             if (kh != null) {
-    //                 bw.write(kh.toString());
-    //             }
-    //         }
-    //         System.out.println("Luu du lieu thanh cong!");
-    //         bw.close();
-    //         f.close();
-    //     } catch (IOException e) {
-    //         System.out.println("Luu du lieu that bai!");
-    //     }
-    // }
     
-    public void luu_xoa() {
+    public void luu_du_lieu() {
         try {
             FileWriter f = new FileWriter("data_KhachHang.txt", false);
             BufferedWriter bw = new BufferedWriter(f);
