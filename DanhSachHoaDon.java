@@ -8,6 +8,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class DanhSachHoaDon {
+    DanhSachKhachHang dskh = new DanhSachKhachHang();
+    DanhSachNhanVien dsnv = new DanhSachNhanVien();
     ChiTietHoaDon []hd;
     Scanner sc = new Scanner(System.in);
     private int n;
