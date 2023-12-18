@@ -49,7 +49,7 @@ public class DanhSachNhanVien {
             System.arraycopy(dsnv, 0, newDsnv, 0, tk);
             System.arraycopy(dsnv, tk + 1, newDsnv, tk, dsnv.length - tk - 1);
             dsnv = newDsnv;
-            luu_xoa();
+            luu_du_lieu();
             System.out.println("Da xoa nhan vien co ma: " + manv);
         } else {
             System.out.println("Khong tim thay nhan vien co ma: " + manv);
@@ -185,7 +185,7 @@ public class DanhSachNhanVien {
                     dsnv[vi_tri].setDiachi(diachi);
                     break;
             }
-            luu_xoa();
+            luu_du_lieu();
             System.out.print("Nhap 'enter' de tiep tuc!");
             sc.nextLine();
         }
@@ -222,7 +222,7 @@ public class DanhSachNhanVien {
                 break;
             }
         }
-        luu_xoa();
+        luu_du_lieu();
     }
     
 
@@ -281,7 +281,7 @@ public class DanhSachNhanVien {
         }
     }
 
-    public void luu_xoa() {
+    public void luu_du_lieu() {
         try {
             FileWriter f = new FileWriter("data_NhanVien.txt", false);
             BufferedWriter bw = new BufferedWriter(f);
@@ -298,23 +298,6 @@ public class DanhSachNhanVien {
         }
     }
     
-    // public void luu_du_lieu() {
-    //     try {
-    //         FileWriter f = new FileWriter("data_NhanVien.txt", true);
-    //         BufferedWriter bw = new BufferedWriter(f);
-    //         f.write("");
-    //         for (NhanVien nv : dsnv) {
-    //             if (nv != null) {
-    //                 bw.write(nv.toString());
-    //             }
-    //         }
-    //         System.out.println("Luu du lieu thanh cong!");
-    //         bw.close();
-    //         f.close();
-    //     } catch (IOException e) {
-    //         System.out.println("Luu du lieu that bai!");
-    //     }
-    // }
 
     private void thongke() {
         // Tạo một Map để lưu trữ số lượng nhân viên theo địa chỉ
