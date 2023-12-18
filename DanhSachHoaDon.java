@@ -228,14 +228,31 @@ public class DanhSachHoaDon {
                 }
         }
 
-    public void themHoaDon(String mahdsp, String ngaylaphoadonsp, String makhsp, String manvsp,String masp,  int slsp, long dongiasp, long thanhtiensp){
-        DocFileJava("HoaDon.txt");
-        n=hd.length;
-		hd = Arrays.copyOf(hd, n+1);
-		hd[n] = new ChiTietHoaDon(mahdsp, ngaylaphoadonsp, makhsp, manvsp, masp, slsp, dongiasp, thanhtiensp);
-        n++;
-        GhiFileJava("HoaDon.txt");
-    }
+        public void themHoaDon(String masp,  int slsp, long dongiasp, long thanhtiensp){
+            DocFileJava("HoaDon-test.txt");
+            n=hd.length;
+            hd = Arrays.copyOf(hd, n+1);
+            System.out.print("Nhap ma Hoa Don Moi: "); String maHDmoi = sc.nextLine();
+            System.out.print("Ngay Lap Hoa Don: "); String NgayLap = sc.nextLine();
+            System.out.print("Ma Khach Hang: "); String maKHmoi = sc.nextLine();
+            System.out.print("Ma Nhan Vien: "); String maNV = sc.nextLine();
+            hd[n] = new ChiTietHoaDon(maHDmoi, NgayLap, maKHmoi, maNV, masp, slsp, dongiasp, thanhtiensp);
+            n++;
+            GhiFileJava("HoaDon-test.txt");
+            HoaDoncuaban(n-1);
+        }
+        public void HoaDoncuaban(int i){
+            DocFileJava("HoaDon-test.txt");
+            DanhSachSanPham dssp = new DanhSachSanPham();
+            System.out.println("\t\t\t\t\tCHI TIET HOA DON");
+            System.out.println("MA HOA DON: "+hd[i].getmaHD()+ "\tNgay Lap Hoa Don: "+hd[i].getNgayLapHoaDon());
+            dssp.timkiem_masp(hd[i].getMaSP());
+            dsnv.xuatNV(hd[i].getmaNV());
+            System.out.println("SO LUONG: "+hd[i].getSoLuong()+" \tDON GIA: "+hd[i].getDonGia());
+            System.out.println("THANH TIEN: "+hd[i].getThanhTien());
+            dskh.tim_kiem_theoma(hd[i].getmaKH());
+        }
+
     public void ThongKe() {
 		int dem = 0;
 		DocFileJava("HoaDon.txt");
