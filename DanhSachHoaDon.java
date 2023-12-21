@@ -348,5 +348,15 @@ public class DanhSachHoaDon {
 			dos.close();
 		}catch(IOException e) {}
 	}
+
+    public void tim(){
+        System.out.println("moi ban nhap ma can tim");
+        String ma=sc.nextLine();
+        for(int i=0;i<n;i++){
+            if(hd[i].getmaHD().indexOf(ma)!=-1){
+                hd[i].Xuat();
+            }
+        }
+    }
 	
 }
