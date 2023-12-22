@@ -178,10 +178,12 @@ public class DanhSachPhieuNhap {
                                 pnCanSua.nhap(); // Nhap lai toan bo thong tin
                                 ghiFileJava("NhaCungCap.txt");
                                 thayMaPN(timKiem_Private(pnCanSua));
+                                themSanPham(pnCanSua);
                                 break;
                             case 2:
                                 // Sua tung dac diem
                                 suaTungDacDiem(pnCanSua);
+                                themSanPham(pnCanSua);
                                 break;
                             case 0:
                                 return;
